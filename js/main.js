@@ -33,69 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Intersection Observer Animations ────────────
-  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
-
-  document.querySelectorAll('.stagger-children').forEach(container => {
-    Array.from(container.children).forEach((child, index) => {
-      child.style.transitionDelay = `${Math.min(index * 0.05, 0.25)}s`;
-      observer.observe(child);
-    });
-  });
-
-  // ─── Count-up Animation ──────────────────────────
-  const statNumbers = document.querySelectorAll('.stat-number');
-  const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.getAttribute('data-target'));
-        const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 2200;
-        const step = target / (duration / 16);
-        let current = 0;
-
-        const counter = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            current = target;
-            clearInterval(counter);
-          }
-          el.textContent = Math.floor(current).toLocaleString() + suffix;
-        }, 16);
-
-        statObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  statNumbers.forEach(el => statObserver.observe(el));
-
-  // ─── Stat Ring Animation ─────────────────────────
-  document.querySelectorAll('.stat-ring-fill').forEach(el => {
-    const ringObserver = new IntersectionObserver((entries) => {
+  // ─── Fade-in Observer (single quiet moment) ──────
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const percent = parseFloat(entry.target.getAttribute('data-percent') || 75);
-          const circumference = 2 * Math.PI * 40;
-          entry.target.style.strokeDashoffset = circumference - (percent / 100) * circumference;
-          ringObserver.unobserve(entry.target);
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
-    ringObserver.observe(el);
-  });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+  }
 
   // ─── Scroll to Top ───────────────────────────────
   const scrollTopBtn = document.querySelector('.scroll-top');
@@ -134,5 +86,81 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active');
     }
   });
+
+  // ─── Constellation Map Draw-in ───────────────────
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const constellations = document.querySelectorAll('.constellation-draw-in');
+  if (constellations.length && !reduceMotion) {
+    const constObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          drawConstellation(entry.target);
+          constObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    constellations.forEach(el => constObserver.observe(el));
+  } else {
+    constellations.forEach(el => el.querySelectorAll('.const-line').forEach(l => l.style.opacity = '1'));
+  }
+
+  function drawConstellation(container) {
+    const lines = container.querySelectorAll('.const-line');
+    const dots = container.querySelectorAll('.const-dot');
+
+    lines.forEach((line, i) => {
+      const length = line.getTotalLength();
+      line.style.strokeDasharray = length;
+      line.style.strokeDashoffset = length;
+      line.style.opacity = '1';
+      line.animate([
+        { strokeDashoffset: length },
+        { strokeDashoffset: 0 }
+      ], {
+        duration: 1200 + i * 100,
+        delay: i * 80,
+        easing: 'ease-out',
+        fill: 'forwards'
+      });
+    });
+
+    dots.forEach((dot, i) => {
+      dot.style.opacity = '0';
+      setTimeout(() => {
+        dot.animate([
+          { opacity: 0, r: '0' },
+          { opacity: 1, r: dot.getAttribute('r') || '3' }
+        ], {
+          duration: 400,
+          easing: 'ease-out',
+          fill: 'forwards'
+        });
+      }, 600 + i * 60);
+    });
+
+    // Count-up stats
+    const stats = container.closest('.constellation-section');
+    if (stats) {
+      const statEls = stats.querySelectorAll('.constellation-stat-number');
+      statEls.forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        if (!target) return;
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+        const counter = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(counter);
+          }
+          el.textContent = Math.floor(current).toLocaleString() + suffix;
+        }, 16);
+      });
+    }
+  }
 
 });

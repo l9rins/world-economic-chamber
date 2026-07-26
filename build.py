@@ -1,12 +1,10 @@
 """
 WEC Website Generator — Premium Build Script
-Extracts .docx content and generates fully-designed HTML pages
 """
 
 import os
 import zipfile
 import xml.etree.ElementTree as ET
-import re
 
 DOC_DIR = "document"
 OUT_DIR = "."
@@ -57,10 +55,17 @@ def get_docx_paragraphs(path):
 
 def paragraphs_to_html(paragraphs):
     html = []
+    article_num = 0
     for tag, text in paragraphs:
         text = text.replace('&', '&amp;')
-        if tag in ('h1', 'h2', 'h3'):
+        # Detect Article headers for charter pages
+        if ('article' in text.lower() or text.strip().startswith('Article')) and text.strip()[:10].lower().startswith('article'):
+            article_num += 1
+            html.append(f'<div class="article"><span class="article-number">Article {article_num}</span><h2 class="article-title">{text}</h2></div>')
+        elif tag in ('h1', 'h3'):
             html.append(f'<{tag}>{text}</{tag}>')
+        elif tag == 'h2':
+            html.append(f'<h2>{text}</h2>')
         else:
             html.append(f'<p>{text}</p>')
     return '\n            '.join(html)
@@ -70,55 +75,64 @@ pages = {
         "file": "about.html",
         "title": "About the Chamber",
         "desc": "Learn about the World Economic Chamber's mandate, founding principles, leadership and global engagement model.",
-        "breadcrumb": "Home / About"
+        "breadcrumb": "Home / About",
+        "pillar": "cooperation"
     },
     "1.0  Charter, Policies and Governance Documents.docx": {
         "file": "charter-and-governance.html",
         "title": "Charter, Policies & Governance",
         "desc": "The charter, policies and governance documents that define the Chamber's institutional responsibilities.",
-        "breadcrumb": "Home / Governance / Charter & Policies"
+        "breadcrumb": "Home / Governance / Charter & Policies",
+        "pillar": "governance"
     },
     "1A.  Charter.docx": {
         "file": "charter.html",
         "title": "The WEC Charter",
         "desc": "The foundational charter of the World Economic Chamber, setting out mandate, purpose and authorities.",
-        "breadcrumb": "Home / Governance / Charter"
+        "breadcrumb": "Home / Governance / Charter",
+        "pillar": "governance"
     },
     "1B.  Governance Documents.docx": {
         "file": "governance-documents.html",
         "title": "Governance Documents",
         "desc": "Comprehensive governance documentation for the World Economic Chamber.",
-        "breadcrumb": "Home / Governance / Documents"
+        "breadcrumb": "Home / Governance / Documents",
+        "pillar": "governance"
     },
     "1Ba.  Governance Architecture and Institutional Roles.docx": {
         "file": "governance-architecture.html",
         "title": "Governance Architecture",
         "desc": "Institutional roles and governance architecture of the World Economic Chamber.",
-        "breadcrumb": "Home / Governance / Architecture"
+        "breadcrumb": "Home / Governance / Architecture",
+        "pillar": "governance"
     },
     "1Bb.  Decision-Making Procedures and Approval Pathways.docx": {
         "file": "decision-making.html",
         "title": "Decision-Making Procedures",
         "desc": "Decision-making procedures and approval pathways for the World Economic Chamber.",
-        "breadcrumb": "Home / Governance / Decision-Making"
+        "breadcrumb": "Home / Governance / Decision-Making",
+        "pillar": "oversight"
     },
     "1Bc.  Oversight Responsibilities and Accountability Standards.docx": {
         "file": "oversight-responsibilities.html",
         "title": "Oversight & Accountability",
         "desc": "Oversight responsibilities and accountability standards of the World Economic Chamber.",
-        "breadcrumb": "Home / Governance / Oversight"
+        "breadcrumb": "Home / Governance / Oversight",
+        "pillar": "oversight"
     },
     "1Bd.  Leadership Responsibilities and Governance Oversight Standards.docx": {
         "file": "leadership-responsibilities.html",
         "title": "Leadership Responsibilities",
         "desc": "Leadership responsibilities and governance oversight standards of the World Economic Chamber.",
-        "breadcrumb": "Home / Governance / Leadership"
+        "breadcrumb": "Home / Governance / Leadership",
+        "pillar": "oversight"
     },
     "1Be.  Executive Secretariat Operational Management Protocols.docx": {
         "file": "secretariat-management.html",
         "title": "Executive Secretariat",
         "desc": "Operational management protocols of the WEC Executive Secretariat.",
-        "breadcrumb": "Home / Governance / Secretariat"
+        "breadcrumb": "Home / Governance / Secretariat",
+        "pillar": "governance"
     }
 }
 
@@ -263,6 +277,31 @@ def head_html(title, description):
 <body>
 """
 
+CONSTELLATION_SVG = """
+  <svg viewBox="0 0 800 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="constellation-draw-in">
+    <!-- Connecting lines -->
+    <path class="const-line" d="M110 250 L200 80 L310 190 L450 60 L530 170 L650 90 L720 220 L620 280 L530 170 L450 60 L310 190 L200 80" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" fill="none"/>
+    <path class="const-line" d="M310 190 L400 280 L530 170 L620 280" stroke="rgba(201,168,76,0.2)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M110 250 L220 300 L400 280 L530 170" stroke="rgba(10,88,166,0.25)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M450 60 L530 170 L650 90 L720 220" stroke="rgba(17,129,67,0.25)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M200 80 L310 190 L400 280" stroke="rgba(210,38,39,0.2)" stroke-width="0.7" fill="none"/>
+    <path class="const-line" d="M110 250 L200 80" stroke="rgba(239,125,0,0.2)" stroke-width="0.7" fill="none"/>
+    <!-- Dots -->
+    <circle class="const-dot" cx="110" cy="250" r="4" fill="var(--pillar-cooperation)" opacity="0"/>
+    <circle class="const-dot" cx="200" cy="80" r="4" fill="var(--pillar-cooperation)" opacity="0"/>
+    <circle class="const-dot" cx="310" cy="190" r="4" fill="var(--pillar-oversight)" opacity="0"/>
+    <circle class="const-dot" cx="450" cy="60" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="530" cy="170" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="650" cy="90" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="720" cy="220" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="620" cy="280" r="4" fill="var(--pillar-oversight)" opacity="0"/>
+    <circle class="const-dot" cx="400" cy="280" r="4" fill="var(--pillar-governance)" opacity="0"/>
+    <circle class="const-dot" cx="220" cy="300" r="4" fill="var(--pillar-governance)" opacity="0"/>
+    <!-- Gold central node -->
+    <circle class="const-dot" cx="380" cy="170" r="6" fill="var(--gold-500)" opacity="0"/>
+  </svg>
+"""
+
 def build_index():
     html = head_html("Global Economic Leadership", "The World Economic Chamber — strengthening cross-border commerce, investment and economic cooperation through principled governance.")
     html += NAV_HTML
@@ -338,7 +377,7 @@ def build_index():
     <div class="container">
       <div class="text-center fade-in">
         <span class="section-label">Our Mandate</span>
-        <h2 class="section-title">Principled Governance for <span class="shimmer-gold">International Business</span></h2>
+        <h2 class="section-title">Principled Governance for International Business</h2>
         <div class="divider divider-center divider-thick"></div>
         <p class="section-subtitle" style="margin: var(--space-xl) auto 0;">The WEC provides a structured, principled setting in which multinational institutions, corporations, businesses, NGOs and government bodies can engage with one another under a common framework of professionalism, integrity and long-term economic stewardship.</p>
       </div>
@@ -348,24 +387,24 @@ def build_index():
   <!-- Features Highlights -->
   <section class="section-sm section-alt">
     <div class="container">
-      <div class="feature-grid stagger-children">
+      <div class="feature-grid">
         <div class="feature-item">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div class="feature-icon" style="background: rgba(10,88,166,0.12); color: var(--pillar-governance);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
           <h4>Principled Governance</h4>
           <p>Institutional integrity as a core operating principle</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <div class="feature-icon" style="background: rgba(17,129,67,0.12); color: var(--pillar-trade);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
           <h4>Global Reach</h4>
           <p>Operating across jurisdictions with neutrality</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <div class="feature-icon" style="background: rgba(210,38,39,0.12); color: var(--pillar-oversight);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
           <h4>Institutional Leadership</h4>
           <p>Structured, accountable governance architecture</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
+          <div class="feature-icon" style="background: rgba(239,125,0,0.12); color: var(--pillar-cooperation);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
           <h4>Constructive Dialogue</h4>
           <p>Cross-border cooperation through disciplined engagement</p>
         </div>
@@ -373,49 +412,51 @@ def build_index():
     </div>
   </section>
 
-  <!-- Statistics -->
-  <section class="section-sm section-alt">
+  <!-- Constellation Map — replaces stat counters -->
+  <section class="section constellation-section">
     <div class="container">
-      <div class="stats fade-in">
-        <div class="stat-item">
-          <div class="stat-ring-wrap">
-            <svg class="stat-ring-svg" viewBox="0 0 90 90">
-              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill brand-blue" cx="45" cy="45" r="40" data-percent="85"></circle>
-            </svg>
-            <span class="stat-number" data-target="195" data-suffix="+">0</span>
-          </div>
-          <span class="stat-label">Member Nations</span>
+      <div class="text-center fade-in">
+        <span class="section-label">Global Constellation</span>
+        <h2 class="section-title">A Network of <span class="shimmer-gold">International Cooperation</span></h2>
+        <div class="divider divider-center divider-thick"></div>
+      </div>
+      <div class="constellation-wrap" style="margin-top: var(--space-3xl);">
+""" + CONSTELLATION_SVG + """
+      </div>
+      <div class="constellation-legend">
+        <div class="constellation-legend-item">
+          <div class="constellation-legend-dot" style="background: var(--pillar-governance);"></div>
+          Governance
         </div>
-        <div class="stat-item">
-          <div class="stat-ring-wrap">
-            <svg class="stat-ring-svg" viewBox="0 0 90 90">
-              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill brand-green" cx="45" cy="45" r="40" data-percent="90"></circle>
-            </svg>
-            <span class="stat-number" data-target="500" data-suffix="+">0</span>
-          </div>
-          <span class="stat-label">Institutional Partners</span>
+        <div class="constellation-legend-item">
+          <div class="constellation-legend-dot" style="background: var(--pillar-trade);"></div>
+          Trade &amp; Economy
         </div>
-        <div class="stat-item">
-          <div class="stat-ring-wrap">
-            <svg class="stat-ring-svg" viewBox="0 0 90 90">
-              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill brand-red" cx="45" cy="45" r="40" data-percent="70"></circle>
-            </svg>
-            <span class="stat-number" data-target="30">0</span>
-          </div>
-          <span class="stat-label">Regional Offices</span>
+        <div class="constellation-legend-item">
+          <div class="constellation-legend-dot" style="background: var(--pillar-oversight);"></div>
+          Oversight
         </div>
-        <div class="stat-item">
-          <div class="stat-ring-wrap">
-            <svg class="stat-ring-svg" viewBox="0 0 90 90">
-              <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill brand-orange" cx="45" cy="45" r="40" data-percent="80"></circle>
-            </svg>
-            <span class="stat-number" data-target="50" data-suffix="+">0</span>
-          </div>
-          <span class="stat-label">Trade Agreements</span>
+        <div class="constellation-legend-item">
+          <div class="constellation-legend-dot" style="background: var(--pillar-cooperation);"></div>
+          Cooperation
+        </div>
+      </div>
+      <div class="constellation-stats">
+        <div class="constellation-stat">
+          <span class="constellation-stat-number" data-target="195" data-suffix="+">0</span>
+          <span class="constellation-stat-label">Member Nations</span>
+        </div>
+        <div class="constellation-stat">
+          <span class="constellation-stat-number" data-target="500" data-suffix="+">0</span>
+          <span class="constellation-stat-label">Institutional Partners</span>
+        </div>
+        <div class="constellation-stat">
+          <span class="constellation-stat-number" data-target="30">0</span>
+          <span class="constellation-stat-label">Regional Offices</span>
+        </div>
+        <div class="constellation-stat">
+          <span class="constellation-stat-number" data-target="50" data-suffix="+">0</span>
+          <span class="constellation-stat-label">Trade Agreements</span>
         </div>
       </div>
     </div>
@@ -430,44 +471,44 @@ def build_index():
         <div class="divider divider-center divider-thick"></div>
       </div>
 
-      <div class="grid grid-3 stagger-children" style="margin-top: var(--space-3xl);">
+      <div class="grid grid-3" style="margin-top: var(--space-3xl);">
         <a href="charter.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div class="card-icon pillar-governance"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
           <h3 class="card-title">Charter &amp; Mandate</h3>
           <p class="card-text">The foundational document that establishes the Chamber's institutional purpose, authorities and the principles guiding cross-border economic engagement.</p>
           <span class="card-link">Read the Charter <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
         <a href="governance-architecture.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 21h18M4 17h16M4 7h16M2 21h20M12 2L2 7v2h20V7L12 2z"></path><path d="M6 9v8M10 9v8M14 9v8M18 9v8"></path></svg></div>
+          <div class="card-icon pillar-governance"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 21h18M4 17h16M4 7h16M2 21h20M12 2L2 7v2h20V7L12 2z"></path><path d="M6 9v8M10 9v8M14 9v8M18 9v8"></path></svg></div>
           <h3 class="card-title">Governance Architecture</h3>
           <p class="card-text">Structured pathways, institutional roles and decision-making frameworks that define how the Chamber operates across jurisdictions.</p>
           <span class="card-link">Explore Architecture <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
         <a href="oversight-responsibilities.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <div class="card-icon pillar-oversight"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
           <h3 class="card-title">Oversight &amp; Accountability</h3>
           <p class="card-text">Oversight responsibilities, accountability standards and the safeguards that protect the Chamber's independence and institutional integrity.</p>
           <span class="card-link">View Standards <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
         <a href="decision-making.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
+          <div class="card-icon pillar-oversight"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
           <h3 class="card-title">Decision-Making</h3>
           <p class="card-text">Transparent, accountable decision-making procedures and approval pathways for all Chamber initiatives and cross-border programs.</p>
           <span class="card-link">View Procedures <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
         <a href="leadership-responsibilities.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <div class="card-icon pillar-oversight"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
           <h3 class="card-title">Leadership &amp; Secretariat</h3>
           <p class="card-text">Leadership responsibilities, governance oversight and the operational management protocols of the Executive Secretariat.</p>
           <span class="card-link">Learn More <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
         </a>
 
         <a href="about.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+          <div class="card-icon pillar-cooperation"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
           <h3 class="card-title">Global Engagement</h3>
           <p class="card-text">The Chamber's engagement model — supporting institutions that work across borders through constructive international dialogue and institutional neutrality.</p>
           <span class="card-link">Discover Our Model <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
@@ -480,15 +521,15 @@ def build_index():
   <section class="section section-alt">
     <div class="container">
       <div class="content-split">
-        <div class="fade-in-left">
+        <div class="fade-in">
           <span class="section-label">Founding Principles</span>
-          <h2 class="section-title">Integrity, Independence <br>&amp; Constructive Internationalism</h2>
+          <h2 class="section-title">Integrity, Independence &amp; Constructive Internationalism</h2>
           <div class="divider divider-thick"></div>
           <p>The Chamber is built on a set of principles that reflect the responsibilities associated with international economic engagement. Members are expected to conduct themselves in a manner that respects regulatory frameworks, honours contractual obligations and recognises the broader implications of international activity.</p>
           <p>A governance structure that protects the institution from commercial, political or sector-specific influence allows the Chamber to operate with clarity of purpose and maintain credibility across jurisdictions.</p>
           <a href="charter.html" class="btn btn-outline-gold btn-lg" style="margin-top: var(--space-md);">Read the Charter</a>
         </div>
-        <div class="fade-in-right">
+        <div class="img-duotone">
           <img src="images/hero-partnership.png" alt="Global Partnership">
         </div>
       </div>
@@ -505,11 +546,11 @@ def build_index():
     <div class="container">
       <div class="text-center fade-in">
         <span class="section-label">Institutional Recognition</span>
-        <h2 class="section-title">Trusted by the <span class="shimmer-gold">Global Community</span></h2>
+        <h2 class="section-title">Trusted by the Global Community</h2>
         <div class="divider divider-center divider-thick"></div>
       </div>
 
-      <div class="testimonials stagger-children" style="margin-top: var(--space-3xl);">
+      <div class="testimonials" style="margin-top: var(--space-3xl);">
         <div class="testimonial-card">
           <p class="testimonial-text">The WEC's governance framework brings much-needed rigour and consistency to international commercial engagement. This is a serious institution for serious practitioners of global commerce.</p>
           <div class="testimonial-author">
@@ -566,12 +607,12 @@ def build_index():
   <section class="section section-gradient">
     <div class="container">
       <div class="content-split">
-        <div class="fade-in-left">
-          <img src="images/hero-governance.png" alt="Governance Meeting" style="border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);">
+        <div class="img-duotone">
+          <img src="images/hero-governance.png" alt="Governance Meeting" style="border-radius: var(--border-radius-lg);">
         </div>
-        <div class="fade-in-right">
+        <div class="fade-in">
           <span class="section-label">Governance Framework</span>
-          <h2 class="section-title">Structured, Accountable <br>&amp; Transparent</h2>
+          <h2 class="section-title">Structured, Accountable &amp; Transparent</h2>
           <div class="divider divider-thick"></div>
           <p>The Chamber operates through defined authorities, documented policies and clear decision-making processes. Governance responsibilities are allocated to support oversight, maintain ethical standards and ensure activities remain aligned with the institutional mandate.</p>
           <p>This framework is the mechanism through which the Chamber safeguards its credibility and ensures that its work contributes to a more stable and responsible global economic system.</p>
@@ -586,7 +627,7 @@ def build_index():
     <div class="container">
       <div class="text-center fade-in">
         <span class="section-label">Engage With the Chamber</span>
-        <h2 class="section-title">International Cooperation Through <span class="shimmer-gold">Principled Governance</span></h2>
+        <h2 class="section-title">International Cooperation Through Principled Governance</h2>
         <div class="divider divider-center divider-thick"></div>
         <p class="section-subtitle" style="margin: 0 auto var(--space-2xl);">The World Economic Chamber welcomes institutions committed to professional conduct, ethical integrity and the long-term stability of global markets.</p>
         <div class="hero-actions" style="justify-content: center;">
@@ -602,7 +643,7 @@ def build_index():
     <div class="container">
       <div class="newsletter-box fade-in">
         <span class="section-label">Stay Informed</span>
-        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-2xl); color: var(--white);">Subscribe to the <span class="shimmer-gold">WEC Briefing</span></h3>
+        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-2xl); color: var(--white);">Subscribe to the WEC Briefing</h3>
         <p style="font-size: var(--font-size-sm); color: var(--text-secondary); max-width: 500px; margin: var(--space-md) auto 0;">Policy updates, governance announcements and institutional developments delivered to your inbox.</p>
         <form class="newsletter-form" onsubmit="event.preventDefault();alert('Thank you for subscribing to the WEC Briefing.');">
           <input type="email" class="form-input" placeholder="your@email.com" required>
@@ -632,10 +673,22 @@ def build_subpage(docx_file, page_info):
     html = head_html(page_info['title'], page_info['desc'])
     html += NAV_HTML
 
+    pillar = page_info.get('pillar', 'governance')
+    badge_color = {
+        'governance': '#0A58A6',
+        'trade': '#118143',
+        'oversight': '#D22627',
+        'cooperation': '#EF7D00'
+    }.get(pillar, '#c9a84c')
+
     html += f"""
   <!-- Page Header -->
   <div class="page-header">
     <div class="container">
+      <span class="page-badge">
+        <span style="width:8px;height:8px;border-radius:50%;display:inline-block;background:{badge_color};"></span>
+        {pillar.title()}
+      </span>
       <h1>{page_info['title']}</h1>
       <div class="breadcrumb">{page_info['breadcrumb']}</div>
     </div>
