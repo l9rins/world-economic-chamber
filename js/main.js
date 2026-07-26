@@ -1,15 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ─── Scroll Progress ─────────────────────────────
-  const scrollProgress = document.querySelector('.scroll-progress');
-  if (scrollProgress) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      scrollProgress.style.width = docHeight > 0 ? (scrollTop / docHeight) * 100 + '%' : '0%';
-    });
-  }
-
   // ─── Nav Scroll Effect ───────────────────────────
   const nav = document.querySelector('.nav');
   if (nav) {
@@ -59,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.stagger-children').forEach(container => {
     Array.from(container.children).forEach((child, index) => {
-      child.style.transitionDelay = `${index * 0.08}s`;
+      child.style.transitionDelay = `${Math.min(index * 0.05, 0.25)}s`;
       observer.observe(child);
     });
   });
@@ -118,28 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Page Transitions ────────────────────────────
-  const pageTransition = document.querySelector('.page-transition');
-  if (pageTransition) {
-    pageTransition.style.opacity = '1';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        pageTransition.style.opacity = '0';
-      });
-    });
-
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          pageTransition.classList.add('active');
-          setTimeout(() => { window.location.href = href; }, 350);
-        });
-      }
-    });
-  }
-
   // ─── Cookie Consent ──────────────────────────────
   const cookieConsent = document.getElementById('cookieConsent');
   if (cookieConsent) {
@@ -159,107 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ─── Hero Particles ──────────────────────────────
-  const canvas = document.getElementById('heroParticles');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const PARTICLE_COUNT = 60;
-
-    function resizeCanvas() {
-      canvas.width = canvas.parentElement.offsetWidth;
-      canvas.height = canvas.parentElement.offsetHeight;
-    }
-
-    const colors = [
-      { r: 10, g: 88, b: 166 },
-      { r: 17, g: 129, b: 67 },
-      { r: 210, g: 38, b: 39 },
-      { r: 239, g: 125, b: 0 },
-      { r: 201, g: 168, b: 76 }
-    ];
-
-    function createParticles() {
-      particles = [];
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 2.5 + 0.5,
-          speedX: (Math.random() - 0.5) * 0.4,
-          speedY: (Math.random() - 0.5) * 0.4,
-          opacity: Math.random() * 0.4 + 0.1,
-          color: color,
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-    }
-
-    function drawParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach(p => {
-        p.pulse += 0.02;
-        const pulseOpacity = p.opacity * (0.6 + 0.4 * Math.sin(p.pulse));
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${pulseOpacity})`;
-        ctx.fill();
-
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < -10) p.x = canvas.width + 10;
-        if (p.x > canvas.width + 10) p.x = -10;
-        if (p.y < -10) p.y = canvas.height + 10;
-        if (p.y > canvas.height + 10) p.y = -10;
-      });
-
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 140) {
-            const alpha = 0.06 * (1 - dist / 140);
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(201, 168, 76, ${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(drawParticles);
-    }
-
-    resizeCanvas();
-    createParticles();
-    drawParticles();
-    window.addEventListener('resize', () => { resizeCanvas(); createParticles(); });
-  }
-
   // ─── Active Nav Link ─────────────────────────────
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
     }
-  });
-
-  // ─── Smooth Anchor Scroll ────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
   });
 
 });
