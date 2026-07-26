@@ -1,7 +1,6 @@
 """
 WEC Website Generator — Premium Build Script
 Extracts .docx content and generates fully-designed HTML pages
-using the ISEA-quality template with WTO-inspired density.
 """
 
 import os
@@ -12,20 +11,14 @@ import re
 DOC_DIR = "document"
 OUT_DIR = "."
 
-# ═══════════════════════════════════════════════════════
-# DOCX TEXT EXTRACTION (no external libraries)
-# ═══════════════════════════════════════════════════════
-
 WORD_NS = '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}'
 
 def get_docx_paragraphs(path):
-    """Extract paragraphs with basic style detection from docx XML."""
     paragraphs = []
     try:
         with zipfile.ZipFile(path) as docx:
             xml_content = docx.read('word/document.xml')
             tree = ET.XML(xml_content)
-            
             for para in tree.iter(WORD_NS + 'p'):
                 texts = []
                 is_bold = False
@@ -37,17 +30,14 @@ def get_docx_paragraphs(path):
                     for t in run.iter(WORD_NS + 't'):
                         if t.text:
                             texts.append(t.text)
-                
                 text = ''.join(texts).strip()
                 if text:
-                    # Detect heading-like paragraphs
                     ppr = para.find(WORD_NS + 'pPr')
                     style_name = ''
                     if ppr is not None:
                         ps = ppr.find(WORD_NS + 'pStyle')
                         if ps is not None:
                             style_name = ps.get(WORD_NS + 'val', '').lower()
-                    
                     if 'heading1' in style_name or 'title' in style_name:
                         paragraphs.append(('h1', text))
                     elif 'heading2' in style_name:
@@ -63,25 +53,17 @@ def get_docx_paragraphs(path):
     except Exception as e:
         print(f"  ERROR reading {path}: {e}")
         return [('p', 'Content could not be loaded.')]
-    
     return paragraphs
 
 def paragraphs_to_html(paragraphs):
-    """Convert extracted paragraphs to HTML with proper structure."""
     html = []
     for tag, text in paragraphs:
-        # Skip document title repetitions
         text = text.replace('&', '&amp;')
         if tag in ('h1', 'h2', 'h3'):
             html.append(f'<{tag}>{text}</{tag}>')
         else:
             html.append(f'<p>{text}</p>')
     return '\n            '.join(html)
-
-
-# ═══════════════════════════════════════════════════════
-# PAGE DEFINITIONS
-# ═══════════════════════════════════════════════════════
 
 pages = {
     "1.  About the Chamber.docx": {
@@ -140,10 +122,6 @@ pages = {
     }
 }
 
-# ═══════════════════════════════════════════════════════
-# SHARED HTML COMPONENTS
-# ═══════════════════════════════════════════════════════
-
 NAV_HTML = """
   <!-- Page Transition Overlay -->
   <div class="page-transition"></div>
@@ -156,6 +134,7 @@ NAV_HTML = """
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <img src="images/Logo_WEC_White_Text.png" alt="World Economic Chamber">
+        <span class="nav-logo-text">World Economic Chamber</span>
       </a>
 
       <ul class="nav-menu" id="navMenu">
@@ -201,7 +180,7 @@ FOOTER_HTML = """
   <!-- Floating Social Bar -->
   <div class="social-float">
     <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-    <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
+    <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
     <div class="social-float-line"></div>
   </div>
 
@@ -210,7 +189,7 @@ FOOTER_HTML = """
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/Logo_WEC_White_Text.png" alt="WEC Logo" style="height: 50px;">
+          <img src="images/Logo_WEC_White_Text.png" alt="WEC Logo">
           <p>The World Economic Chamber — strengthening cross-border commerce, investment and economic cooperation through principled governance and institutional discipline.</p>
         </div>
 
@@ -246,7 +225,7 @@ FOOTER_HTML = """
         <p>&copy; 2026 World Economic Chamber. All rights reserved.</p>
         <div class="footer-social">
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
+          <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
         </div>
       </div>
     </div>
@@ -272,7 +251,6 @@ FOOTER_HTML = """
   <script src="js/main.js"></script>
 """
 
-
 def head_html(title, description):
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -291,11 +269,6 @@ def head_html(title, description):
 </head>
 <body>
 """
-
-
-# ═══════════════════════════════════════════════════════
-# BUILD INDEX.HTML
-# ═══════════════════════════════════════════════════════
 
 def build_index():
     html = head_html("Global Economic Leadership", "The World Economic Chamber — strengthening cross-border commerce, investment and economic cooperation through principled governance.")
@@ -326,6 +299,9 @@ def build_index():
     <canvas id="heroParticles" class="hero-particles"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-content">
+      <div class="hero-emblem">
+        <img src="images/Logo WEC 1 [MAIN].png" alt="World Economic Chamber">
+      </div>
       <span class="section-label">World Economic Chamber</span>
       <h1 class="hero-title">Strengthening <span class="accent shimmer-gold">Global Economic</span> Cooperation</h1>
       <p class="hero-subtitle">An institutional anchor for organisations engaged in cross-border commerce, investment and economic cooperation — operating under principled governance and disciplined international engagement.</p>
@@ -333,17 +309,81 @@ def build_index():
         <a href="about.html" class="btn btn-primary btn-lg">Discover the Chamber</a>
         <a href="charter.html" class="btn btn-secondary btn-lg">Read Our Charter</a>
       </div>
+      <div class="hero-scroll-indicator">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
     </div>
   </section>
+
+  <!-- Quick Links Bar -->
+  <div class="quick-links-bar">
+    <div class="container">
+      <div class="quick-links-inner">
+        <a href="charter.html" class="quick-link-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          Charter
+        </a>
+        <a href="governance-architecture.html" class="quick-link-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 21h18M4 17h16M4 7h16M2 21h20M12 2L2 7v2h20V7L12 2z"></path></svg>
+          Governance
+        </a>
+        <a href="decision-making.html" class="quick-link-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+          Decision-Making
+        </a>
+        <a href="oversight-responsibilities.html" class="quick-link-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          Oversight
+        </a>
+        <a href="secretariat-management.html" class="quick-link-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Secretariat
+        </a>
+        <a href="about.html" class="quick-link-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          About
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Mission Statement -->
   <section class="section" id="mission">
     <div class="container">
       <div class="text-center fade-in">
         <span class="section-label">Our Mandate</span>
-        <h2 class="section-title">Principled Governance for International Business</h2>
-        <div class="divider divider-center"></div>
+        <h2 class="section-title">Principled Governance for <span class="shimmer-gold">International Business</span></h2>
+        <div class="divider divider-center divider-thick"></div>
         <p class="section-subtitle" style="margin: var(--space-xl) auto 0;">The WEC provides a structured, principled setting in which multinational institutions, corporations, businesses, NGOs and government bodies can engage with one another under a common framework of professionalism, integrity and long-term economic stewardship.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Highlights -->
+  <section class="section-sm section-alt">
+    <div class="container">
+      <div class="feature-grid stagger-children">
+        <div class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <h4>Principled Governance</h4>
+          <p>Institutional integrity as a core operating principle</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <h4>Global Reach</h4>
+          <p>Operating across jurisdictions with neutrality</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <h4>Institutional Leadership</h4>
+          <p>Structured, accountable governance architecture</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
+          <h4>Constructive Dialogue</h4>
+          <p>Cross-border cooperation through disciplined engagement</p>
+        </div>
       </div>
     </div>
   </section>
@@ -402,7 +442,7 @@ def build_index():
       <div class="text-center fade-in">
         <span class="section-label">What We Do</span>
         <h2 class="section-title">Core Institutional Functions</h2>
-        <div class="divider divider-center"></div>
+        <div class="divider divider-center divider-thick"></div>
       </div>
 
       <div class="grid grid-3 stagger-children" style="margin-top: var(--space-3xl);">
@@ -457,11 +497,11 @@ def build_index():
       <div class="content-split">
         <div class="fade-in-left">
           <span class="section-label">Founding Principles</span>
-          <h2 class="section-title">Integrity, Independence &amp; Constructive Internationalism</h2>
-          <div class="divider"></div>
+          <h2 class="section-title">Integrity, Independence <br>&amp; Constructive Internationalism</h2>
+          <div class="divider divider-thick"></div>
           <p>The Chamber is built on a set of principles that reflect the responsibilities associated with international economic engagement. Members are expected to conduct themselves in a manner that respects regulatory frameworks, honours contractual obligations and recognises the broader implications of international activity.</p>
           <p>A governance structure that protects the institution from commercial, political or sector-specific influence allows the Chamber to operate with clarity of purpose and maintain credibility across jurisdictions.</p>
-          <a href="charter.html" class="btn btn-outline-gold" style="margin-top: var(--space-md);">Read the Charter</a>
+          <a href="charter.html" class="btn btn-outline-gold btn-lg" style="margin-top: var(--space-md);">Read the Charter</a>
         </div>
         <div class="fade-in-right">
           <img src="images/hero-partnership.png" alt="Global Partnership">
@@ -481,7 +521,7 @@ def build_index():
       <div class="text-center fade-in">
         <span class="section-label">Institutional Recognition</span>
         <h2 class="section-title">Trusted by the <span class="shimmer-gold">Global Community</span></h2>
-        <div class="divider divider-center"></div>
+        <div class="divider divider-center divider-thick"></div>
       </div>
 
       <div class="testimonials stagger-children" style="margin-top: var(--space-3xl);">
@@ -546,11 +586,11 @@ def build_index():
         </div>
         <div class="fade-in-right">
           <span class="section-label">Governance Framework</span>
-          <h2 class="section-title">Structured, Accountable &amp; Transparent</h2>
-          <div class="divider"></div>
+          <h2 class="section-title">Structured, Accountable <br>&amp; Transparent</h2>
+          <div class="divider divider-thick"></div>
           <p>The Chamber operates through defined authorities, documented policies and clear decision-making processes. Governance responsibilities are allocated to support oversight, maintain ethical standards and ensure activities remain aligned with the institutional mandate.</p>
           <p>This framework is the mechanism through which the Chamber safeguards its credibility and ensures that its work contributes to a more stable and responsible global economic system.</p>
-          <a href="governance-architecture.html" class="btn btn-outline-gold" style="margin-top: var(--space-md);">Explore Governance</a>
+          <a href="governance-architecture.html" class="btn btn-outline-gold btn-lg" style="margin-top: var(--space-md);">Explore Governance</a>
         </div>
       </div>
     </div>
@@ -561,7 +601,8 @@ def build_index():
     <div class="container">
       <div class="text-center fade-in">
         <span class="section-label">Engage With the Chamber</span>
-        <h2 class="section-title">International Cooperation Through Principled Governance</h2>
+        <h2 class="section-title">International Cooperation Through <span class="shimmer-gold">Principled Governance</span></h2>
+        <div class="divider divider-center divider-thick"></div>
         <p class="section-subtitle" style="margin: 0 auto var(--space-2xl);">The World Economic Chamber welcomes institutions committed to professional conduct, ethical integrity and the long-term stability of global markets.</p>
         <div class="hero-actions" style="justify-content: center;">
           <a href="about.html" class="btn btn-primary btn-lg">About the Chamber</a>
@@ -593,11 +634,6 @@ def build_index():
     with open(os.path.join(OUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
     print("  [OK] Generated index.html")
-
-
-# ═══════════════════════════════════════════════════════
-# BUILD SUBPAGES
-# ═══════════════════════════════════════════════════════
 
 def build_subpage(docx_file, page_info):
     docx_path = os.path.join(DOC_DIR, docx_file)
@@ -635,23 +671,15 @@ def build_subpage(docx_file, page_info):
         f.write(html)
     print(f"  [OK] Generated {page_info['file']}")
 
-
-# ═══════════════════════════════════════════════════════
-# MAIN
-# ═══════════════════════════════════════════════════════
-
 if __name__ == '__main__':
     print("=" * 50)
-    print("   WEC Website Generator - Premium Build")
+    print("   WEC Website Generator — Premium Build")
     print("=" * 50)
     print()
-
     print("Building pages...")
     build_index()
-
     for docx_file, page_info in pages.items():
         build_subpage(docx_file, page_info)
-
     print()
     print("Site generation complete!")
     print(f"  Generated {1 + len(pages)} pages total.")
