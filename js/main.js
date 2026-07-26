@@ -193,16 +193,26 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.height = canvas.parentElement.offsetHeight;
     }
 
+    const colors = [
+      { r: 10, g: 88, b: 166 },   // brand-blue
+      { r: 17, g: 129, b: 67 },   // brand-green
+      { r: 210, g: 38, b: 39 },   // brand-red
+      { r: 239, g: 125, b: 0 },   // brand-orange
+      { r: 201, g: 168, b: 76 }   // gold
+    ];
+
     function createParticles() {
       particles = [];
       for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const color = colors[Math.floor(Math.random() * colors.length)];
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size: Math.random() * 2 + 0.5,
           speedX: (Math.random() - 0.5) * 0.3,
           speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.5 + 0.1
+          opacity: Math.random() * 0.5 + 0.1,
+          color: color
         });
       }
     }
@@ -212,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
       particles.forEach(p => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201, 168, 76, ${p.opacity})`;
+        ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity})`;
         ctx.fill();
 
         p.x += p.speedX;
@@ -234,7 +244,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(201, 168, 76, ${0.08 * (1 - dist / 120)})`;
+            // Mix colors for the line based on distance
+            const alpha = 0.08 * (1 - dist / 120);
+            ctx.strokeStyle = `rgba(${particles[i].color.r}, ${particles[i].color.g}, ${particles[i].color.b}, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

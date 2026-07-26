@@ -155,7 +155,7 @@ NAV_HTML = """
   <nav class="nav" id="mainNav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="images/Logo WEC 1 [MAIN].png" alt="World Economic Chamber">
+        <img src="images/Logo_WEC_White_Text.png" alt="World Economic Chamber">
       </a>
 
       <ul class="nav-menu" id="navMenu">
@@ -210,7 +210,7 @@ FOOTER_HTML = """
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/Logo WEC 5 (dark navy blue background).png" alt="WEC Logo">
+          <img src="images/Logo_WEC_White_Text.png" alt="WEC Logo" style="height: 50px;">
           <p>The World Economic Chamber — strengthening cross-border commerce, investment and economic cooperation through principled governance and institutional discipline.</p>
         </div>
 
@@ -257,11 +257,15 @@ FOOTER_HTML = """
     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
   </button>
 
-  <!-- Cookie Consent -->
+  <!-- Cookie Consent Pill -->
   <div class="cookie-consent" id="cookieConsent">
-    <p>This website uses cookies to improve your experience. By continuing to browse, you agree to our use of cookies.</p>
+    <div class="cookie-icon"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 12.5v.01"></path><path d="M12 16v.01"></path><path d="M11 12.5v.01"></path></svg></div>
+    <div class="cookie-text">
+      <strong>Privacy & Cookies</strong>
+      <p>We use cookies to improve your experience.</p>
+    </div>
     <div class="cookie-consent-actions">
-      <button class="btn btn-secondary btn-sm" data-cookie-accept>Accept</button>
+      <button class="btn btn-primary btn-sm" data-cookie-accept>Accept</button>
     </div>
   </div>
 
@@ -352,7 +356,7 @@ def build_index():
           <div class="stat-ring-wrap">
             <svg class="stat-ring-svg" viewBox="0 0 90 90">
               <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="85"></circle>
+              <circle class="stat-ring-fill brand-blue" cx="45" cy="45" r="40" data-percent="85"></circle>
             </svg>
             <span class="stat-number" data-target="195" data-suffix="+">0</span>
           </div>
@@ -362,7 +366,7 @@ def build_index():
           <div class="stat-ring-wrap">
             <svg class="stat-ring-svg" viewBox="0 0 90 90">
               <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="90"></circle>
+              <circle class="stat-ring-fill brand-green" cx="45" cy="45" r="40" data-percent="90"></circle>
             </svg>
             <span class="stat-number" data-target="500" data-suffix="+">0</span>
           </div>
@@ -372,7 +376,7 @@ def build_index():
           <div class="stat-ring-wrap">
             <svg class="stat-ring-svg" viewBox="0 0 90 90">
               <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="70"></circle>
+              <circle class="stat-ring-fill brand-red" cx="45" cy="45" r="40" data-percent="70"></circle>
             </svg>
             <span class="stat-number" data-target="30">0</span>
           </div>
@@ -382,7 +386,7 @@ def build_index():
           <div class="stat-ring-wrap">
             <svg class="stat-ring-svg" viewBox="0 0 90 90">
               <circle class="stat-ring-bg" cx="45" cy="45" r="40"></circle>
-              <circle class="stat-ring-fill" cx="45" cy="45" r="40" data-percent="80"></circle>
+              <circle class="stat-ring-fill brand-orange" cx="45" cy="45" r="40" data-percent="80"></circle>
             </svg>
             <span class="stat-number" data-target="50" data-suffix="+">0</span>
           </div>
