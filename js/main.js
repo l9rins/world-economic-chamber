@@ -45,15 +45,18 @@
     if (nav) nav.classList.toggle('sidebar-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
 
-    // Kill pointer events on nav-link so the browser literally cannot navigate
+    // Kill pointer events on nav-link AND all children so the browser
+    // cannot navigate regardless of bubbling
     document.querySelectorAll('.nav-item').forEach(item => {
       const link = item.querySelector('.nav-link');
       const dropdown = item.querySelector('.nav-dropdown');
       if (link && dropdown) {
         if (open) {
           link.style.pointerEvents = 'none';
+          Array.from(link.children).forEach(c => c.style.pointerEvents = 'none');
         } else {
           link.style.pointerEvents = '';
+          Array.from(link.children).forEach(c => c.style.pointerEvents = '');
         }
       }
     });
@@ -69,13 +72,15 @@
       navBackdrop.addEventListener('click', () => toggleNav(false));
     }
 
-    // Handle dropdown toggle on the nav-item container (pointer-events still alive)
-    navMenu.addEventListener('pointerdown', (e) => {
-      const item = e.target.closest('.nav-item');
-      if (!item) return;
-      const link = item.querySelector('.nav-link');
-      const dropdown = item.querySelector('.nav-dropdown');
-      if (link && dropdown && navMenu.classList.contains('open')) {
+    // Prevent click navigation on dropdown parent links (bulletproof)
+    navMenu.addEventListener('click', (e) => {
+      if (!navMenu.classList.contains('open')) return;
+      const link = e.target.closest('.nav-link');
+      if (!link) return;
+      const item = link.closest('.nav-item');
+      if (item && item.querySelector('.nav-dropdown')) {
+        e.preventDefault();
+        e.stopPropagation();
         item.classList.toggle('open');
       }
     });
