@@ -267,7 +267,7 @@ p {
 }
 
 .nav-logo img {
-  height: 52px;
+  height: 58px;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
@@ -467,6 +467,10 @@ p {
 .btn-outline-gold:hover {
   background: var(--gold-500);
   color: var(--navy-900);
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 /* ═══════ News Ticker ═══════ */
@@ -734,6 +738,11 @@ p {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  transition: border-color var(--transition-base);
+}
+
+.card:hover {
+  border-color: rgba(201, 168, 76, 0.3);
 }
 
 .card::before {
@@ -768,6 +777,11 @@ p {
   color: var(--gold-400);
   margin-bottom: var(--space-lg);
   flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .card-icon {
+  transform: scale(1.08);
 }
 
 .card-icon.pillar-governance { background: rgba(10, 88, 166, 0.12); color: var(--pillar-governance); }
@@ -1087,7 +1101,7 @@ p {
 }
 
 .footer-brand img {
-  height: 48px;
+  height: 54px;
   margin-bottom: var(--space-lg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
@@ -1190,6 +1204,7 @@ p {
   padding: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.03);
+  transition: color var(--transition-fast), background var(--transition-fast);
 }
 
 .social-float a:hover {
@@ -1311,6 +1326,7 @@ p {
   font-weight: 500;
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--border-radius);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .quick-link-item:hover {
@@ -1471,7 +1487,7 @@ p {
     --font-size-3xl: 1.5rem;
   }
 
-  .nav-logo img { height: 40px; }
+  .nav-logo img { height: 44px; }
 
   .hero { min-height: 75vh; }
 
