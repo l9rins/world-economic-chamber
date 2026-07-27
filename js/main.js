@@ -52,6 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleNav(isOpen);
     });
 
+    const navClose = document.getElementById('navClose');
+    if (navClose) {
+      navClose.addEventListener('click', () => toggleNav(false));
+    }
+
     if (navBackdrop) {
       navBackdrop.addEventListener('click', () => toggleNav(false));
     }
@@ -119,11 +124,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ─── Active Nav Link ─────────────────────────────
+  // ─── Active Nav Link + Parent Dropdown ──────────
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');
+      // Pre-open parent dropdown in sidebar
+      const parentItem = link.closest('.nav-item');
+      if (parentItem && window.innerWidth <= 1024) {
+        parentItem.classList.add('open');
+      }
     }
   });
 

@@ -86,6 +86,26 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ─── Skip to content ─── */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 100000;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--gold-500);
+  color: var(--navy-900);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 body {
   font-family: var(--font-body);
   font-weight: 400;
@@ -405,6 +425,40 @@ p {
 .nav-toggle.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+/* ─── Mobile sidebar close button ─── */
+.nav-close-item {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .nav-close-item {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: var(--space-md);
+  }
+
+  .nav-close {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-family: var(--font-body);
+    padding: var(--space-sm);
+    border-radius: var(--border-radius);
+    transition: color var(--transition-fast);
+  }
+
+  .nav-close:hover {
+    color: var(--white);
+  }
+}
 
 
 /* ═══════ Buttons ═══════ */
@@ -1527,6 +1581,52 @@ p {
   font-size: var(--font-size-xs);
   color: var(--text-muted);
   margin: 0;
+}
+
+/* ═══════ Partner Logos ═══════ */
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.partner-item {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  background: var(--bg-card);
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.partner-item:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(201, 168, 76, 0.25);
+}
+
+.partner-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  color: var(--white);
+  margin-bottom: var(--space-xs);
+}
+
+.partner-desc {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 640px) {
+  .partner-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
+  .partner-item { padding: var(--space-lg) var(--space-md); }
+  .partner-name { font-size: var(--font-size-base); }
+}
+
+@media (max-width: 480px) {
+  .partner-grid { grid-template-columns: 1fr; }
 }
 
 /* ═══════ Page Badge ═══════ */
