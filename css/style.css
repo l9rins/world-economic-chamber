@@ -1151,11 +1151,11 @@ p {
   top: calc(var(--nav-height) + var(--space-xl));
   align-self: start;
   padding-top: var(--space-4xl);
+  border-left: 1px solid rgba(255,255,255,0.06);
 }
 
 .doc-sidebar-inner {
-  border-left: 1px solid rgba(255,255,255,0.06);
-  padding-left: var(--space-lg);
+  padding-left: 0;
   max-height: calc(100vh - var(--nav-height) - var(--space-xl) * 2 - var(--space-4xl));
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -1174,6 +1174,7 @@ p {
   letter-spacing: 0.12em;
   color: var(--gold-500);
   margin-bottom: var(--space-lg);
+  padding-left: 18px;
 }
 
 .doc-sidebar ul {
@@ -1184,19 +1185,20 @@ p {
 
 .doc-sidebar li a {
   display: block;
-  padding: 6px 0 6px var(--space-md);
+  padding: 8px 0 8px 18px;
   font-size: var(--font-size-sm);
   color: var(--text-muted);
   border-left: 2px solid transparent;
   margin-left: -1px;
   text-decoration: none;
   transition: color 0.2s, border-color 0.2s;
-  line-height: 1.4;
+  line-height: 1.35;
+  position: relative;
 }
 
 .doc-sidebar li a:hover {
-  color: var(--white);
-  border-left-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.6);
+  border-left-color: rgba(255,255,255,0.15);
 }
 
 .doc-sidebar li a.active {
