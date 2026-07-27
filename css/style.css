@@ -4326,3 +4326,39 @@ p {
   color: var(--gold-400);
   margin-top: var(--space-md);
 }
+
+/* ═══════ Hotfix for Alignment ═══════ */
+.section-header-compact .view-all {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  border: 1px solid var(--gold-500) !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+}
+
+.section-header-compact .view-all:hover {
+  background: var(--gold-500) !important;
+  color: var(--navy-900) !important;
+  box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3) !important;
+}
+
+.news-item {
+  padding: var(--space-md) !important;
+  border-left: 3px solid transparent !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  margin-bottom: 0 !important;
+}
+
+.news-item:last-child {
+  border-bottom: none !important;
+}
+
+.news-item:first-child {
+  border-left-color: var(--gold-400) !important;
+  background: rgba(201, 168, 76, 0.03) !important;
+}
