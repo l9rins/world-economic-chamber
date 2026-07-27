@@ -55,20 +55,27 @@ def get_docx_paragraphs(path):
 
 def paragraphs_to_html(paragraphs):
     html = []
+    toc = []
     article_num = 0
     for tag, text in paragraphs:
         text = text.replace('&', '&amp;')
         # Detect Article headers for charter pages
         if ('article' in text.lower() or text.strip().startswith('Article')) and text.strip()[:10].lower().startswith('article'):
             article_num += 1
-            html.append(f'<div class="article"><span class="article-number">Article {article_num}</span><h2 class="article-title">{text}</h2></div>')
+            slug = text.lower().replace(' ', '-')[:40]
+            html.append(f'<div class="article" id="article-{article_num}"><span class="article-number">{article_num:02d}</span><h2 class="article-title">{text}</h2></div>')
+            toc.append(('h2', text, f'article-{article_num}'))
         elif tag in ('h1', 'h3'):
-            html.append(f'<{tag}>{text}</{tag}>')
+            slug = text.lower().replace(' ', '-')[:40]
+            html.append(f'<{tag} id="{slug}">{text}</{tag}>')
+            toc.append((tag, text, slug))
         elif tag == 'h2':
-            html.append(f'<h2>{text}</h2>')
+            slug = text.lower().replace(' ', '-')[:40]
+            html.append(f'<h2 id="{slug}">{text}</h2>')
+            toc.append(('h2', text, slug))
         else:
             html.append(f'<p>{text}</p>')
-    return '\n            '.join(html)
+    return '\n            '.join(html), toc
 
 pages = {
     "1.  About the Chamber.docx": {
@@ -137,6 +144,7 @@ pages = {
 }
 
 NAV_HTML = """
+  <div id="readingProgress" class="reading-progress"></div>
   <!-- Navigation -->
   <nav class="nav" id="mainNav">
     <div class="nav-inner">
@@ -703,12 +711,18 @@ def build_subpage(docx_file, page_info):
         return
 
     paragraphs = get_docx_paragraphs(docx_path)
-    content_html = paragraphs_to_html(paragraphs)
+    content_html, toc = paragraphs_to_html(paragraphs)
 
     html = head_html(page_info['title'], page_info['desc'])
     html += NAV_HTML
 
     pillar = page_info.get('pillar', 'governance')
+
+    # Build sidebar TOC
+    sidebar_items = ''
+    for tag, text, slug in toc:
+        indent = '  ' if tag == 'h3' else ''
+        sidebar_items += f'            <li><a href="#{slug}">{indent}{text}</a></li>\n'
 
     html += f"""
   <!-- Page Header -->
@@ -722,8 +736,17 @@ def build_subpage(docx_file, page_info):
 
   <!-- Document Content -->
   <main>
-    <div class="doc-content" data-pillar="{pillar}">
+    <div class="doc-layout">
+      <aside class="doc-sidebar">
+        <div class="doc-sidebar-inner">
+          <h4 class="doc-sidebar-title">On this page</h4>
+          <ul>
+{sidebar_items}          </ul>
+        </div>
+      </aside>
+      <div class="doc-content" data-pillar="{pillar}">
             {content_html}
+      </div>
     </div>
   </main>
 """

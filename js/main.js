@@ -8,6 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ─── Reading Progress Bar ─────────────────────────
+  const progressBar = document.getElementById('readingProgress');
+  if (progressBar && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('scroll', () => {
+      const docContent = document.querySelector('.doc-content');
+      if (docContent) {
+        const rect = docContent.getBoundingClientRect();
+        const total = docContent.scrollHeight;
+        const visible = window.innerHeight;
+        const scrolled = Math.abs(rect.top);
+        const percent = Math.min(scrolled / (total - visible), 1) * 100;
+        progressBar.style.width = percent + '%';
+      }
+    });
+  }
+
   // ─── Mobile Nav ──────────────────────────────────
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
