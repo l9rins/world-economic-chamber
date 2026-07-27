@@ -709,21 +709,12 @@ def build_subpage(docx_file, page_info):
     html += NAV_HTML
 
     pillar = page_info.get('pillar', 'governance')
-    badge_color = {
-        'governance': '#0A58A6',
-        'trade': '#118143',
-        'oversight': '#D22627',
-        'cooperation': '#EF7D00'
-    }.get(pillar, '#c9a84c')
 
     html += f"""
   <!-- Page Header -->
-  <div class="page-header">
+  <div class="page-header" data-pillar="{pillar}">
     <div class="container">
-      <span class="page-badge">
-        <span style="width:8px;height:8px;border-radius:50%;display:inline-block;background:{badge_color};"></span>
-        {pillar.title()}
-      </span>
+      <span class="page-badge page-badge--{pillar}">{pillar.title()}</span>
       <h1>{page_info['title']}</h1>
       <div class="breadcrumb">{page_info['breadcrumb']}</div>
     </div>
@@ -731,7 +722,7 @@ def build_subpage(docx_file, page_info):
 
   <!-- Document Content -->
   <main>
-    <div class="doc-content">
+    <div class="doc-content" data-pillar="{pillar}">
             {content_html}
     </div>
   </main>

@@ -939,6 +939,15 @@ p {
   position: relative;
 }
 
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
 .page-header::after {
   content: '';
   position: absolute;
@@ -949,6 +958,11 @@ p {
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
 }
+
+.page-header[data-pillar="governance"]::before { background: var(--pillar-governance); }
+.page-header[data-pillar="trade"]::before { background: var(--pillar-trade); }
+.page-header[data-pillar="oversight"]::before { background: var(--pillar-oversight); }
+.page-header[data-pillar="cooperation"]::before { background: var(--pillar-cooperation); }
 
 .page-header h1 {
   font-size: var(--font-size-4xl);
@@ -965,6 +979,15 @@ p {
   color: var(--gold-400);
 }
 
+.page-header .breadcrumb a:hover {
+  color: var(--gold-300);
+}
+
+.page-header[data-pillar="governance"] .breadcrumb a:hover { color: var(--pillar-governance); }
+.page-header[data-pillar="trade"] .breadcrumb a:hover { color: var(--pillar-trade); }
+.page-header[data-pillar="oversight"] .breadcrumb a:hover { color: var(--pillar-oversight); }
+.page-header[data-pillar="cooperation"] .breadcrumb a:hover { color: var(--pillar-cooperation); }
+
 .doc-content {
   max-width: var(--max-width-narrow);
   margin: 0 auto;
@@ -972,6 +995,13 @@ p {
   font-family: var(--font-doc);
   font-size: var(--font-size-base);
   line-height: 1.8;
+  border-top: 2px solid transparent;
+}
+
+.doc-content[data-pillar="governance"] { border-top-color: var(--pillar-governance); }
+.doc-content[data-pillar="trade"] { border-top-color: var(--pillar-trade); }
+.doc-content[data-pillar="oversight"] { border-top-color: var(--pillar-oversight); }
+.doc-content[data-pillar="cooperation"] { border-top-color: var(--pillar-cooperation); }
 }
 
 .doc-content h2 {
@@ -1388,17 +1418,19 @@ p {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  background: rgba(201, 168, 76, 0.1);
-  border: 1px solid rgba(201, 168, 76, 0.2);
   padding: 6px 16px;
   border-radius: 100px;
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: var(--gold-400);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-lg);
 }
+
+.page-badge--governance { background: rgba(10, 88, 166, 0.12); border: 1px solid rgba(10, 88, 166, 0.35); color: #5a9ae6; }
+.page-badge--trade { background: rgba(17, 129, 67, 0.12); border: 1px solid rgba(17, 129, 67, 0.35); color: #4caf7a; }
+.page-badge--oversight { background: rgba(210, 38, 39, 0.12); border: 1px solid rgba(210, 38, 39, 0.35); color: #ef6b6c; }
+.page-badge--cooperation { background: rgba(239, 125, 0, 0.12); border: 1px solid rgba(239, 125, 0, 0.35); color: #f5a642; }
 
 /* ═══════ Animations: reduced motion ═══════ */
 @media (prefers-reduced-motion: reduce) {
