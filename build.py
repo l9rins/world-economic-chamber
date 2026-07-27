@@ -158,6 +158,22 @@ def picture_img(src, alt, cls="", style="", lazy=False, eager=False):
 
 NAV_HTML = """
   <div id="readingProgress" class="reading-progress"></div>
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <a href="#" class="utility-link"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> Search</a>
+      </div>
+      <div class="utility-right">
+        <a href="#" class="utility-link">Member Login</a>
+        <div class="lang-switch">
+          <a href="#" class="active">EN</a>
+          <a href="#">FR</a>
+          <a href="#">ES</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Navigation -->
   <nav class="nav" id="mainNav">
     <div class="nav-inner">
@@ -365,13 +381,27 @@ def head_html(title, description):
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.worldeconomicchamber.com">
-  <meta property="og:image" content="https://www.worldeconomicchamber.com/images/Logo_WEC_White_Text.png">
+  <meta property="og:image" content="https://www.worldeconomicchamber.com/images/Logo%20WEC%201%20[MAIN].png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/Logo WEC 1 [MAIN].png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "World Economic Chamber",
+    "url": "https://www.worldeconomicchamber.com",
+    "logo": "https://www.worldeconomicchamber.com/images/Logo%20WEC%201%20[MAIN].png",
+    "sameAs": [
+      "https://twitter.com/WorldEconChamber",
+      "https://www.linkedin.com/company/world-economic-chamber"
+    ]
+  }}
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -380,7 +410,7 @@ def head_html(title, description):
 CONSTELLATION_SVG = """
   <svg viewBox="0 0 900 440" fill="none" xmlns="http://www.w3.org/2000/svg" class="constellation-draw-in" aria-hidden="true">
     <defs>
-      <clipPath id="globeClip"><circle cx="450" cy="225" r="165"/></clipPath>
+      <clipPath id="globeClip"><circle cx="460" cy="110" r="165"/></clipPath>
       <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.15"/>
         <stop offset="60%" stop-color="#c9a84c" stop-opacity="0.04"/>
@@ -388,13 +418,13 @@ CONSTELLATION_SVG = """
       </radialGradient>
     </defs>
     <!-- Globe glow -->
-    <circle cx="450" cy="225" r="200" fill="url(#globeGlow)"/>
+    <circle cx="460" cy="110" r="200" fill="url(#globeGlow)"/>
     <!-- Globe wireframe -->
-    <circle cx="450" cy="225" r="165" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+    <circle cx="460" cy="110" r="165" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
     <g clip-path="url(#globeClip)">
-      <ellipse cx="450" cy="225" rx="40" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-      <ellipse cx="450" cy="225" rx="82" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-      <ellipse cx="450" cy="225" rx="124" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <ellipse cx="460" cy="110" rx="40" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <ellipse cx="460" cy="110" rx="82" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <ellipse cx="460" cy="110" rx="124" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
       <line x1="285" y1="107" x2="615" y2="107" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
       <line x1="285" y1="167" x2="615" y2="167" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
       <line x1="285" y1="225" x2="615" y2="225" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
@@ -433,7 +463,7 @@ CONSTELLATION_SVG = """
     <circle class="const-dot" cx="292" cy="363" r="4" fill="var(--pillar-governance)" opacity="0"><title>Governance — Principled leadership and stewardship</title></circle>
     <circle class="const-dot" cx="242" cy="227" r="4" fill="var(--pillar-governance)" opacity="0"><title>Governance — Charter and mandate implementation</title></circle>
     <!-- Central hub node -->
-    <circle class="const-dot const-dot-hub" cx="450" cy="225" r="7" fill="var(--gold-500)" opacity="0"><title>World Economic Chamber — Central hub of international cooperation</title></circle>
+    <circle class="const-dot const-dot-hub" cx="460" cy="110" r="7" fill="var(--gold-500)" opacity="0"><title>World Economic Chamber — Central hub of international cooperation</title></circle>
   </svg>
 """
 
@@ -621,6 +651,60 @@ def build_index():
     </div>
   </section>
 
+
+  <!-- Publications & Documents -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header-compact">
+        <h3>Publications & Documents</h3>
+        <a href="#" class="view-all">Document Library &rarr;</a>
+      </div>
+      <div class="doc-list grid grid-2">
+        <a href="#" class="doc-item">
+          <div class="doc-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div class="doc-info">
+            <h4>Global Trade Policy Review 2026</h4>
+            <span class="doc-meta">PDF &bull; 4.2 MB &bull; Published August 2026</span>
+          </div>
+        </a>
+        <a href="#" class="doc-item">
+          <div class="doc-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div class="doc-info">
+            <h4>Institutional Charter Guidelines</h4>
+            <span class="doc-meta">PDF &bull; 1.8 MB &bull; Revised July 2026</span>
+          </div>
+        </a>
+        <a href="#" class="doc-item">
+          <div class="doc-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div class="doc-info">
+            <h4>Executive Secretariat Annual Report</h4>
+            <span class="doc-meta">PDF &bull; 12.5 MB &bull; Published June 2026</span>
+          </div>
+        </a>
+        <a href="#" class="doc-item">
+          <div class="doc-icon"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div class="doc-info">
+            <h4>Cross-Border Investment Framework</h4>
+            <span class="doc-meta">PDF &bull; 3.1 MB &bull; Published May 2026</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Logo Strip -->
+  <section class="section bg-light" style="padding: var(--space-2xl) 0; border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="logo-strip">
+        <div class="logo-strip-item"><span>Global Trade Org</span></div>
+        <div class="logo-strip-item"><span>European Economic Council</span></div>
+        <div class="logo-strip-item"><span>Trans-Pacific Partnership</span></div>
+        <div class="logo-strip-item"><span>International Monetary Fund</span></div>
+        <div class="logo-strip-item"><span>World Bank Group</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Constellation Map -->
   <section class="section constellation-section section-dark fade-up fade-delay-2">
     <div class="container">
@@ -679,6 +763,15 @@ def build_index():
     with open(os.path.join(OUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)
     print("  [OK] Generated index.html")
+    with open(os.path.join(OUT_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+        f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        f.write('  <url>\n    <loc>https://www.worldeconomicchamber.com/index.html</loc>\n  </url>\n')
+        for docx_file, page_info in pages.items():
+            f.write(f'  <url>\n    <loc>https://www.worldeconomicchamber.com/{page_info["file"]}</loc>\n  </url>\n')
+        f.write('</urlset>')
+    print("  [OK] Generated sitemap.xml")
+
 
 def build_subpage(docx_file, page_info):
     docx_path = os.path.join(DOC_DIR, docx_file)
