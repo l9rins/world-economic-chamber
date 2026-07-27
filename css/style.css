@@ -1693,9 +1693,10 @@ p {
 }
 .bento-tag {
   display: inline-block;
+  align-self: flex-start;
   background: var(--gold-500);
   color: var(--navy-900);
-  padding: 2px 8px;
+  padding: 4px 12px;
   font-size: var(--font-size-xs);
   font-weight: 700;
   border-radius: 4px;
