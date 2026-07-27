@@ -1560,7 +1560,7 @@ p {
 @media (max-width: 1024px) {
   .nav-menu {
     position: fixed;
-    top: 0;
+    top: var(--nav-height);
     right: 0;
     bottom: 0;
     width: min(320px, 80vw);
@@ -1568,7 +1568,7 @@ p {
     backdrop-filter: blur(24px);
     flex-direction: column;
     align-items: stretch;
-    padding: calc(var(--nav-height) + var(--space-lg)) var(--space-xl) var(--space-xl);
+    padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
     overflow-y: auto;
     gap: 0;
     z-index: 10002;
@@ -1584,7 +1584,10 @@ p {
   /* Backdrop overlay */
   .nav-backdrop {
     position: fixed;
-    inset: 0;
+    top: var(--nav-height);
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 10001;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
