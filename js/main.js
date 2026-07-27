@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarInner = document.querySelector('.doc-sidebar-inner');
     const headings = [];
     let activeHeading = null;
+    let sidebarTimer = null;
 
     sidebarLinks.forEach(link => {
       const href = link.getAttribute('href');
@@ -121,7 +122,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function centerActiveInSidebar() {
       const active = sidebarInner.querySelector('a.active');
       if (active) {
-        active.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        const containerTop = sidebarInner.getBoundingClientRect().top;
+        const linkTop = active.getBoundingClientRect().top;
+        const offset = linkTop - containerTop;
+        const targetScroll = sidebarInner.scrollTop + offset - sidebarInner.clientHeight / 2 + active.clientHeight / 2;
+        sidebarInner.scrollTo({ top: targetScroll, behavior: 'instant' });
       }
     }
 
@@ -138,7 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const match = headings.find(h => h.el === top);
           if (match) {
             match.link.classList.add('active');
-            centerActiveInSidebar();
+            clearTimeout(sidebarTimer);
+            sidebarTimer = setTimeout(centerActiveInSidebar, 150);
           }
         }
       }
