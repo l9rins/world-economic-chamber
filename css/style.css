@@ -1206,6 +1206,10 @@ p {
   border-left-color: var(--gold-500);
 }
 
+.doc-sidebar li:last-child a {
+  margin-bottom: var(--space-2xl);
+}
+
 /* ═══════ Footer ═══════ */
 .footer {
   background: var(--navy-900);
