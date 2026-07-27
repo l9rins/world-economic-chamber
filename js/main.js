@@ -103,6 +103,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ─── Sidebar Scroll Tracking ──────────────────────
+  const sidebarLinks = document.querySelectorAll('.doc-sidebar li a');
+  if (sidebarLinks.length) {
+    const headings = [];
+    sidebarLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const el = document.getElementById(href.slice(1));
+        if (el) headings.push({ el, link });
+      }
+    });
+
+    const sidebarObserver = new IntersectionObserver((entries) => {
+      let visible = [];
+      entries.forEach(entry => {
+        if (entry.isIntersecting) visible.push(entry.target);
+      });
+      if (visible.length) {
+        // Pick highest one on page
+        const top = visible.reduce((a, b) => a.getBoundingClientRect().top < b.getBoundingClientRect().top ? a : b);
+        sidebarLinks.forEach(l => l.classList.remove('active'));
+        const match = headings.find(h => h.el === top);
+        if (match) match.link.classList.add('active');
+      }
+    }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' });
+
+    headings.forEach(h => sidebarObserver.observe(h.el));
+
+    // Smooth scroll on click
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.getElementById(href.slice(1));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  }
+
   // ─── Constellation Map Draw-in ───────────────────
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
