@@ -154,21 +154,21 @@ NAV_HTML = """
 
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown">
             <a href="about.html">About the Chamber</a>
             <a href="charter-and-governance.html">Charter, Policies &amp; Governance</a>
           </div>
         </li>
         <li class="nav-item">
-          <a href="charter.html" class="nav-link">Charter <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <a href="charter.html" class="nav-link">Charter <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown">
             <a href="charter.html">The WEC Charter</a>
             <a href="governance-documents.html">Governance Documents</a>
           </div>
         </li>
         <li class="nav-item">
-          <a href="governance-architecture.html" class="nav-link">Governance <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <a href="governance-architecture.html" class="nav-link">Governance <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown">
             <a href="governance-architecture.html">Governance Architecture</a>
             <a href="decision-making.html">Decision-Making Procedures</a>
@@ -367,7 +367,7 @@ def build_index():
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="section-label">World Economic Chamber</span>
-      <h1 class="hero-title">Strengthening <span class="accent shimmer-gold">Global Economic</span> Cooperation</h1>
+      <h1 class="hero-title">Strengthening <span class="accent">Global Economic</span> Cooperation</h1>
       <p class="hero-subtitle">An institutional anchor for organisations engaged in cross-border commerce, investment and economic cooperation — operating under principled governance and disciplined international engagement.</p>
       <div class="hero-actions">
         <a href="about.html" class="btn btn-primary btn-lg">Discover the Chamber</a>
