@@ -56,22 +56,33 @@ def get_docx_paragraphs(path):
 def paragraphs_to_html(paragraphs):
     html = []
     toc = []
+    used_slugs = {}
     article_num = 0
     for tag, text in paragraphs:
         text = text.replace('&', '&amp;')
         # Detect Article headers for charter pages
         if ('article' in text.lower() or text.strip().startswith('Article')) and text.strip()[:10].lower().startswith('article'):
             article_num += 1
-            slug = text.lower().replace(' ', '-')[:40]
-            html.append(f'<div class="article" id="article-{article_num}"><span class="article-number">{article_num:02d}</span><h2 class="article-title">{text}</h2></div>')
-            toc.append(('h2', text, f'article-{article_num}'))
+            slug = f'article-{article_num}'
+            html.append(f'<div class="article" id="{slug}" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">{article_num:02d}</span><h2 class="article-title">{text}</h2></div>')
+            toc.append(('h2', text, slug))
         elif tag in ('h1', 'h3'):
             slug = text.lower().replace(' ', '-')[:40]
-            html.append(f'<{tag} id="{slug}">{text}</{tag}>')
+            if slug in used_slugs:
+                used_slugs[slug] += 1
+                slug = f'{slug}-{used_slugs[slug]}'
+            else:
+                used_slugs[slug] = 0
+            html.append(f'<{tag} id="{slug}" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">{text}</{tag}>')
             toc.append((tag, text, slug))
         elif tag == 'h2':
             slug = text.lower().replace(' ', '-')[:40]
-            html.append(f'<h2 id="{slug}">{text}</h2>')
+            if slug in used_slugs:
+                used_slugs[slug] += 1
+                slug = f'{slug}-{used_slugs[slug]}'
+            else:
+                used_slugs[slug] = 0
+            html.append(f'<h2 id="{slug}" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">{text}</h2>')
             toc.append(('h2', text, slug))
         else:
             html.append(f'<p>{text}</p>')

@@ -1156,6 +1156,24 @@ p {
 .doc-sidebar-inner {
   border-left: 1px solid rgba(255,255,255,0.06);
   padding-left: var(--space-lg);
+  max-height: calc(100vh - var(--nav-height) - var(--space-xl) * 2 - var(--space-4xl));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+.doc-sidebar-inner::-webkit-scrollbar {
+  width: 4px;
+}
+
+.doc-sidebar-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.doc-sidebar-inner::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
 }
 
 .doc-sidebar-title {
