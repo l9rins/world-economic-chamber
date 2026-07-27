@@ -154,13 +154,21 @@ pages = {
     }
 }
 
+def picture_img(src, alt, cls="", style="", lazy=False, eager=False):
+    ext = src.rsplit('.', 1)[0]
+    webp = ext + '.webp'
+    cls_attr = f' class="{cls}"' if cls else ''
+    style_attr = f' style="{style}"' if style else ''
+    loading = ' loading="eager"' if eager else (' loading="lazy"' if lazy else '')
+    return f'<picture><source srcset="{webp}" type="image/webp"><img src="{src}" alt="{alt}"{cls_attr}{style_attr}{loading}></picture>'
+
 NAV_HTML = """
   <div id="readingProgress" class="reading-progress"></div>
   <!-- Navigation -->
   <nav class="nav" id="mainNav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="images/Logo_WEC_White_Text.png" alt="World Economic Chamber">
+        """ + picture_img("images/Logo_WEC_White_Text.png", "World Economic Chamber", lazy=False, eager=True) + """
       </a>
 
       <ul class="nav-menu" id="navMenu">
@@ -214,8 +222,8 @@ FOOTER_HTML = """
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="images/Logo_WEC_White_Text.png" alt="WEC Logo">
+          <div class="footer-brand">
+            """ + picture_img("images/Logo_WEC_White_Text.png", "WEC Logo", lazy=True) + """
           <p>The World Economic Chamber — strengthening cross-border commerce, investment and economic cooperation through principled governance and institutional discipline.</p>
         </div>
 
@@ -383,7 +391,7 @@ def build_index():
   <!-- Hero Section -->
   <section class="hero" id="main-content"> id="hero">
     <div class="hero-bg">
-      <img src="images/hero-summit.png" alt="Global Economic Summit" loading="eager">
+      """ + picture_img("images/hero-summit.png", "Global Economic Summit", lazy=False, eager=True) + """
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -587,7 +595,7 @@ def build_index():
           <a href="charter.html" class="btn btn-outline-gold btn-lg" style="margin-top: var(--space-md);">Read the Charter</a>
         </div>
         <div class="img-duotone">
-          <img src="images/hero-partnership.png" alt="Global Partnership">
+          """ + picture_img("images/hero-partnership.png", "Global Partnership", lazy=True) + """
         </div>
       </div>
     </div>
@@ -665,7 +673,7 @@ def build_index():
     <div class="container">
       <div class="content-split">
         <div class="img-duotone">
-          <img src="images/hero-governance.png" alt="Governance Meeting" style="border-radius: var(--border-radius-lg);">
+          """ + picture_img("images/hero-governance.png", "Governance Meeting", lazy=True, style="border-radius: var(--border-radius-lg);") + """
         </div>
         <div class="fade-in">
           <span class="section-label">Governance Framework</span>
