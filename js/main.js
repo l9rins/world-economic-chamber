@@ -45,17 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nav) nav.classList.toggle('sidebar-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
 
-    // Strip hrefs on mobile so nav-links toggle dropdowns instead of navigating
-    document.querySelectorAll('.nav-item .nav-link').forEach(link => {
-      const item = link.closest('.nav-item');
-      const hasDropdown = item && item.querySelector('.nav-dropdown');
-      if (open && hasDropdown) {
-        if (!link.dataset.origHref) {
-          link.dataset.origHref = link.getAttribute('href') || '';
+    // Kill pointer events on nav-link so the browser literally cannot navigate
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const link = item.querySelector('.nav-link');
+      const dropdown = item.querySelector('.nav-dropdown');
+      if (link && dropdown) {
+        if (open) {
+          link.style.pointerEvents = 'none';
+        } else {
+          link.style.pointerEvents = '';
         }
-        link.removeAttribute('href');
-      } else if (!open && link.dataset.origHref) {
-        link.setAttribute('href', link.dataset.origHref);
       }
     });
   }
@@ -70,16 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
       navBackdrop.addEventListener('click', () => toggleNav(false));
     }
 
-    navMenu.querySelectorAll('.nav-item').forEach(item => {
+    // Handle dropdown toggle on the nav-item container (pointer-events still alive)
+    navMenu.addEventListener('pointerdown', (e) => {
+      const item = e.target.closest('.nav-item');
+      if (!item) return;
       const link = item.querySelector('.nav-link');
       const dropdown = item.querySelector('.nav-dropdown');
-      if (link && dropdown) {
-        link.addEventListener('pointerdown', () => {
-          if (navMenu.classList.contains('open')) {
-            item.classList.toggle('open');
-          }
-        });
+      if (link && dropdown && navMenu.classList.contains('open')) {
+        item.classList.toggle('open');
       }
+    });
     });
   }
 
@@ -203,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }
-      });
     });
   }
 
