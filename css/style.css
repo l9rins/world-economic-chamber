@@ -85,7 +85,7 @@
   --max-width: 1280px;
   --max-width-narrow: 880px;
   --max-width-wide: 1440px;
-  --nav-height: 80px;
+  --nav-height: 88px;
   --border-radius: 8px;
   --border-radius-lg: 16px;
 
@@ -267,7 +267,7 @@ p {
 }
 
 .nav-logo img {
-  height: 58px;
+  height: 80px;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
@@ -1481,13 +1481,13 @@ p {
 
 @media (max-width: 640px) {
   :root {
-    --nav-height: 64px;
+    --nav-height: 72px;
     --font-size-5xl: 2.25rem;
     --font-size-4xl: 1.875rem;
     --font-size-3xl: 1.5rem;
   }
 
-  .nav-logo img { height: 44px; }
+  .nav-logo img { height: 62px; }
 
   .hero { min-height: 75vh; }
 
