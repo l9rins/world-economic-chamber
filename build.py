@@ -200,6 +200,7 @@ NAV_HTML = """
       </div>
     </div>
   </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
 """
 
 FOOTER_HTML = """

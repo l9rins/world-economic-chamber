@@ -36,13 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── Mobile Nav ──────────────────────────────────
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
+  const navBackdrop = document.getElementById('navBackdrop');
+
+  function toggleNav(open) {
+    navToggle.classList.toggle('active', open);
+    navMenu.classList.toggle('open', open);
+    if (navBackdrop) navBackdrop.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navMenu.classList.toggle('open');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+      const isOpen = !navMenu.classList.contains('open');
+      toggleNav(isOpen);
     });
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', () => toggleNav(false));
+    }
 
     navMenu.querySelectorAll('.nav-item').forEach(item => {
       const link = item.querySelector('.nav-link');

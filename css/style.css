@@ -380,7 +380,7 @@ p {
   width: 28px;
   height: 20px;
   position: relative;
-  z-index: 10001;
+  z-index: 10003;
 }
 
 .nav-toggle span {
@@ -1559,23 +1559,43 @@ p {
 /* ═══════ Responsive ═══════ */
 @media (max-width: 1024px) {
   .nav-menu {
-    display: none;
     position: fixed;
-    top: var(--nav-height);
-    left: 0;
+    top: 0;
     right: 0;
     bottom: 0;
+    width: min(320px, 80vw);
     background: rgba(6, 14, 31, 0.98);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
     flex-direction: column;
     align-items: stretch;
-    padding: var(--space-xl);
+    padding: calc(var(--nav-height) + var(--space-lg)) var(--space-xl) var(--space-xl);
     overflow-y: auto;
-    height: auto;
     gap: 0;
+    z-index: 10002;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
   }
 
-  .nav-menu.open { display: flex; }
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+
+  /* Backdrop overlay */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+
+  .nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+  }
 
   .nav-item {
     height: auto;
