@@ -75,10 +75,9 @@
     // Prevent click navigation on dropdown parent links (bulletproof)
     navMenu.addEventListener('click', (e) => {
       if (!navMenu.classList.contains('open')) return;
-      const link = e.target.closest('.nav-link');
-      if (!link) return;
-      const item = link.closest('.nav-item');
-      if (item && item.querySelector('.nav-dropdown')) {
+      const item = e.target.closest('.nav-item');
+      if (!item) return;
+      if (item.querySelector('.nav-dropdown')) {
         e.preventDefault();
         e.stopPropagation();
         item.classList.toggle('open');
