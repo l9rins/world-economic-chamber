@@ -172,12 +172,6 @@ NAV_HTML = """
       </a>
 
       <ul class="nav-menu" id="navMenu">
-        <li class="nav-close-item">
-          <button class="nav-close" id="navClose" aria-label="Close navigation">
-            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            Close
-          </button>
-        </li>
         <li class="nav-item">
           <a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown">

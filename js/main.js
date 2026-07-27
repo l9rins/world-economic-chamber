@@ -52,11 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleNav(isOpen);
     });
 
-    const navClose = document.getElementById('navClose');
-    if (navClose) {
-      navClose.addEventListener('click', () => toggleNav(false));
-    }
-
     if (navBackdrop) {
       navBackdrop.addEventListener('click', () => toggleNav(false));
     }
@@ -65,13 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const link = item.querySelector('.nav-link');
       const dropdown = item.querySelector('.nav-dropdown');
       if (link && dropdown) {
-        link.addEventListener('click', (e) => {
+        link.addEventListener('pointerdown', (e) => {
           if (navMenu.classList.contains('open')) {
             e.preventDefault();
-            e.stopPropagation();
             item.classList.toggle('open');
           }
-        });
+        }, { passive: false });
       }
     });
   }

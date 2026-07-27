@@ -426,40 +426,6 @@ p {
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
 
-/* ─── Mobile sidebar close button ─── */
-.nav-close-item {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  .nav-close-item {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: var(--space-md);
-  }
-
-  .nav-close {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    font-family: var(--font-body);
-    padding: var(--space-sm);
-    border-radius: var(--border-radius);
-    transition: color var(--transition-fast);
-  }
-
-  .nav-close:hover {
-    color: var(--white);
-  }
-}
-
 
 /* ═══════ Buttons ═══════ */
 .btn {
