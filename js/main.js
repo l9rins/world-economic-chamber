@@ -44,6 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navBackdrop) navBackdrop.classList.toggle('open', open);
     if (nav) nav.classList.toggle('sidebar-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+
+    // Strip hrefs on mobile so nav-links toggle dropdowns instead of navigating
+    document.querySelectorAll('.nav-item .nav-link').forEach(link => {
+      const item = link.closest('.nav-item');
+      const hasDropdown = item && item.querySelector('.nav-dropdown');
+      if (open && hasDropdown) {
+        if (!link.dataset.origHref) {
+          link.dataset.origHref = link.getAttribute('href') || '';
+        }
+        link.removeAttribute('href');
+      } else if (!open && link.dataset.origHref) {
+        link.setAttribute('href', link.dataset.origHref);
+      }
+    });
   }
 
   if (navToggle && navMenu) {
@@ -60,12 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const link = item.querySelector('.nav-link');
       const dropdown = item.querySelector('.nav-dropdown');
       if (link && dropdown) {
-        link.addEventListener('pointerdown', (e) => {
+        link.addEventListener('pointerdown', () => {
           if (navMenu.classList.contains('open')) {
-            e.preventDefault();
             item.classList.toggle('open');
           }
-        }, { passive: false });
+        });
       }
     });
   }

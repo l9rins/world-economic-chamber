@@ -318,6 +318,7 @@ p {
   align-items: center;
   gap: 4px;
   text-decoration: none;
+  cursor: pointer;
   position: relative;
   height: 100%;
 }
