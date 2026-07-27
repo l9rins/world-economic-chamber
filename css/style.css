@@ -541,6 +541,7 @@ p {
   position: absolute;
   inset: 0;
   z-index: 0;
+  will-change: transform;
 }
 
 .hero-bg img {
@@ -617,6 +618,10 @@ p {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.constellation-wrap svg .const-dot {
+  cursor: pointer;
 }
 
 .constellation-legend {
@@ -1286,6 +1291,15 @@ p {
   color: var(--gold-400);
 }
 
+.footer-social a[href*="linkedin"]:hover {
+  color: #0A66C2;
+}
+
+.footer-social a[href*="x.com"]:hover,
+.footer-social a[href*="twitter"]:hover {
+  color: var(--white);
+}
+
 /* ═══════ Utilities ═══════ */
 .scroll-top {
   position: fixed;
@@ -1406,6 +1420,27 @@ p {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Staggered reveal for cards and grid items */
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .stagger.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger > *:nth-child(1) { transition-delay: 0s; }
+  .stagger > *:nth-child(2) { transition-delay: 0.06s; }
+  .stagger > *:nth-child(3) { transition-delay: 0.12s; }
+  .stagger > *:nth-child(4) { transition-delay: 0.18s; }
+  .stagger > *:nth-child(5) { transition-delay: 0.24s; }
+  .stagger > *:nth-child(6) { transition-delay: 0.3s; }
+  .stagger > *:nth-child(7) { transition-delay: 0.36s; }
+  .stagger > *:nth-child(8) { transition-delay: 0.42s; }
 }
 
 /* ═══════ Quick Links Bar ═══════ */

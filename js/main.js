@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ─── Hero Parallax ───────────────────────────────
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY * 0.25;
+      heroBg.style.transform = `translateY(${Math.min(offset, 40)}px)`;
+    }, { passive: true });
+  }
+
   // ─── Reading Progress Bar ─────────────────────────
   const progressBar = document.getElementById('readingProgress');
   if (progressBar && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -49,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Fade-in Observer (single quiet moment) ──────
+  // ─── Fade-in + Stagger Observer ──────────────────
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -61,8 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.stagger').forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    document.querySelectorAll('.stagger').forEach(el => el.classList.add('visible'));
   }
 
   // ─── Scroll to Top ───────────────────────────────
@@ -185,6 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
     constellations.forEach(el => el.querySelectorAll('.const-line').forEach(l => l.style.opacity = '1'));
   }
 
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
   function drawConstellation(container) {
     const lines = container.querySelectorAll('.const-line');
     const dots = container.querySelectorAll('.const-dot');
@@ -224,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 600 + i * 60);
     });
 
-    // Count-up stats
+    // Count-up stats with eased animation
     const stats = container.closest('.constellation-section');
     if (stats) {
       const statEls = stats.querySelectorAll('.constellation-stat-number');
@@ -232,17 +247,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = parseInt(el.getAttribute('data-target'));
         const suffix = el.getAttribute('data-suffix') || '';
         if (!target) return;
-        const duration = 1800;
-        const step = target / (duration / 16);
-        let current = 0;
-        const counter = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            current = target;
-            clearInterval(counter);
+        const duration = Math.min(2000, Math.max(800, target * 4));
+        const start = performance.now();
+        function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeOutCubic(progress);
+          const current = Math.round(eased * target);
+          el.textContent = current.toLocaleString() + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(tick);
           }
-          el.textContent = Math.floor(current).toLocaleString() + suffix;
-        }, 16);
+        }
+        requestAnimationFrame(tick);
       });
     }
   }
