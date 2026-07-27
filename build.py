@@ -368,6 +368,9 @@ def head_html(title, description):
   <meta property="og:image" content="https://www.worldeconomicchamber.com/images/Logo_WEC_White_Text.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/Logo WEC 1 [MAIN].png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -442,7 +445,7 @@ def build_index():
 <!-- Bento Hero Hub -->
   <section class="hero-hub" id="hero">
     <div class="container">
-      <div class="bento-hero">
+      <div class="bento-hero fade-up">
         <div class="bento-main">
           """ + picture_img("images/boardroom_interaction.png", "Global Economic Summit", lazy=False, eager=True) + """
           <div class="bento-overlay">
@@ -495,7 +498,7 @@ def build_index():
   <!-- Information Dense Data Section -->
   <section class="section-dense">
     <div class="container">
-      <div class="complex-grid">
+      <div class="complex-grid fade-up fade-delay-1">
         <!-- Main News Column -->
         <div class="main-news">
           <div class="section-header-compact">
@@ -619,7 +622,7 @@ def build_index():
   </section>
 
   <!-- Constellation Map -->
-  <section class="section constellation-section section-dark">
+  <section class="section constellation-section section-dark fade-up fade-delay-2">
     <div class="container">
       <div class="text-center fade-in">
         <span class="section-label">Global Constellation</span>

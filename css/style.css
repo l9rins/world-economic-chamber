@@ -39,7 +39,7 @@
   --border-light: rgba(255, 255, 255, 0.05);
   --accent: var(--gold-500);
 
-  --font-heading: 'Outfit', -apple-system, sans-serif;
+  --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-doc: 'IBM Plex Serif', Georgia, serif;
   --font-size-xs: 0.75rem;
@@ -1670,6 +1670,18 @@ p {
   object-fit: cover;
   display: block;
   z-index: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bento-main::after, .bento-sub::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+  z-index: 2;
+  pointer-events: none;
+}
+.bento-main:hover img, .bento-sub:hover img {
+  transform: scale(1.05);
 }
 .bento-sidebar {
   display: grid;
@@ -1685,7 +1697,7 @@ p {
   min-height: 400px;
   height: 100%;
   padding: var(--space-xl);
-  background: linear-gradient(to top, rgba(6, 14, 31, 0.95) 10%, transparent 60%);
+  background: linear-gradient(to top, rgba(6, 14, 31, 0.95) 0%, rgba(6, 14, 31, 0.8) 30%, transparent 80%);
   color: var(--white);
 }
 .bento-sub .bento-overlay {
@@ -3406,6 +3418,18 @@ p {
   object-fit: cover;
   display: block;
   z-index: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bento-main::after, .bento-sub::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+  z-index: 2;
+  pointer-events: none;
+}
+.bento-main:hover img, .bento-sub:hover img {
+  transform: scale(1.05);
 }
 .bento-sidebar {
   display: grid;
@@ -3421,7 +3445,7 @@ p {
   min-height: 400px;
   height: 100%;
   padding: var(--space-xl);
-  background: linear-gradient(to top, rgba(6, 14, 31, 0.95) 10%, transparent 60%);
+  background: linear-gradient(to top, rgba(6, 14, 31, 0.95) 0%, rgba(6, 14, 31, 0.8) 30%, transparent 80%);
   color: var(--white);
 }
 .bento-sub .bento-overlay {
