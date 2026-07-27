@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         item.classList.toggle('open');
       }
     });
-    });
   }
 
   // ─── Fade-in + Stagger Observer ──────────────────
