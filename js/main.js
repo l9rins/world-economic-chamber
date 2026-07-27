@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   // â”€â”€â”€ Nav Scroll Effect â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const nav = document.querySelector('.nav');
@@ -44,22 +44,6 @@
     if (navBackdrop) navBackdrop.classList.toggle('open', open);
     if (nav) nav.classList.toggle('sidebar-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
-
-    // Kill pointer events on nav-link AND all children so the browser
-    // cannot navigate regardless of bubbling
-    document.querySelectorAll('.nav-item').forEach(item => {
-      const link = item.querySelector('.nav-link');
-      const dropdown = item.querySelector('.nav-dropdown');
-      if (link && dropdown) {
-        if (open) {
-          link.style.pointerEvents = 'none';
-          Array.from(link.children).forEach(c => c.style.pointerEvents = 'none');
-        } else {
-          link.style.pointerEvents = '';
-          Array.from(link.children).forEach(c => c.style.pointerEvents = '');
-        }
-      }
-    });
   }
 
   if (navToggle && navMenu) {
@@ -72,15 +56,18 @@
       navBackdrop.addEventListener('click', () => toggleNav(false));
     }
 
-    // Prevent click navigation on dropdown parent links (bulletproof)
-    navMenu.addEventListener('click', (e) => {
-      if (!navMenu.classList.contains('open')) return;
-      const item = e.target.closest('.nav-item');
-      if (!item) return;
-      if (item.querySelector('.nav-dropdown')) {
-        e.preventDefault();
-        e.stopPropagation();
-        item.classList.toggle('open');
+    // Prevent click navigation on dropdown parent links in mobile view
+    document.querySelectorAll('.nav-item').forEach(item => {
+      const link = item.querySelector('.nav-link');
+      const dropdown = item.querySelector('.nav-dropdown');
+      
+      if (link && dropdown) {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            item.classList.toggle('open');
+          }
+        });
       }
     });
   }

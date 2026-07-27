@@ -259,7 +259,7 @@ p {
   left: 0;
   right: 0;
   height: var(--nav-height);
-  z-index: 10000;
+  z-index: 10005;
   background: rgba(10, 22, 40, 0.35);
   backdrop-filter: blur(28px) saturate(200%);
   -webkit-backdrop-filter: blur(28px) saturate(200%);
@@ -446,6 +446,7 @@ p {
   text-decoration: none;
   line-height: 1.4;
   white-space: nowrap;
+  transition: all var(--transition-base);
 }
 
 .btn-sm { padding: 8px 20px; font-size: var(--font-size-xs); }
@@ -460,6 +461,8 @@ p {
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--gold-400), var(--gold-300));
   color: var(--navy-900);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -471,6 +474,8 @@ p {
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.15);
   color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outline-gold {
@@ -753,12 +758,14 @@ p {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: border-color var(--transition-base);
+  transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .card:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(201, 168, 76, 0.25);
+  border-color: rgba(201, 168, 76, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 24px rgba(201, 168, 76, 0.08);
 }
 
 .card::before {
