@@ -502,12 +502,12 @@ def build_index():
         <!-- Main News Column -->
         <div class="main-news">
           <div class="section-header-compact">
-            <h3><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Latest Announcements</h3>
+            <h3>Latest Announcements</h3>
             <a href="#" class="view-all">View All News &rarr;</a>
           </div>
           <div class="news-list">
             <a href="charter-and-governance.html" class="news-item">
-              <span class="news-date news-date--hot">Today</span>
+              <span class="news-date">Today</span>
               <h4>World Economic Chamber formally establishes institutional charter and governance framework</h4>
               <p>The core foundational document defining the Chamber's institutional responsibilities has been formally ratified, marking a new era of global economic cooperation.</p>
             </a>
@@ -532,89 +532,89 @@ def build_index():
         <!-- Upcoming Events / Calendar -->
         <div class="events-column">
           <div class="section-header-compact">
-            <h3><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Chamber Calendar</h3>
+            <h3>Chamber Calendar</h3>
             <a href="#" class="view-all">All Events &rarr;</a>
           </div>
           <ul class="event-list">
             <li>
-              <div class="event-date-block">
-                <span class="event-date-day">18</span>
-                <span class="event-date-month">Aug</span>
+              <div class="event-date">
+                <span class="day">18</span>
+                <span class="month">Aug</span>
               </div>
-              <div class="event-info">
+              <div class="event-details">
                 <h5>Global Market Access Summit</h5>
-                <span class="event-meta">Geneva, Switzerland</span>
+                <span class="event-location">Geneva, Switzerland</span>
               </div>
             </li>
             <li>
-              <div class="event-date-block">
-                <span class="event-date-day">24</span>
-                <span class="event-date-month">Aug</span>
+              <div class="event-date">
+                <span class="day">24</span>
+                <span class="month">Aug</span>
               </div>
-              <div class="event-info">
+              <div class="event-details">
                 <h5>Secretariat Policy Review</h5>
-                <span class="event-meta">London, UK (HQ)</span>
+                <span class="event-location">London, UK (HQ)</span>
               </div>
             </li>
             <li>
-              <div class="event-date-block">
-                <span class="event-date-day">03</span>
-                <span class="event-date-month">Sep</span>
+              <div class="event-date">
+                <span class="day">03</span>
+                <span class="month">Sep</span>
               </div>
-              <div class="event-info">
+              <div class="event-details">
                 <h5>Trade &amp; Economy Working Group</h5>
-                <span class="event-meta">Virtual / Secure Link</span>
+                <span class="event-location">Virtual / Secure Link</span>
               </div>
             </li>
             <li>
-              <div class="event-date-block">
-                <span class="event-date-day">15</span>
-                <span class="event-date-month">Sep</span>
+              <div class="event-date">
+                <span class="day">15</span>
+                <span class="month">Sep</span>
               </div>
-              <div class="event-info">
+              <div class="event-details">
                 <h5>Annual Governance Conference</h5>
-                <span class="event-meta">New York, USA</span>
+                <span class="event-location">New York, USA</span>
               </div>
             </li>
           </ul>
+          
+          <div style="margin-top: var(--space-xl);">
+            """ + picture_img("images/global_trade_hub.png", "Global Trade Hub", lazy=True, style="border-radius: var(--border-radius-md); width: 100%; object-fit: cover; height: 180px;") + """
+          </div>
         </div>
 
         <!-- Data Vis / Stats -->
         <div class="data-column">
           <div class="section-header-compact">
-            <h3><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg> Key Metrics</h3>
+            <h3>Key Metrics</h3>
           </div>
           <div class="data-stat">
-            <div class="data-stat-header">
-              <span class="data-label">Active Trade Agreements</span>
+            <span class="data-label">Active Trade Agreements</span>
+            <div>
+              <span class="data-value">1,402</span>
               <span class="data-trend up">+12 YoY</span>
             </div>
-            <span class="data-value">1,402</span>
-            <div class="data-bar"><span class="data-bar-fill" style="width: 85%"></span></div>
           </div>
           <div class="data-stat">
-            <div class="data-stat-header">
-              <span class="data-label">Participating Nations</span>
+            <span class="data-label">Participating Nations</span>
+            <div>
+              <span class="data-value">164</span>
               <span class="data-trend up">+2</span>
             </div>
-            <span class="data-value">164</span>
-            <div class="data-bar"><span class="data-bar-fill" style="width: 65%"></span></div>
           </div>
           <div class="data-stat">
-            <div class="data-stat-header">
-              <span class="data-label">Dispute Resolutions</span>
-              <span class="data-trend down">-5%</span>
+            <span class="data-label">Dispute Resolutions</span>
+            <div>
+              <span class="data-value">38</span>
+              <span class="data-trend down">-5% &#9660;</span>
             </div>
-            <span class="data-value">38</span>
-            <div class="data-bar"><span class="data-bar-fill" style="width: 20%"></span></div>
           </div>
           <div class="data-stat">
-            <div class="data-stat-header">
-              <span class="data-label">Policy Consultations</span>
+            <span class="data-label">Policy Consultations</span>
+            <div>
+              <span class="data-value">840</span>
               <span class="data-trend up">+18%</span>
             </div>
-            <span class="data-value">840</span>
-            <div class="data-bar"><span class="data-bar-fill" style="width: 55%"></span></div>
           </div>
         </div>
       </div>
