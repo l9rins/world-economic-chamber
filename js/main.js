@@ -61,8 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const dropdown = item.querySelector('.nav-dropdown');
       if (link && dropdown) {
         link.addEventListener('click', (e) => {
-          if (window.innerWidth <= 1024) {
+          if (navMenu.classList.contains('open')) {
             e.preventDefault();
+            e.stopPropagation();
             item.classList.toggle('open');
           }
         });
