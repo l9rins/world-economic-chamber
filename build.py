@@ -278,27 +278,62 @@ def head_html(title, description):
 """
 
 CONSTELLATION_SVG = """
-  <svg viewBox="0 0 800 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="constellation-draw-in">
-    <!-- Connecting lines -->
-    <path class="const-line" d="M110 250 L200 80 L310 190 L450 60 L530 170 L650 90 L720 220 L620 280 L530 170 L450 60 L310 190 L200 80" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" fill="none"/>
-    <path class="const-line" d="M310 190 L400 280 L530 170 L620 280" stroke="rgba(201,168,76,0.2)" stroke-width="0.8" fill="none"/>
-    <path class="const-line" d="M110 250 L220 300 L400 280 L530 170" stroke="rgba(10,88,166,0.25)" stroke-width="0.8" fill="none"/>
-    <path class="const-line" d="M450 60 L530 170 L650 90 L720 220" stroke="rgba(17,129,67,0.25)" stroke-width="0.8" fill="none"/>
-    <path class="const-line" d="M200 80 L310 190 L400 280" stroke="rgba(210,38,39,0.2)" stroke-width="0.7" fill="none"/>
-    <path class="const-line" d="M110 250 L200 80" stroke="rgba(239,125,0,0.2)" stroke-width="0.7" fill="none"/>
-    <!-- Dots -->
-    <circle class="const-dot" cx="110" cy="250" r="4" fill="var(--pillar-cooperation)" opacity="0"/>
-    <circle class="const-dot" cx="200" cy="80" r="4" fill="var(--pillar-cooperation)" opacity="0"/>
-    <circle class="const-dot" cx="310" cy="190" r="4" fill="var(--pillar-oversight)" opacity="0"/>
-    <circle class="const-dot" cx="450" cy="60" r="4" fill="var(--pillar-trade)" opacity="0"/>
-    <circle class="const-dot" cx="530" cy="170" r="4" fill="var(--pillar-trade)" opacity="0"/>
-    <circle class="const-dot" cx="650" cy="90" r="4" fill="var(--pillar-trade)" opacity="0"/>
-    <circle class="const-dot" cx="720" cy="220" r="4" fill="var(--pillar-trade)" opacity="0"/>
-    <circle class="const-dot" cx="620" cy="280" r="4" fill="var(--pillar-oversight)" opacity="0"/>
-    <circle class="const-dot" cx="400" cy="280" r="4" fill="var(--pillar-governance)" opacity="0"/>
-    <circle class="const-dot" cx="220" cy="300" r="4" fill="var(--pillar-governance)" opacity="0"/>
-    <!-- Gold central node -->
-    <circle class="const-dot" cx="380" cy="170" r="6" fill="var(--gold-500)" opacity="0"/>
+  <svg viewBox="0 0 900 440" fill="none" xmlns="http://www.w3.org/2000/svg" class="constellation-draw-in">
+    <defs>
+      <clipPath id="globeClip"><circle cx="450" cy="225" r="165"/></clipPath>
+      <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.15"/>
+        <stop offset="60%" stop-color="#c9a84c" stop-opacity="0.04"/>
+        <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <!-- Globe glow -->
+    <circle cx="450" cy="225" r="200" fill="url(#globeGlow)"/>
+    <!-- Globe wireframe -->
+    <circle cx="450" cy="225" r="165" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1"/>
+    <g clip-path="url(#globeClip)">
+      <ellipse cx="450" cy="225" rx="40" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <ellipse cx="450" cy="225" rx="82" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <ellipse cx="450" cy="225" rx="124" ry="165" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <line x1="285" y1="107" x2="615" y2="107" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <line x1="285" y1="167" x2="615" y2="167" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <line x1="285" y1="225" x2="615" y2="225" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <line x1="285" y1="283" x2="615" y2="283" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <line x1="285" y1="343" x2="615" y2="343" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </g>
+    <!-- Hub-and-spoke connection lines -->
+    <path class="const-line" d="M450.0 225.0 Q336.7 154.5 205.0 133.0" stroke="rgba(201,168,76,0.35)" stroke-width="1.1" fill="none"/>
+    <path class="const-line" d="M450.0 225.0 Q393.8 256.0 330.0 263.0" stroke="rgba(201,168,76,0.35)" stroke-width="1.1" fill="none"/>
+    <path class="const-line" d="M450.0 225.0 Q519.8 245.2 592.0 237.0" stroke="rgba(201,168,76,0.35)" stroke-width="1.1" fill="none"/>
+    <path class="const-line" d="M450.0 225.0 Q484.2 297.2 488.0 377.0" stroke="rgba(201,168,76,0.35)" stroke-width="1.1" fill="none"/>
+    <path class="const-line" d="M450.0 225.0 Q357.2 278.2 292.0 363.0" stroke="rgba(201,168,76,0.35)" stroke-width="1.1" fill="none"/>
+    <!-- Perimeter route lines -->
+    <path class="const-line" d="M140.0 315.0 Q188.9 229.8 205.0 133.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M205.0 133.0 Q233.8 175.9 242.0 227.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M242.0 227.0 Q281.3 256.4 330.0 263.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M330.0 263.0 Q320.0 316.4 292.0 363.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M292.0 363.0 Q221.3 322.3 140.0 315.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M470.0 87.0 Q550.5 146.1 592.0 237.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M592.0 237.0 Q662.3 190.8 712.0 123.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M712.0 123.0 Q761.5 190.7 778.0 273.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M778.0 273.0 Q702.1 298.1 648.0 357.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M648.0 357.0 Q569.8 381.4 488.0 377.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M330.0 263.0 Q463.9 278.8 592.0 237.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <path class="const-line" d="M488.0 377.0 Q305.9 391.2 140.0 315.0" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" fill="none"/>
+    <!-- Pillar dots -->
+    <circle class="const-dot" cx="140" cy="315" r="4" fill="var(--pillar-cooperation)" opacity="0"/>
+    <circle class="const-dot" cx="205" cy="133" r="4" fill="var(--pillar-cooperation)" opacity="0"/>
+    <circle class="const-dot" cx="330" cy="263" r="4" fill="var(--pillar-oversight)" opacity="0"/>
+    <circle class="const-dot" cx="470" cy="87" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="592" cy="237" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="712" cy="123" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="778" cy="273" r="4" fill="var(--pillar-trade)" opacity="0"/>
+    <circle class="const-dot" cx="648" cy="357" r="4" fill="var(--pillar-oversight)" opacity="0"/>
+    <circle class="const-dot" cx="488" cy="377" r="4" fill="var(--pillar-governance)" opacity="0"/>
+    <circle class="const-dot" cx="292" cy="363" r="4" fill="var(--pillar-governance)" opacity="0"/>
+    <circle class="const-dot" cx="242" cy="227" r="4" fill="var(--pillar-governance)" opacity="0"/>
+    <!-- Central hub node -->
+    <circle class="const-dot const-dot-hub" cx="450" cy="225" r="7" fill="var(--gold-500)" opacity="0"/>
   </svg>
 """
 

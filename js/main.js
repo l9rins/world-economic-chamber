@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function drawConstellation(container) {
     const lines = container.querySelectorAll('.const-line');
     const dots = container.querySelectorAll('.const-dot');
+    const hubDot = container.querySelector('.const-dot-hub');
 
     lines.forEach((line, i) => {
       const length = line.getTotalLength();
@@ -127,16 +128,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     dots.forEach((dot, i) => {
+      const isHub = dot.classList.contains('const-dot-hub');
       dot.style.opacity = '0';
       setTimeout(() => {
         dot.animate([
-          { opacity: 0, r: '0' },
-          { opacity: 1, r: dot.getAttribute('r') || '3' }
+          { opacity: 0 },
+          { opacity: 1 }
         ], {
-          duration: 400,
+          duration: isHub ? 600 : 400,
           easing: 'ease-out',
           fill: 'forwards'
         });
+        if (isHub) {
+          setTimeout(() => dot.classList.add('animated'), 600);
+        }
       }, 600 + i * 60);
     });
 

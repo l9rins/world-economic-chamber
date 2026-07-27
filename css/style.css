@@ -681,6 +681,27 @@ p {
   letter-spacing: 0.12em;
 }
 
+.const-dot-hub {
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.5));
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.const-dot-hub.animated {
+  animation: hubPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes hubPulse {
+  0%, 100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.5)); }
+  50% { transform: scale(1.35); opacity: 0.8; filter: drop-shadow(0 0 20px rgba(201, 168, 76, 0.9)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .const-dot-hub.animated {
+    animation: none;
+  }
+}
+
 /* ═══════ Image Duotone ═══════ */
 .img-duotone {
   position: relative;
