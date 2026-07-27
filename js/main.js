@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
 
-  // ─── Nav Scroll Effect ───────────────────────────
+  // â”€â”€â”€ Nav Scroll Effect â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const nav = document.querySelector('.nav');
   if (nav) {
     window.addEventListener('scroll', () => {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Hero Parallax ───────────────────────────────
+  // â”€â”€â”€ Hero Parallax â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const heroBg = document.querySelector('.hero-bg');
   if (heroBg) {
     window.addEventListener('scroll', () => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // ─── Reading Progress Bar ─────────────────────────
+  // â”€â”€â”€ Reading Progress Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const progressBar = document.getElementById('readingProgress');
   if (progressBar && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.addEventListener('scroll', () => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Mobile Nav ──────────────────────────────────
+  // â”€â”€â”€ Mobile Nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
   const navBackdrop = document.getElementById('navBackdrop');
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Fade-in + Stagger Observer ──────────────────
+  // â”€â”€â”€ Fade-in + Stagger Observer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.stagger').forEach(el => el.classList.add('visible'));
   }
 
-  // ─── Scroll to Top ───────────────────────────────
+  // â”€â”€â”€ Scroll to Top â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const scrollTopBtn = document.querySelector('.scroll-top');
   if (scrollTopBtn) {
     window.addEventListener('scroll', () => {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ─── Cookie Consent ──────────────────────────────
+  // â”€â”€â”€ Cookie Consent â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const cookieConsent = document.getElementById('cookieConsent');
   if (cookieConsent) {
     if (!localStorage.getItem('wec-cookie-consent')) {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ─── Active Nav Link + Parent Dropdown ──────────
+  // â”€â”€â”€ Active Nav Link + Parent Dropdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
     if (link.getAttribute('href') === currentPage) {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ─── Sidebar Scroll Tracking ──────────────────────
+  // â”€â”€â”€ Sidebar Scroll Tracking â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const sidebarLinks = document.querySelectorAll('.doc-sidebar li a');
   if (sidebarLinks.length) {
     const sidebarInner = document.querySelector('.doc-sidebar-inner');
@@ -201,10 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }
+      });
     });
   }
 
-  // ─── Constellation Map Draw-in ───────────────────
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const constellations = document.querySelectorAll('.constellation-draw-in');
