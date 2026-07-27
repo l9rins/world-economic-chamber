@@ -26,30 +26,108 @@
       </a>
 
       <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="about.html">About the Chamber</a>
-            <a href="charter-and-governance.html">Charter, Policies &amp; Governance</a>
+        <!-- The Chamber Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="about.html" class="nav-link">The Chamber <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>About WEC</h4>
+                <a href="about.html">Mission & Vision</a>
+                <a href="#">History & Milestones</a>
+                <a href="#">Leadership Directory</a>
+                <a href="#">Regional Offices</a>
+              </div>
+              <div class="mega-col">
+                <h4>Engagement</h4>
+                <a href="#">Member Directory</a>
+                <a href="#">Institutional Partners</a>
+                <a href="#">NGO Affiliations</a>
+                <a href="#">Corporate Sponsors</a>
+              </div>
+              <div class="mega-col">
+                <h4>News & Media</h4>
+                <a href="#">Press Releases</a>
+                <a href="#">Media Gallery</a>
+                <a href="#">Official Statements</a>
+                <a href="#">Event Calendar</a>
+              </div>
+              <div class="mega-col">
+                <h4>Contact</h4>
+                <a href="#">Global Headquarters</a>
+                <a href="#">Media Inquiries</a>
+                <a href="#">Career Opportunities</a>
+              </div>
+            </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="charter.html" class="nav-link">Charter <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="charter.html">The WEC Charter</a>
-            <a href="governance-documents.html">Governance Documents</a>
-          </div>
-        </li>
-        <li class="nav-item">
+
+        <!-- Governance Mega-Menu -->
+        <li class="nav-item has-mega">
           <a href="governance-architecture.html" class="nav-link">Governance <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="governance-architecture.html">Governance Architecture</a>
-            <a href="decision-making.html">Decision-Making Procedures</a>
-            <a href="oversight-responsibilities.html">Oversight &amp; Accountability</a>
-            <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
-            <a href="secretariat-management.html">Executive Secretariat</a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Core Architecture</h4>
+                <a href="governance-architecture.html">Governance Architecture</a>
+                <a href="charter.html">The WEC Charter</a>
+                <a href="governance-documents.html">Governance Documents</a>
+              </div>
+              <div class="mega-col">
+                <h4>Operations</h4>
+                <a href="secretariat-management.html">Executive Secretariat</a>
+                <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
+                <a href="#">Operational Protocols</a>
+              </div>
+              <div class="mega-col">
+                <h4>Accountability</h4>
+                <a href="decision-making.html">Decision-Making Procedures</a>
+                <a href="oversight-responsibilities.html">Oversight & Accountability</a>
+                <a href="#">Compliance Standards</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policies</h4>
+                <a href="charter-and-governance.html">Charter & Policies Overview</a>
+                <a href="#">Ethics Framework</a>
+                <a href="#">Dispute Resolution</a>
+              </div>
+            </div>
           </div>
         </li>
+
+        <!-- Trade & Economy Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="#" class="nav-link">Trade & Economy <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Agreements</h4>
+                <a href="#">Active Trade Agreements</a>
+                <a href="#">Pending Negotiations</a>
+                <a href="#">Regional Integration</a>
+              </div>
+              <div class="mega-col">
+                <h4>Analysis</h4>
+                <a href="#">Global Trade Volume</a>
+                <a href="#">Economic Forecasts</a>
+                <a href="#">Market Access Reports</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policy</h4>
+                <a href="#">Commercial Policy Reviews</a>
+                <a href="#">Regulatory Convergence</a>
+                <a href="#">Investment Frameworks</a>
+              </div>
+              <div class="mega-col">
+                <h4>Resources</h4>
+                <a href="#">Trade Statistics Database</a>
+                <a href="#">Policy Documents</a>
+                <a href="#">Publications Library</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
       </ul>
 
       <div class="nav-actions">
@@ -62,115 +140,190 @@
       </div>
     </div>
   </nav>
-  <div class="nav-backdrop" id="navBackdrop"></div>
+  <div class="nav-backdrop" id="navBackdrop">
+</div>
 
-  <!-- News Ticker -->
-  <div class="news-ticker">
+<!-- Bento Hero Hub -->
+  <section class="hero-hub" id="hero">
     <div class="container">
-      <div class="news-ticker-inner">
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Announcement:</strong> World Economic Chamber formally establishes institutional charter and governance framework</span>
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Governance:</strong> Executive Secretariat operational management protocols now published</span>
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Update:</strong> Decision-making procedures and approval pathways adopted by the Chamber</span>
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>New:</strong> Oversight responsibilities and accountability standards framework released</span>
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Announcement:</strong> World Economic Chamber formally establishes institutional charter and governance framework</span>
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Governance:</strong> Executive Secretariat operational management protocols now published</span>
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>Update:</strong> Decision-making procedures and approval pathways adopted by the Chamber</span>
-        <span class="news-ticker-item"><span class="news-ticker-dot"></span> <strong>New:</strong> Oversight responsibilities and accountability standards framework released</span>
+      <div class="bento-hero">
+        <div class="bento-main">
+          <picture><source srcset="images/boardroom_interaction.webp" type="image/webp"><img src="images/boardroom_interaction.png" alt="Global Economic Summit" loading="eager"></picture>
+          <div class="bento-overlay">
+            <span class="bento-tag">World Economic Chamber</span>
+            <h2>Strengthening Global Economic Cooperation</h2>
+            <p>An institutional anchor for organisations engaged in cross-border commerce, investment and economic cooperation — operating under principled governance and disciplined international engagement.</p>
+            <div class="hero-actions">
+              <a href="about.html" class="btn btn-primary btn-sm">Discover the Chamber</a>
+              <a href="charter.html" class="btn btn-secondary btn-sm">Read Our Charter</a>
+            </div>
+          </div>
+        </div>
+        <div class="bento-sidebar">
+          <div class="bento-sub">
+            <picture><source srcset="images/imposing_skyscraper.webp" type="image/webp"><img src="images/imposing_skyscraper.png" alt="WEC Headquarters" loading="eager"></picture>
+            <div class="bento-overlay">
+              <span class="bento-tag" style="background: var(--pillar-governance); color: #fff;">Governance</span>
+              <h3>Institutional Leadership</h3>
+            </div>
+          </div>
+          <div class="bento-sub">
+            <picture><source srcset="images/office_collaboration.webp" type="image/webp"><img src="images/office_collaboration.png" alt="Global Collaboration" loading="eager"></picture>
+            <div class="bento-overlay">
+              <span class="bento-tag" style="background: var(--pillar-trade); color: #fff;">Trade</span>
+              <h3>Cross-Border Dialogue</h3>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Top Economic Indicators Ticker -->
+  <div class="indicators-ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item"><span class="ticker-label">Global Trade Vol. Index:</span><span class="ticker-val up">+2.4% &#9650;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Cross-Border Investment:</span><span class="ticker-val up">+1.8% &#9650;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Policy Stability Index:</span><span class="ticker-val down">-0.5% &#9660;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Market Access Score:</span><span class="ticker-val up">+3.1% &#9650;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Regulatory Convergence:</span><span class="ticker-val up">+1.2% &#9650;</span></span>
+      <!-- Duplicate for infinite scroll -->
+      <span class="ticker-item"><span class="ticker-label">Global Trade Vol. Index:</span><span class="ticker-val up">+2.4% &#9650;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Cross-Border Investment:</span><span class="ticker-val up">+1.8% &#9650;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Policy Stability Index:</span><span class="ticker-val down">-0.5% &#9660;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Market Access Score:</span><span class="ticker-val up">+3.1% &#9650;</span></span>
+      <span class="ticker-item"><span class="ticker-label">Regulatory Convergence:</span><span class="ticker-val up">+1.2% &#9650;</span></span>
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="main-content"> id="hero">
-    <div class="hero-bg">
-      <picture><source srcset="images/hero-summit.webp" type="image/webp"><img src="images/hero-summit.png" alt="Global Economic Summit" loading="eager"></picture>
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="section-label">World Economic Chamber</span>
-      <h1 class="hero-title">Strengthening <span class="accent">Global Economic</span> Cooperation</h1>
-      <p class="hero-subtitle">An institutional anchor for organisations engaged in cross-border commerce, investment and economic cooperation — operating under principled governance and disciplined international engagement.</p>
-      <div class="hero-actions">
-        <a href="about.html" class="btn btn-primary btn-lg">Discover the Chamber</a>
-        <a href="charter.html" class="btn btn-secondary btn-lg">Read Our Charter</a>
+  <!-- Information Dense Data Section -->
+  <section class="section-dense">
+    <div class="container">
+      <div class="complex-grid">
+        <!-- Main News Column -->
+        <div class="main-news">
+          <div class="section-header-compact">
+            <h3>Latest Announcements</h3>
+            <a href="#" class="view-all">View All News &rarr;</a>
+          </div>
+          <div class="news-list">
+            <a href="charter-and-governance.html" class="news-item">
+              <span class="news-date">Today</span>
+              <h4>World Economic Chamber formally establishes institutional charter and governance framework</h4>
+              <p>The core foundational document defining the Chamber's institutional responsibilities has been formally ratified, marking a new era of global economic cooperation.</p>
+            </a>
+            <a href="secretariat-management.html" class="news-item">
+              <span class="news-date">Yesterday</span>
+              <h4>Executive Secretariat operational management protocols now published</h4>
+              <p>In a move for transparency, the complete operational and management protocols of the Executive Secretariat are now available for review by member nations and institutional partners.</p>
+            </a>
+            <a href="decision-making.html" class="news-item">
+              <span class="news-date">August 12, 2026</span>
+              <h4>Decision-making procedures and approval pathways adopted by the Chamber</h4>
+              <p>A new robust framework has been implemented to ensure all resolutions and cross-border commercial policies undergo rigorous, accountable review processes.</p>
+            </a>
+            <a href="oversight-responsibilities.html" class="news-item">
+              <span class="news-date">August 05, 2026</span>
+              <h4>Oversight responsibilities and accountability standards framework released</h4>
+              <p>Detailed oversight mechanisms have been structured to ensure activities remain aligned with the institutional mandate and ethical standards.</p>
+            </a>
+          </div>
+        </div>
+
+        <!-- Upcoming Events / Calendar -->
+        <div class="events-column">
+          <div class="section-header-compact">
+            <h3>Chamber Calendar</h3>
+            <a href="#" class="view-all">All Events &rarr;</a>
+          </div>
+          <ul class="event-list">
+            <li>
+              <div class="event-date">
+                <span class="day">18</span>
+                <span class="month">Aug</span>
+              </div>
+              <div class="event-details">
+                <h5>Global Market Access Summit</h5>
+                <span class="event-location">Geneva, Switzerland</span>
+              </div>
+            </li>
+            <li>
+              <div class="event-date">
+                <span class="day">24</span>
+                <span class="month">Aug</span>
+              </div>
+              <div class="event-details">
+                <h5>Secretariat Policy Review</h5>
+                <span class="event-location">London, UK (HQ)</span>
+              </div>
+            </li>
+            <li>
+              <div class="event-date">
+                <span class="day">03</span>
+                <span class="month">Sep</span>
+              </div>
+              <div class="event-details">
+                <h5>Trade &amp; Economy Working Group</h5>
+                <span class="event-location">Virtual / Secure Link</span>
+              </div>
+            </li>
+            <li>
+              <div class="event-date">
+                <span class="day">15</span>
+                <span class="month">Sep</span>
+              </div>
+              <div class="event-details">
+                <h5>Annual Governance Conference</h5>
+                <span class="event-location">New York, USA</span>
+              </div>
+            </li>
+          </ul>
+          
+          <div style="margin-top: var(--space-xl);">
+            <picture><source srcset="images/global_trade_hub.webp" type="image/webp"><img src="images/global_trade_hub.png" alt="Global Trade Hub" style="border-radius: var(--border-radius-md); width: 100%; object-fit: cover; height: 180px;" loading="lazy"></picture>
+          </div>
+        </div>
+
+        <!-- Data Vis / Stats -->
+        <div class="data-column">
+          <div class="section-header-compact">
+            <h3>Key Metrics</h3>
+          </div>
+          <div class="data-stat">
+            <span class="data-label">Active Trade Agreements</span>
+            <div>
+              <span class="data-value">1,402</span>
+              <span class="data-trend up">+12 YoY</span>
+            </div>
+          </div>
+          <div class="data-stat">
+            <span class="data-label">Participating Nations</span>
+            <div>
+              <span class="data-value">164</span>
+              <span class="data-trend up">+2</span>
+            </div>
+          </div>
+          <div class="data-stat">
+            <span class="data-label">Dispute Resolutions</span>
+            <div>
+              <span class="data-value">38</span>
+              <span class="data-trend down">-5% &#9660;</span>
+            </div>
+          </div>
+          <div class="data-stat">
+            <span class="data-label">Policy Consultations</span>
+            <div>
+              <span class="data-value">840</span>
+              <span class="data-trend up">+18%</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Quick Links Bar -->
-  <div class="quick-links-bar">
-    <div class="container">
-      <div class="quick-links-inner">
-        <a href="charter.html" class="quick-link-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-          Charter
-        </a>
-        <a href="governance-architecture.html" class="quick-link-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 21h18M4 17h16M4 7h16M2 21h20M12 2L2 7v2h20V7L12 2z"></path></svg>
-          Governance
-        </a>
-        <a href="decision-making.html" class="quick-link-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
-          Decision-Making
-        </a>
-        <a href="oversight-responsibilities.html" class="quick-link-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-          Oversight
-        </a>
-        <a href="secretariat-management.html" class="quick-link-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          Secretariat
-        </a>
-        <a href="about.html" class="quick-link-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-          About
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mission Statement -->
-  <section class="section" id="mission">
-    <div class="container">
-      <div class="text-center fade-in">
-        <span class="section-label">Our Mandate</span>
-        <h2 class="section-title">Principled Governance for International Business</h2>
-        <div class="divider divider-center divider-thick"></div>
-        <p class="section-subtitle" style="margin: var(--space-xl) auto 0;">The WEC provides a structured, principled setting in which multinational institutions, corporations, businesses, NGOs and government bodies can engage with one another under a common framework of professionalism, integrity and long-term economic stewardship.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Highlights -->
-  <section class="section-sm section-alt">
-    <div class="container">
-      <div class="feature-grid stagger">
-        <div class="feature-item">
-          <div class="feature-icon" style="background: rgba(10,88,166,0.12); color: var(--pillar-governance);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-          <h4>Principled Governance</h4>
-          <p>Institutional integrity as a core operating principle</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon" style="background: rgba(17,129,67,0.12); color: var(--pillar-trade);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
-          <h4>Global Reach</h4>
-          <p>Operating across jurisdictions with neutrality</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon" style="background: rgba(210,38,39,0.12); color: var(--pillar-oversight);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-          <h4>Institutional Leadership</h4>
-          <p>Structured, accountable governance architecture</p>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon" style="background: rgba(239,125,0,0.12); color: var(--pillar-cooperation);"><svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
-          <h4>Constructive Dialogue</h4>
-          <p>Cross-border cooperation through disciplined engagement</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Constellation Map — replaces stat counters -->
-  <section class="section constellation-section">
+  <!-- Constellation Map -->
+  <section class="section constellation-section section-dark">
     <div class="container">
       <div class="text-center fade-in">
         <span class="section-label">Global Constellation</span>
@@ -277,233 +430,6 @@
     </div>
   </section>
 
-  <!-- Core Sections Grid -->
-  <section class="section" id="sections">
-    <div class="container">
-      <div class="text-center fade-in">
-        <span class="section-label">What We Do</span>
-        <h2 class="section-title">Core Institutional Functions</h2>
-        <div class="divider divider-center divider-thick"></div>
-      </div>
-
-      <div class="grid grid-3 stagger" style="margin-top: var(--space-3xl);">
-        <a href="charter.html" class="card" style="text-decoration:none;">
-          <div class="card-icon pillar-governance"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-          <h3 class="card-title">Charter &amp; Mandate</h3>
-          <p class="card-text">The foundational document that establishes the Chamber's institutional purpose, authorities and the principles guiding cross-border economic engagement.</p>
-          <span class="card-link">Read the Charter <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-        </a>
-
-        <a href="governance-architecture.html" class="card" style="text-decoration:none;">
-          <div class="card-icon pillar-governance"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 21h18M4 17h16M4 7h16M2 21h20M12 2L2 7v2h20V7L12 2z"></path><path d="M6 9v8M10 9v8M14 9v8M18 9v8"></path></svg></div>
-          <h3 class="card-title">Governance Architecture</h3>
-          <p class="card-text">Structured pathways, institutional roles and decision-making frameworks that define how the Chamber operates across jurisdictions.</p>
-          <span class="card-link">Explore Architecture <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-        </a>
-
-        <a href="oversight-responsibilities.html" class="card" style="text-decoration:none;">
-          <div class="card-icon pillar-oversight"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
-          <h3 class="card-title">Oversight &amp; Accountability</h3>
-          <p class="card-text">Oversight responsibilities, accountability standards and the safeguards that protect the Chamber's independence and institutional integrity.</p>
-          <span class="card-link">View Standards <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-        </a>
-
-        <a href="decision-making.html" class="card" style="text-decoration:none;">
-          <div class="card-icon pillar-oversight"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
-          <h3 class="card-title">Decision-Making</h3>
-          <p class="card-text">Transparent, accountable decision-making procedures and approval pathways for all Chamber initiatives and cross-border programs.</p>
-          <span class="card-link">View Procedures <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-        </a>
-
-        <a href="leadership-responsibilities.html" class="card" style="text-decoration:none;">
-          <div class="card-icon pillar-oversight"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-          <h3 class="card-title">Leadership &amp; Secretariat</h3>
-          <p class="card-text">Leadership responsibilities, governance oversight and the operational management protocols of the Executive Secretariat.</p>
-          <span class="card-link">Learn More <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-        </a>
-
-        <a href="about.html" class="card" style="text-decoration:none;">
-          <div class="card-icon pillar-cooperation"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
-          <h3 class="card-title">Global Engagement</h3>
-          <p class="card-text">The Chamber's engagement model — supporting institutions that work across borders through constructive international dialogue and institutional neutrality.</p>
-          <span class="card-link">Discover Our Model <svg class="link-arrow" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px; margin-bottom:-2px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Section - Split -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="content-split">
-        <div class="fade-in">
-          <span class="section-label">Founding Principles</span>
-          <h2 class="section-title">Integrity, Independence &amp; Constructive Internationalism</h2>
-          <div class="divider divider-thick"></div>
-          <p>The Chamber is built on a set of principles that reflect the responsibilities associated with international economic engagement. Members are expected to conduct themselves in a manner that respects regulatory frameworks, honours contractual obligations and recognises the broader implications of international activity.</p>
-          <p>A governance structure that protects the institution from commercial, political or sector-specific influence allows the Chamber to operate with clarity of purpose and maintain credibility across jurisdictions.</p>
-          <a href="charter.html" class="btn btn-outline-gold btn-lg" style="margin-top: var(--space-md);">Read the Charter</a>
-        </div>
-        <div class="img-duotone">
-          <picture><source srcset="images/hero-partnership.webp" type="image/webp"><img src="images/hero-partnership.png" alt="Global Partnership" loading="lazy"></picture>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Divider -->
-  <div class="section-divider">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="rgba(10, 22, 40, 1)"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"></path></svg>
-  </div>
-
-  <!-- Testimonials / Institutional Recognition -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="text-center fade-in">
-        <span class="section-label">Institutional Recognition</span>
-        <h2 class="section-title">Trusted by the Global Community</h2>
-        <div class="divider divider-center divider-thick"></div>
-      </div>
-
-      <div class="testimonials stagger" style="margin-top: var(--space-3xl);">
-        <div class="testimonial-card">
-          <p class="testimonial-text">The WEC's governance framework brings much-needed rigour and consistency to international commercial engagement. This is a serious institution for serious practitioners of global commerce.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">HM</div>
-            <div>
-              <div class="testimonial-name">Helena Morais</div>
-              <div class="testimonial-role">Director of International Trade — European Business Council</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-text">What distinguishes the WEC is its insistence on institutional neutrality and ethical discipline as core competencies. The global economy needs exactly this kind of institutional leadership.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">RK</div>
-            <div>
-              <div class="testimonial-name">Rajesh Kumar</div>
-              <div class="testimonial-role">Senior Advisor, Economic Cooperation — ASEAN Secretariat</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-text">The Chamber's commitment to principled governance and long-term economic stewardship provides a credible and reliable counterpart for governments engaging in cross-border economic dialogue.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">AP</div>
-            <div>
-              <div class="testimonial-name">Amira Patel</div>
-              <div class="testimonial-role">Chief Economist — African Development Bank</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-text">As an institution, the WEC understands that cross-border business requires cooperation, not just facilitation. Their structured approach to international dialogue is precisely what the profession needs.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">JW</div>
-            <div>
-              <div class="testimonial-name">James Whitfield</div>
-              <div class="testimonial-role">Managing Partner, Global Markets — Deloitte</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Divider -->
-  <div class="section-divider" style="transform: rotate(180deg);">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="var(--navy-800)"><path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"></path></svg>
-  </div>
-
-  <!-- Featured Image Showcase -->
-  <section class="section section-gradient">
-    <div class="container">
-      <div class="content-split">
-        <div class="img-duotone">
-          <picture><source srcset="images/hero-governance.webp" type="image/webp"><img src="images/hero-governance.png" alt="Governance Meeting" style="border-radius: var(--border-radius-lg);" loading="lazy"></picture>
-        </div>
-        <div class="fade-in">
-          <span class="section-label">Governance Framework</span>
-          <h2 class="section-title">Structured, Accountable &amp; Transparent</h2>
-          <div class="divider divider-thick"></div>
-          <p>The Chamber operates through defined authorities, documented policies and clear decision-making processes. Governance responsibilities are allocated to support oversight, maintain ethical standards and ensure activities remain aligned with the institutional mandate.</p>
-          <p>This framework is the mechanism through which the Chamber safeguards its credibility and ensures that its work contributes to a more stable and responsible global economic system.</p>
-          <a href="governance-architecture.html" class="btn btn-outline-gold btn-lg" style="margin-top: var(--space-md);">Explore Governance</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="text-center fade-in">
-        <span class="section-label">Engage With the Chamber</span>
-        <h2 class="section-title">International Cooperation Through Principled Governance</h2>
-        <div class="divider divider-center divider-thick"></div>
-        <p class="section-subtitle" style="margin: 0 auto var(--space-2xl);">The World Economic Chamber welcomes institutions committed to professional conduct, ethical integrity and the long-term stability of global markets.</p>
-        <div class="hero-actions" style="justify-content: center;">
-          <a href="about.html" class="btn btn-primary btn-lg">About the Chamber</a>
-          <a href="charter.html" class="btn btn-secondary btn-lg">Read Our Charter</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Institutional Partners -->
-  <section class="section-sm section-alt">
-    <div class="container">
-      <div class="text-center fade-in">
-        <span class="section-label">Institutional Partners</span>
-        <h2 class="section-title">Trusted by Leading Organisations</h2>
-        <div class="divider divider-center divider-thick"></div>
-      </div>
-      <div class="partner-grid" style="margin-top: var(--space-2xl);">
-        <div class="partner-item">
-          <span class="partner-name">European Business Council</span>
-          <span class="partner-desc">International Trade Directorate</span>
-        </div>
-        <div class="partner-item">
-          <span class="partner-name">ASEAN</span>
-          <span class="partner-desc">Economic Cooperation Secretariat</span>
-        </div>
-        <div class="partner-item">
-          <span class="partner-name">African Development Bank</span>
-          <span class="partner-desc">Chief Economist Office</span>
-        </div>
-        <div class="partner-item">
-          <span class="partner-name">Deloitte</span>
-          <span class="partner-desc">Global Markets Practice</span>
-        </div>
-        <div class="partner-item">
-          <span class="partner-name">European Investment Bank</span>
-          <span class="partner-desc">Institutional Partnerships</span>
-        </div>
-        <div class="partner-item">
-          <span class="partner-name">UN Global Compact</span>
-          <span class="partner-desc">Private Sector Engagement</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter -->
-  <section class="section-sm section-dark">
-    <div class="container">
-      <div class="newsletter-box fade-in">
-        <span class="section-label">Stay Informed</span>
-        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-2xl); color: var(--white);">Subscribe to the WEC Briefing</h3>
-        <p style="font-size: var(--font-size-sm); color: var(--text-secondary); max-width: 500px; margin: var(--space-md) auto 0;">Policy updates, governance announcements and institutional developments delivered to your inbox.</p>
-        <form class="newsletter-form" action="mailto:info@worldeconomicchamber.com" method="post" enctype="text/plain" onsubmit="this.querySelector('.btn').textContent='Thank you';this.querySelector('.btn').style.pointerEvents='none';setTimeout(()=>{this.querySelector('.btn').textContent='Subscribe';this.querySelector('.btn').style.pointerEvents=''},3000);">
-          <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="footer">

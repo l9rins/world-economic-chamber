@@ -26,30 +26,108 @@
       </a>
 
       <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="about.html">About the Chamber</a>
-            <a href="charter-and-governance.html">Charter, Policies &amp; Governance</a>
+        <!-- The Chamber Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="about.html" class="nav-link">The Chamber <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>About WEC</h4>
+                <a href="about.html">Mission & Vision</a>
+                <a href="#">History & Milestones</a>
+                <a href="#">Leadership Directory</a>
+                <a href="#">Regional Offices</a>
+              </div>
+              <div class="mega-col">
+                <h4>Engagement</h4>
+                <a href="#">Member Directory</a>
+                <a href="#">Institutional Partners</a>
+                <a href="#">NGO Affiliations</a>
+                <a href="#">Corporate Sponsors</a>
+              </div>
+              <div class="mega-col">
+                <h4>News & Media</h4>
+                <a href="#">Press Releases</a>
+                <a href="#">Media Gallery</a>
+                <a href="#">Official Statements</a>
+                <a href="#">Event Calendar</a>
+              </div>
+              <div class="mega-col">
+                <h4>Contact</h4>
+                <a href="#">Global Headquarters</a>
+                <a href="#">Media Inquiries</a>
+                <a href="#">Career Opportunities</a>
+              </div>
+            </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="charter.html" class="nav-link">Charter <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="charter.html">The WEC Charter</a>
-            <a href="governance-documents.html">Governance Documents</a>
-          </div>
-        </li>
-        <li class="nav-item">
+
+        <!-- Governance Mega-Menu -->
+        <li class="nav-item has-mega">
           <a href="governance-architecture.html" class="nav-link">Governance <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="governance-architecture.html">Governance Architecture</a>
-            <a href="decision-making.html">Decision-Making Procedures</a>
-            <a href="oversight-responsibilities.html">Oversight &amp; Accountability</a>
-            <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
-            <a href="secretariat-management.html">Executive Secretariat</a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Core Architecture</h4>
+                <a href="governance-architecture.html">Governance Architecture</a>
+                <a href="charter.html">The WEC Charter</a>
+                <a href="governance-documents.html">Governance Documents</a>
+              </div>
+              <div class="mega-col">
+                <h4>Operations</h4>
+                <a href="secretariat-management.html">Executive Secretariat</a>
+                <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
+                <a href="#">Operational Protocols</a>
+              </div>
+              <div class="mega-col">
+                <h4>Accountability</h4>
+                <a href="decision-making.html">Decision-Making Procedures</a>
+                <a href="oversight-responsibilities.html">Oversight & Accountability</a>
+                <a href="#">Compliance Standards</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policies</h4>
+                <a href="charter-and-governance.html">Charter & Policies Overview</a>
+                <a href="#">Ethics Framework</a>
+                <a href="#">Dispute Resolution</a>
+              </div>
+            </div>
           </div>
         </li>
+
+        <!-- Trade & Economy Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="#" class="nav-link">Trade & Economy <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Agreements</h4>
+                <a href="#">Active Trade Agreements</a>
+                <a href="#">Pending Negotiations</a>
+                <a href="#">Regional Integration</a>
+              </div>
+              <div class="mega-col">
+                <h4>Analysis</h4>
+                <a href="#">Global Trade Volume</a>
+                <a href="#">Economic Forecasts</a>
+                <a href="#">Market Access Reports</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policy</h4>
+                <a href="#">Commercial Policy Reviews</a>
+                <a href="#">Regulatory Convergence</a>
+                <a href="#">Investment Frameworks</a>
+              </div>
+              <div class="mega-col">
+                <h4>Resources</h4>
+                <a href="#">Trade Statistics Database</a>
+                <a href="#">Policy Documents</a>
+                <a href="#">Publications Library</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
       </ul>
 
       <div class="nav-actions">
@@ -62,7 +140,8 @@
       </div>
     </div>
   </nav>
-  <div class="nav-backdrop" id="navBackdrop"></div>
+  <div class="nav-backdrop" id="navBackdrop">
+</div>
 
   <!-- Page Header -->
   <div class="page-header" data-pillar="oversight">

@@ -26,30 +26,108 @@
       </a>
 
       <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <a href="about.html" class="nav-link">About <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="about.html">About the Chamber</a>
-            <a href="charter-and-governance.html">Charter, Policies &amp; Governance</a>
+        <!-- The Chamber Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="about.html" class="nav-link">The Chamber <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>About WEC</h4>
+                <a href="about.html">Mission & Vision</a>
+                <a href="#">History & Milestones</a>
+                <a href="#">Leadership Directory</a>
+                <a href="#">Regional Offices</a>
+              </div>
+              <div class="mega-col">
+                <h4>Engagement</h4>
+                <a href="#">Member Directory</a>
+                <a href="#">Institutional Partners</a>
+                <a href="#">NGO Affiliations</a>
+                <a href="#">Corporate Sponsors</a>
+              </div>
+              <div class="mega-col">
+                <h4>News & Media</h4>
+                <a href="#">Press Releases</a>
+                <a href="#">Media Gallery</a>
+                <a href="#">Official Statements</a>
+                <a href="#">Event Calendar</a>
+              </div>
+              <div class="mega-col">
+                <h4>Contact</h4>
+                <a href="#">Global Headquarters</a>
+                <a href="#">Media Inquiries</a>
+                <a href="#">Career Opportunities</a>
+              </div>
+            </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="charter.html" class="nav-link">Charter <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="charter.html">The WEC Charter</a>
-            <a href="governance-documents.html">Governance Documents</a>
-          </div>
-        </li>
-        <li class="nav-item">
+
+        <!-- Governance Mega-Menu -->
+        <li class="nav-item has-mega">
           <a href="governance-architecture.html" class="nav-link">Governance <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-          <div class="nav-dropdown">
-            <a href="governance-architecture.html">Governance Architecture</a>
-            <a href="decision-making.html">Decision-Making Procedures</a>
-            <a href="oversight-responsibilities.html">Oversight &amp; Accountability</a>
-            <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
-            <a href="secretariat-management.html">Executive Secretariat</a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Core Architecture</h4>
+                <a href="governance-architecture.html">Governance Architecture</a>
+                <a href="charter.html">The WEC Charter</a>
+                <a href="governance-documents.html">Governance Documents</a>
+              </div>
+              <div class="mega-col">
+                <h4>Operations</h4>
+                <a href="secretariat-management.html">Executive Secretariat</a>
+                <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
+                <a href="#">Operational Protocols</a>
+              </div>
+              <div class="mega-col">
+                <h4>Accountability</h4>
+                <a href="decision-making.html">Decision-Making Procedures</a>
+                <a href="oversight-responsibilities.html">Oversight & Accountability</a>
+                <a href="#">Compliance Standards</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policies</h4>
+                <a href="charter-and-governance.html">Charter & Policies Overview</a>
+                <a href="#">Ethics Framework</a>
+                <a href="#">Dispute Resolution</a>
+              </div>
+            </div>
           </div>
         </li>
+
+        <!-- Trade & Economy Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="#" class="nav-link">Trade & Economy <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Agreements</h4>
+                <a href="#">Active Trade Agreements</a>
+                <a href="#">Pending Negotiations</a>
+                <a href="#">Regional Integration</a>
+              </div>
+              <div class="mega-col">
+                <h4>Analysis</h4>
+                <a href="#">Global Trade Volume</a>
+                <a href="#">Economic Forecasts</a>
+                <a href="#">Market Access Reports</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policy</h4>
+                <a href="#">Commercial Policy Reviews</a>
+                <a href="#">Regulatory Convergence</a>
+                <a href="#">Investment Frameworks</a>
+              </div>
+              <div class="mega-col">
+                <h4>Resources</h4>
+                <a href="#">Trade Statistics Database</a>
+                <a href="#">Policy Documents</a>
+                <a href="#">Publications Library</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
       </ul>
 
       <div class="nav-actions">
@@ -62,7 +140,8 @@
       </div>
     </div>
   </nav>
-  <div class="nav-backdrop" id="navBackdrop"></div>
+  <div class="nav-backdrop" id="navBackdrop">
+</div>
 
   <!-- Page Header -->
   <div class="page-header" data-pillar="governance">
@@ -83,14 +162,14 @@
             <li><a href="#world-economic-chamber-charter">  WORLD ECONOMIC CHAMBER CHARTER</a></li>
             <li><a href="#world-economic-chamber-charter-1">  World Economic Chamber Charter</a></li>
             <li><a href="#preamble">  Preamble</a></li>
-            <li><a href="#article-1">Article I – Mandate and Institutional Purpose</a></li>
-            <li><a href="#article-2">Article II – Founding Principles</a></li>
-            <li><a href="#article-3">Article III – Governance Structure</a></li>
-            <li><a href="#article-4">Article IV – Authorities and DecisionMaking</a></li>
-            <li><a href="#article-5">Article V – Membership Standards</a></li>
-            <li><a href="#article-6">Article VI – Engagement and International Cooperation</a></li>
-            <li><a href="#article-7">Article VII – Records, Transparency and Institutional Safeguards</a></li>
-            <li><a href="#article-8">Article VIII – Amendments</a></li>
+            <li><a href="#article-i-–-mandate-and-institutional-pu">  Article I – Mandate and Institutional Purpose</a></li>
+            <li><a href="#article-ii-–-founding-principles">  Article II – Founding Principles</a></li>
+            <li><a href="#article-iii-–-governance-structure">  Article III – Governance Structure</a></li>
+            <li><a href="#article-iv-–-authorities-and-decisionmak">  Article IV – Authorities and DecisionMaking</a></li>
+            <li><a href="#article-v-–-membership-standards">  Article V – Membership Standards</a></li>
+            <li><a href="#article-vi-–-engagement-and-internationa">  Article VI – Engagement and International Cooperation</a></li>
+            <li><a href="#article-vii-–-records,-transparency-and-">  Article VII – Records, Transparency and Institutional Safeguards</a></li>
+            <li><a href="#article-viii-–-amendments">  Article VIII – Amendments</a></li>
           </ul>
         </div>
       </aside>
@@ -103,39 +182,39 @@
             <h3 id="world-economic-chamber-charter-1" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">World Economic Chamber Charter</h3>
             <h3 id="preamble" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Preamble</h3>
             <p>The World Economic Chamber is constituted as an international organisation dedicated to strengthening responsible crossborder economic activity. This Charter establishes the Chamber’s mandate, institutional authorities and governance architecture. It provides the principles and procedural foundations through which the Chamber conducts its work with professionalism, independence and respect for the regulatory environments in which members operate.</p>
-            <div class="article" id="article-1" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">01</span><h2 class="article-title">Article I – Mandate and Institutional Purpose</h2></div>
+            <h3 id="article-i-–-mandate-and-institutional-pu" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article I – Mandate and Institutional Purpose</h3>
             <p>The Chamber exists to support organisations engaged in international commerce, investment and economic cooperation.</p>
             <p>Its purpose is to promote stable, transparent and responsible crossborder business relations.</p>
             <p>The Chamber provides an institutional setting for dialogue, cooperation and professional engagement among multinational institutions, corporations, NGOs and government bodies.</p>
             <p>All activities undertaken by the Chamber must align with principles of integrity, jurisdictional respect and longterm economic stewardship.</p>
-            <div class="article" id="article-2" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">02</span><h2 class="article-title">Article II – Founding Principles</h2></div>
+            <h3 id="article-ii-–-founding-principles" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article II – Founding Principles</h3>
             <p>Integrity: Members and representatives must conduct themselves in accordance with ethical business practices and respect for regulatory frameworks.</p>
             <p>Independence: The Chamber shall remain free from commercial, political or sectorspecific influence that may compromise its neutrality.</p>
             <p>Professionalism: Engagement within the Chamber must reflect disciplined, responsible and internationally aware conduct.</p>
             <p>Constructive Internationalism: The Chamber supports cooperation across borders and sectors, recognising the shared responsibilities inherent in global economic activity.</p>
-            <div class="article" id="article-3" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">03</span><h2 class="article-title">Article III – Governance Structure</h2></div>
+            <h3 id="article-iii-–-governance-structure" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article III – Governance Structure</h3>
             <p>The Chamber’s governance is exercised through its Leadership and Executive Secretariat.</p>
             <p>Leadership is responsible for strategic direction, oversight of institutional standards and protection of the Chamber’s independence.</p>
             <p>The Executive Secretariat manages administrative operations, maintains institutional records, supports policy development and ensures procedural compliance.</p>
             <p>Governance responsibilities must be executed with transparency, continuity and adherence to documented processes.</p>
-            <div class="article" id="article-4" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">04</span><h2 class="article-title">Article IV – Authorities and DecisionMaking</h2></div>
+            <h3 id="article-iv-–-authorities-and-decisionmak" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article IV – Authorities and DecisionMaking</h3>
             <p>The Chamber shall act only within the authorities granted by this Charter and subsequent governance documents.</p>
             <p>Decisions must be made through defined procedures that ensure accountability and institutional discipline.</p>
             <p>All official actions require proper documentation and must be consistent with the Chamber’s mandate and founding principles.</p>
             <p>The Chamber may issue policies, guidelines and procedural frameworks to support consistent implementation of its responsibilities.</p>
-            <div class="article" id="article-5" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">05</span><h2 class="article-title">Article V – Membership Standards</h2></div>
+            <h3 id="article-v-–-membership-standards" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article V – Membership Standards</h3>
             <p>Membership is open to multinational institutions, corporations, NGOs and government bodies that demonstrate commitment to responsible international business conduct.</p>
             <p>Members must adhere to the Chamber’s Charter, code of conduct, principles, ethical standards and all applicable governance documents as in force from time to time.</p>
             <p>Membership may be suspended or revoked for conduct inconsistent with the Chamber’s Charter, code of conduct, principles, ethical standards and any other governance documents as in force from time to time.</p>
-            <div class="article" id="article-6" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">06</span><h2 class="article-title">Article VI – Engagement and International Cooperation</h2></div>
+            <h3 id="article-vi-–-engagement-and-internationa" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article VI – Engagement and International Cooperation</h3>
             <p>The Chamber may establish structured channels for crossborder dialogue, professional exchange and institutional cooperation.</p>
             <p>Engagement must be conducted in a manner that respects jurisdictional differences and regulatory obligations.</p>
             <p>The Chamber may participate in policy discussions, technical briefings and cooperative initiatives that support responsible international economic activity.</p>
-            <div class="article" id="article-7" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">07</span><h2 class="article-title">Article VII – Records, Transparency and Institutional Safeguards</h2></div>
+            <h3 id="article-vii-–-records,-transparency-and-" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article VII – Records, Transparency and Institutional Safeguards</h3>
             <p>The Chamber shall maintain accurate records of governance decisions, policies and institutional activities.</p>
             <p>Transparency must be upheld through clear documentation, consistent communication and adherence to established procedures.</p>
             <p>Safeguards shall be maintained to protect the Chamber’s independence, prevent undue influence and ensure responsible institutional conduct.</p>
-            <div class="article" id="article-8" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));"><span class="article-number">08</span><h2 class="article-title">Article VIII – Amendments</h2></div>
+            <h3 id="article-viii-–-amendments" style="scroll-margin-top: calc(var(--nav-height) + var(--space-xl));">Article VIII – Amendments</h3>
             <p>Amendments to this Charter may be adopted through formal governance procedures established by the Chamber.</p>
             <p>Any amendment must reinforce, not diminish, the principles of integrity, independence and professionalism.</p>
       </div>
