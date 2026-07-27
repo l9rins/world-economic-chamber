@@ -252,6 +252,11 @@ p {
   border-bottom-color: rgba(201, 168, 76, 0.1);
 }
 
+.nav.sidebar-open {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 .nav-inner {
   max-width: var(--max-width-wide);
   margin: 0 auto;

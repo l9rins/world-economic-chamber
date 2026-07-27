@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.classList.toggle('active', open);
     navMenu.classList.toggle('open', open);
     if (navBackdrop) navBackdrop.classList.toggle('open', open);
+    if (nav) nav.classList.toggle('sidebar-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   }
 
