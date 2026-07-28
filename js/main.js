@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // â”€â”€â”€ Nav Scroll Effect â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Nav Scroll Effect ────────────────────────
   const nav = document.querySelector('.nav');
   if (nav) {
     window.addEventListener('scroll', () => {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // â”€â”€â”€ Hero Parallax â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Hero Parallax ────────────────────────────
   const heroBg = document.querySelector('.hero-bg');
   if (heroBg) {
     window.addEventListener('scroll', () => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // â”€â”€â”€ Reading Progress Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Reading Progress Bar ─────────────────────
   const progressBar = document.getElementById('readingProgress');
   if (progressBar && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.addEventListener('scroll', () => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // â”€â”€â”€ Mobile Nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Mobile Nav ───────────────────────────────
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
   const navBackdrop = document.getElementById('navBackdrop');
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // â”€â”€â”€ Fade-in + Stagger Observer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Fade-in + Stagger Observer ───────────────
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.stagger').forEach(el => el.classList.add('visible'));
   }
 
-  // â”€â”€â”€ Scroll to Top â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Scroll to Top ────────────────────────────
   const scrollTopBtn = document.querySelector('.scroll-top');
   if (scrollTopBtn) {
     window.addEventListener('scroll', () => {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // â”€â”€â”€ Cookie Consent â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─── Cookie Consent ───────────────────────────
   const cookieConsent = document.getElementById('cookieConsent');
   if (cookieConsent) {
     if (!localStorage.getItem('wec-cookie-consent')) {
@@ -120,20 +120,88 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // â”€â”€â”€ Active Nav Link + Parent Dropdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-      // Pre-open parent dropdown in sidebar
-      const parentItem = link.closest('.nav-item');
-      if (parentItem && window.innerWidth <= 1024) {
-        parentItem.classList.add('open');
-      }
-    }
-  });
+  // ─── Quick Search ─────────────────────────────
+  const searchToggle = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('siteSearch');
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  const searchHint = document.getElementById('searchHint');
+  const searchClose = document.getElementById('searchClose');
 
-  // â”€â”€â”€ Sidebar Scroll Tracking â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  if (searchToggle && searchOverlay && searchInput) {
+    const seen = new Set();
+    const searchIndex = [];
+    document.querySelectorAll('.nav-link, .mega-col a, .footer-links a').forEach(a => {
+      const href = a.getAttribute('href');
+      const label = a.textContent.trim();
+      if (!href || href === '#' || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      const key = href + '|' + label;
+      if (seen.has(key) || !label) return;
+      seen.add(key);
+      searchIndex.push({ label, href });
+    });
+
+    function openSearch() {
+      searchOverlay.classList.add('open');
+      searchToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => searchInput.focus(), 50);
+    }
+
+    function closeSearch() {
+      searchOverlay.classList.remove('open');
+      searchToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      searchInput.value = '';
+      searchResults.innerHTML = '';
+      searchHint.style.display = 'block';
+    }
+
+    function runSearch(query) {
+      const q = query.trim().toLowerCase();
+      searchResults.innerHTML = '';
+      if (!q) {
+        searchHint.style.display = 'block';
+        return;
+      }
+      searchHint.style.display = 'none';
+      const matches = searchIndex.filter(item => item.label.toLowerCase().includes(q)).slice(0, 8);
+      if (!matches.length) {
+        const li = document.createElement('li');
+        li.className = 'search-empty';
+        li.textContent = 'No matching pages yet — try a different term.';
+        searchResults.appendChild(li);
+        return;
+      }
+      matches.forEach(item => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = item.href;
+        link.textContent = item.label;
+        li.appendChild(link);
+        searchResults.appendChild(li);
+      });
+    }
+
+    searchToggle.addEventListener('click', openSearch);
+    searchClose.addEventListener('click', closeSearch);
+    searchOverlay.addEventListener('click', (e) => {
+      if (e.target === searchOverlay) closeSearch();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && searchOverlay.classList.contains('open')) closeSearch();
+      if (e.key === '/' && document.activeElement !== searchInput && !searchOverlay.classList.contains('open')) {
+        e.preventDefault();
+        openSearch();
+      }
+    });
+    searchInput.addEventListener('input', (e) => runSearch(e.target.value));
+  }
+
+  // ─── Active Nav Link + Parent Dropdown ──────────
+  // Removed active state highlighting from main navigation as per user request.
+
+  // ─── Sidebar Scroll Tracking ──────────
   const sidebarLinks = document.querySelectorAll('.doc-sidebar li a');
   if (sidebarLinks.length) {
     const sidebarInner = document.querySelector('.doc-sidebar-inner');
@@ -257,7 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 600 + i * 60);
     });
 
-    // Count-up stats with eased animation
     const stats = container.closest('.constellation-section');
     if (stats) {
       const statEls = stats.querySelectorAll('.constellation-stat-number');
