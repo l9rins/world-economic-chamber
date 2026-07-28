@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Hero Parallax ────────────────────────────
   const heroBg = document.querySelector('.hero-bg');
-  if (heroBg) {
+  if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.addEventListener('scroll', () => {
       const offset = window.scrollY * 0.25;
       heroBg.style.transform = `translateY(${Math.min(offset, 40)}px)`;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-item').forEach(item => {
       const link = item.querySelector('.nav-link');
       const dropdown = item.querySelector('.nav-dropdown');
-      
+
       if (link && dropdown) {
         link.addEventListener('click', (e) => {
           if (window.innerWidth <= 1024) {
@@ -114,6 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (acceptBtn) {
       acceptBtn.addEventListener('click', () => {
         localStorage.setItem('wec-cookie-consent', 'true');
+        cookieConsent.classList.remove('visible');
+        setTimeout(() => cookieConsent.classList.add('hidden'), 500);
+      });
+    }
+
+    const dismissBtn = cookieConsent.querySelector('[data-cookie-dismiss]');
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', () => {
         cookieConsent.classList.remove('visible');
         setTimeout(() => cookieConsent.classList.add('hidden'), 500);
       });

@@ -151,6 +151,9 @@
       </ul>
 
       <div class="nav-actions">
+        <button class="search-toggle" id="searchToggle" aria-label="Search the site" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
         <a href="mailto:info@worldeconomicchamber.com" class="btn btn-primary btn-sm">Contact</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           <span></span>
@@ -162,6 +165,21 @@
   </nav>
   <div class="nav-backdrop" id="navBackdrop">
 </div>
+
+  <!-- Quick Search -->
+  <div class="site-search" id="siteSearch">
+    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Site search">
+      <div class="search-input-row">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="Search the Chamber…" autocomplete="off" aria-label="Search the Chamber">
+        <button class="search-close" id="searchClose" aria-label="Close search">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <p class="search-hint" id="searchHint">Start typing, or press <kbd>Esc</kbd> to close.</p>
+      <ul class="search-results" id="searchResults"></ul>
+    </div>
+  </div>
 
 <!-- Bento Hero Hub -->
   <section class="hero-hub" id="hero">
@@ -526,6 +544,9 @@
     </div>
     <div class="cookie-consent-actions">
       <button class="btn btn-primary btn-sm" data-cookie-accept>Accept</button>
+      <button class="cookie-dismiss" data-cookie-dismiss aria-label="Dismiss">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
     </div>
   </div>
 
