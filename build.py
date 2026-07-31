@@ -272,7 +272,7 @@ NAV_HTML = """
       </ul>
 
       <div class="nav-actions">
-        <a href="mailto:info@worldeconomicchamber.com" class="btn btn-primary btn-sm">Contact</a>
+        <a href="mailto:info@worldeconomicchamber.org" class="btn btn-primary btn-sm">Contact</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -331,7 +331,7 @@ FOOTER_HTML = """
         <div>
           <h4 class="footer-heading">Contact</h4>
           <ul class="footer-links">
-            <li><a href="mailto:info@worldeconomicchamber.com">info@worldeconomicchamber.com</a></li>
+            <li><a href="mailto:info@worldeconomicchamber.org">info@worldeconomicchamber.org</a></li>
             <li><span style="color: var(--text-muted); font-size: var(--font-size-sm);">7th Floor, Tower 42<br>25 Old Broad Street<br>London EC2N 1HN<br>United Kingdom</span></li>
           </ul>
         </div>
@@ -378,8 +378,8 @@ def head_html(title, description):
   <meta property="og:title" content="{title} | World Economic Chamber">
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.worldeconomicchamber.com">
-  <meta property="og:image" content="https://www.worldeconomicchamber.com/images/Logo%20WEC%201%20[MAIN].png">
+  <meta property="og:url" content="https://www.worldeconomicchamber.org">
+  <meta property="og:image" content="https://www.worldeconomicchamber.org/images/Logo%20WEC%201%20[MAIN].png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/Logo WEC 1 [MAIN].png" type="image/png">
   <link rel="apple-touch-icon" href="images/Logo WEC 1 [MAIN].png">
@@ -394,8 +394,8 @@ def head_html(title, description):
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "World Economic Chamber",
-    "url": "https://www.worldeconomicchamber.com",
-    "logo": "https://www.worldeconomicchamber.com/images/Logo%20WEC%201%20[MAIN].png",
+    "url": "https://www.worldeconomicchamber.org",
+    "logo": "https://www.worldeconomicchamber.org/images/Logo%20WEC%201%20[MAIN].png",
     "sameAs": [
       "https://twitter.com/WorldEconChamber",
       "https://www.linkedin.com/company/world-economic-chamber"
@@ -712,9 +712,9 @@ def build_index():
     with open(os.path.join(OUT_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
         f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-        f.write('  <url>\n    <loc>https://www.worldeconomicchamber.com/index.html</loc>\n  </url>\n')
+        f.write('  <url>\n    <loc>https://www.worldeconomicchamber.org/index.html</loc>\n  </url>\n')
         for docx_file, page_info in pages.items():
-            f.write(f'  <url>\n    <loc>https://www.worldeconomicchamber.com/{page_info["file"]}</loc>\n  </url>\n')
+            f.write(f'  <url>\n    <loc>https://www.worldeconomicchamber.org/{page_info["file"]}</loc>\n  </url>\n')
         f.write('</urlset>')
     print("  [OK] Generated sitemap.xml")
 

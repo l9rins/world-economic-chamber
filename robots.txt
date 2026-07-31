@@ -3,4 +3,4 @@ Allow: /
 Disallow: /document/
 Disallow: /js/
 
-Sitemap: https://www.worldeconomicchamber.com/sitemap.xml
+Sitemap: https://www.worldeconomicchamber.org/sitemap.xml
