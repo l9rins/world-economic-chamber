@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /document/
+Disallow: /js/
+
+Sitemap: https://www.worldeconomicchamber.com/sitemap.xml
