@@ -2218,8 +2218,8 @@ p {
 .bento-tag {
   display: inline-block;
   align-self: flex-start;
-  background: var(--white);
-  color: var(--navy-900);
+  background: var(--pillar-oversight);
+  color: var(--white);
   padding: 5px 12px;
   font-size: var(--font-size-xs);
   font-family: var(--font-doc);

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personnel Directory | World Economic Chamber</title>
+  <meta name="description" content="Search the World Economic Chamber personnel directory by name or country.">
+  <meta property="og:title" content="Personnel Directory | World Economic Chamber">
+  <meta property="og:description" content="Search the World Economic Chamber personnel directory by name or country.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.worldeconomicchamber.org/personnel-directory.html">
+  <meta property="og:image" content="https://www.worldeconomicchamber.org/images/Logo%20WEC%201%20[MAIN].png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/Logo WEC 1 [MAIN].png" type="image/png">
+  <link rel="apple-touch-icon" href="images/Logo WEC 1 [MAIN].png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "World Economic Chamber",
+    "url": "https://www.worldeconomicchamber.org",
+    "logo": "https://www.worldeconomicchamber.org/images/Logo%20WEC%201%20[MAIN].png",
+    "sameAs": [
+      "https://twitter.com/WorldEconChamber",
+      "https://www.linkedin.com/company/world-economic-chamber"
+    ]
+  }
+  </script>
+  <style>
+    /* Personnel Directory specific styles */
+    .directory-section {
+      padding: var(--space-4xl) 0;
+      margin-top: var(--nav-height);
+    }
+
+    .directory-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .directory-header h1 {
+      font-size: var(--font-size-4xl);
+      color: var(--white);
+      margin-bottom: var(--space-md);
+    }
+
+    .directory-header p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .search-form-container {
+      max-width: 900px;
+      margin: 0 auto var(--space-3xl);
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-2xl);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .search-form-container h3 {
+      font-size: var(--font-size-lg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .search-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    @media (max-width: 768px) {
+      .search-fields {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .search-field label {
+      display: block;
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-400);
+      margin-bottom: var(--space-sm);
+      font-family: var(--font-body);
+    }
+
+    .search-field input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: var(--font-size-sm);
+      outline: none;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .search-field input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-field input:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .search-field input:focus {
+      border-color: var(--gold-500);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .search-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: flex-end;
+    }
+
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+      padding: 10px 24px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--font-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .btn-reset:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+    }
+
+    /* Results Table */
+    .results-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .results-count {
+      font-size: var(--font-size-sm);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+    }
+
+    .results-count strong {
+      color: var(--gold-400);
+    }
+
+    .results-table-wrap {
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .results-table thead th {
+      background: rgba(255, 255, 255, 0.04);
+      padding: var(--space-md) var(--space-lg);
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-400);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+    }
+
+    .results-table tbody td {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-family: var(--font-body);
+    }
+
+    .results-table tbody tr {
+      transition: background var(--transition-fast);
+    }
+
+    .results-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .results-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: var(--space-4xl) var(--space-xl);
+      color: var(--text-muted);
+    }
+
+    .no-results svg {
+      margin-bottom: var(--space-lg);
+      color: rgba(255, 255, 255, 0.15);
+    }
+
+    .no-results h4 {
+      font-size: var(--font-size-xl);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+      font-family: var(--font-heading);
+    }
+
+    .no-results p {
+      font-size: var(--font-size-sm);
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .initial-state {
+      text-align: center;
+      padding: var(--space-4xl) var(--space-xl);
+      color: var(--text-muted);
+    }
+
+    .initial-state svg {
+      margin-bottom: var(--space-lg);
+      color: rgba(201, 168, 76, 0.2);
+    }
+
+    .initial-state h4 {
+      font-size: var(--font-size-xl);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-sm);
+      font-family: var(--font-heading);
+    }
+
+    .initial-state p {
+      font-size: var(--font-size-sm);
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .results-table-wrap {
+        overflow-x: auto;
+      }
+
+      .results-table {
+        min-width: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div id="readingProgress" class="reading-progress"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <picture><source srcset="images/Logo_WEC_White_Text.webp" type="image/webp"><img src="images/Logo_WEC_White_Text.png" alt="World Economic Chamber" loading="eager"></picture>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <!-- The Chamber Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="about.html" class="nav-link">The Chamber <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>About WEC</h4>
+                <a href="about.html">Mission & Vision</a>
+                <a href="#">History & Milestones</a>
+                <a href="#">Leadership Directory</a>
+                <a href="#">Regional Offices</a>
+              </div>
+              <div class="mega-col">
+                <h4>Engagement</h4>
+                <a href="personnel-directory.html">Personnel Directory</a>
+                <a href="#">Institutional Partners</a>
+                <a href="#">NGO Affiliations</a>
+                <a href="#">Corporate Sponsors</a>
+              </div>
+              <div class="mega-col">
+                <h4>News & Media</h4>
+                <a href="#">Press Releases</a>
+                <a href="#">Media Gallery</a>
+                <a href="#">Official Statements</a>
+                <a href="#">Event Calendar</a>
+              </div>
+              <div class="mega-col">
+                <h4>Contact</h4>
+                <a href="#">Global Headquarters</a>
+                <a href="#">Media Inquiries</a>
+                <a href="#">Career Opportunities</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Governance Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="governance-architecture.html" class="nav-link">Governance <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Core Architecture</h4>
+                <a href="governance-architecture.html">Governance Architecture</a>
+                <a href="charter.html">The WEC Charter</a>
+                <a href="governance-documents.html">Governance Documents</a>
+              </div>
+              <div class="mega-col">
+                <h4>Operations</h4>
+                <a href="secretariat-management.html">Executive Secretariat</a>
+                <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
+                <a href="#">Operational Protocols</a>
+              </div>
+              <div class="mega-col">
+                <h4>Accountability</h4>
+                <a href="decision-making.html">Decision-Making Procedures</a>
+                <a href="oversight-responsibilities.html">Oversight & Accountability</a>
+                <a href="#">Compliance Standards</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policies</h4>
+                <a href="charter-and-governance.html">Charter & Policies Overview</a>
+                <a href="#">Ethics Framework</a>
+                <a href="#">Dispute Resolution</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Trade & Economy Mega-Menu -->
+        <li class="nav-item has-mega">
+          <a href="#" class="nav-link">Trade & Economy <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <div class="nav-dropdown mega-menu">
+            <div class="mega-menu-grid">
+              <div class="mega-col">
+                <h4>Agreements</h4>
+                <a href="#">Active Trade Agreements</a>
+                <a href="#">Pending Negotiations</a>
+                <a href="#">Regional Integration</a>
+              </div>
+              <div class="mega-col">
+                <h4>Analysis</h4>
+                <a href="#">Global Trade Volume</a>
+                <a href="#">Economic Forecasts</a>
+                <a href="#">Market Access Reports</a>
+              </div>
+              <div class="mega-col">
+                <h4>Policy</h4>
+                <a href="#">Commercial Policy Reviews</a>
+                <a href="#">Regulatory Convergence</a>
+                <a href="#">Investment Frameworks</a>
+              </div>
+              <div class="mega-col">
+                <h4>Resources</h4>
+                <a href="#">Trade Statistics Database</a>
+                <a href="#">Policy Documents</a>
+                <a href="#">Publications Library</a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+      <div class="nav-actions">
+        <a href="mailto:info@worldeconomicchamber.org" class="btn btn-primary btn-sm">Contact</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop">
+</div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <section class="directory-section">
+      <div class="container">
+        <div class="directory-header">
+          <span class="page-badge page-badge--cooperation" style="display: inline-block; font-size: var(--font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; padding: 6px 16px; border-radius: 2px; margin-bottom: var(--space-md); background: rgba(239,125,0,0.12); color: var(--pillar-cooperation);">Cooperation</span>
+          <h1>Personnel Directory</h1>
+          <p>Search the World Economic Chamber personnel directory by first name, surname, or country.</p>
+        </div>
+
+        <!-- Search Form -->
+        <div class="search-form-container">
+          <h3>Search Personnel</h3>
+          <form id="personnelSearchForm" onsubmit="return false;">
+            <div class="search-fields">
+              <div class="search-field">
+                <label for="searchFirstName">First Name</label>
+                <input type="text" id="searchFirstName" placeholder="e.g. Eleanor" autocomplete="off">
+              </div>
+              <div class="search-field">
+                <label for="searchSurname">Surname</label>
+                <input type="text" id="searchSurname" placeholder="e.g. Whitfield" autocomplete="off">
+              </div>
+              <div class="search-field">
+                <label for="searchCountry">Country</label>
+                <input type="text" id="searchCountry" placeholder="e.g. United Kingdom" autocomplete="off">
+              </div>
+            </div>
+            <div class="search-actions">
+              <button type="button" class="btn-reset" id="resetBtn">Reset</button>
+              <button type="submit" class="btn btn-primary btn-sm" id="searchBtn">Search</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Results -->
+        <div class="results-container">
+          <div id="resultsHeader" class="results-header" style="display: none;">
+            <span class="results-count" id="resultsCount"></span>
+          </div>
+
+          <div class="results-table-wrap" id="resultsTableWrap" style="display: none;">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Surname</th>
+                  <th>Country</th>
+                  <th>Position Description</th>
+                  <th>Appointment Date</th>
+                </tr>
+              </thead>
+              <tbody id="resultsBody">
+              </tbody>
+            </table>
+          </div>
+
+          <!-- No Results State -->
+          <div id="noResults" style="display: none;">
+            <div class="no-results">
+              <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              <h4>No matching record found</h4>
+              <p>Please adjust your search criteria and try again.</p>
+            </div>
+          </div>
+
+          <!-- Initial State -->
+          <div id="initialState">
+            <div class="initial-state">
+              <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <h4>Enter search criteria above</h4>
+              <p>Use one or more fields to search the personnel directory.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <picture><source srcset="images/Logo_WEC_White_Text.webp" type="image/webp"><img src="images/Logo_WEC_White_Text.png" alt="WEC Logo" loading="lazy"></picture>
+          <p>The World Economic Chamber &mdash; strengthening cross-border commerce, investment and economic cooperation through principled governance and institutional discipline.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">The Chamber</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Mission &amp; Vision</a></li>
+            <li><a href="#">History &amp; Milestones</a></li>
+            <li><a href="#">Leadership Directory</a></li>
+            <li><a href="#">Regional Offices</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Governance</h4>
+          <ul class="footer-links">
+            <li><a href="governance-architecture.html">Governance Architecture</a></li>
+            <li><a href="charter.html">The WEC Charter</a></li>
+            <li><a href="governance-documents.html">Governance Documents</a></li>
+            <li><a href="decision-making.html">Decision-Making</a></li>
+            <li><a href="oversight-responsibilities.html">Oversight</a></li>
+            <li><a href="leadership-responsibilities.html">Leadership</a></li>
+            <li><a href="secretariat-management.html">Secretariat</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="charter-and-governance.html">Charter &amp; Policies Overview</a></li>
+            <li><a href="personnel-directory.html">Personnel Directory</a></li>
+            <li><a href="#">Ethics Framework</a></li>
+            <li><a href="#">Dispute Resolution</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:info@worldeconomicchamber.org">info@worldeconomicchamber.org</a></li>
+            <li><span style="color: var(--text-muted); font-size: var(--font-size-sm);">7th Floor, Tower 42<br>25 Old Broad Street<br>London EC2N 1HN<br>United Kingdom</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 World Economic Chamber. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com/company/world-economic-chamber" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+          <a href="https://x.com/WEC_Chamber" aria-label="X / Twitter"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" aria-hidden="true"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Personnel Directory Search
+    (function() {
+      let personnelData = [];
+
+      // Load personnel data
+      fetch('data/personnel.json')
+        .then(response => response.json())
+        .then(data => {
+          personnelData = data;
+        })
+        .catch(err => {
+          console.error('Failed to load personnel data:', err);
+        });
+
+      const form = document.getElementById('personnelSearchForm');
+      const firstNameInput = document.getElementById('searchFirstName');
+      const surnameInput = document.getElementById('searchSurname');
+      const countryInput = document.getElementById('searchCountry');
+      const resetBtn = document.getElementById('resetBtn');
+      const resultsBody = document.getElementById('resultsBody');
+      const resultsTableWrap = document.getElementById('resultsTableWrap');
+      const resultsHeader = document.getElementById('resultsHeader');
+      const resultsCount = document.getElementById('resultsCount');
+      const noResults = document.getElementById('noResults');
+      const initialState = document.getElementById('initialState');
+
+      function performSearch() {
+        const firstName = firstNameInput.value.trim().toLowerCase();
+        const surname = surnameInput.value.trim().toLowerCase();
+        const country = countryInput.value.trim().toLowerCase();
+
+        // If all fields are empty, show initial state
+        if (!firstName && !surname && !country) {
+          initialState.style.display = '';
+          resultsTableWrap.style.display = 'none';
+          resultsHeader.style.display = 'none';
+          noResults.style.display = 'none';
+          return;
+        }
+
+        initialState.style.display = 'none';
+
+        // Case-insensitive partial matching
+        const matches = personnelData.filter(person => {
+          const matchFirst = !firstName || person.firstName.toLowerCase().includes(firstName);
+          const matchSurname = !surname || person.surname.toLowerCase().includes(surname);
+          const matchCountry = !country || person.country.toLowerCase().includes(country);
+          return matchFirst && matchSurname && matchCountry;
+        });
+
+        if (matches.length > 0) {
+          resultsTableWrap.style.display = '';
+          noResults.style.display = 'none';
+          resultsHeader.style.display = 'flex';
+          resultsCount.innerHTML = '<strong>' + matches.length + '</strong> record' + (matches.length !== 1 ? 's' : '') + ' found';
+
+          resultsBody.innerHTML = matches.map(person => {
+            const dateStr = new Date(person.appointmentDate).toLocaleDateString('en-GB', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+            });
+            return '<tr>' +
+              '<td>' + escapeHtml(person.firstName) + '</td>' +
+              '<td>' + escapeHtml(person.surname) + '</td>' +
+              '<td>' + escapeHtml(person.country) + '</td>' +
+              '<td>' + escapeHtml(person.positionDescription) + '</td>' +
+              '<td>' + dateStr + '</td>' +
+              '</tr>';
+          }).join('');
+        } else {
+          resultsTableWrap.style.display = 'none';
+          noResults.style.display = '';
+          resultsHeader.style.display = 'flex';
+          resultsCount.innerHTML = '<strong>0</strong> records found';
+        }
+      }
+
+      function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        performSearch();
+      });
+
+      resetBtn.addEventListener('click', function() {
+        firstNameInput.value = '';
+        surnameInput.value = '';
+        countryInput.value = '';
+        initialState.style.display = '';
+        resultsTableWrap.style.display = 'none';
+        resultsHeader.style.display = 'none';
+        noResults.style.display = 'none';
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -145,6 +145,482 @@ pages = {
         "desc": "Operational management protocols of the WEC Executive Secretariat.",
         "breadcrumb": "Home / Governance / Secretariat",
         "pillar": "governance"
+    },
+    "1Bf.  Coordination and Reporting Procedures Between Leadership and Secretariat.docx": {
+        "file": "coordination-reporting.html",
+        "title": "Coordination & Reporting Procedures",
+        "desc": "Coordination and reporting procedures between leadership and the Executive Secretariat.",
+        "breadcrumb": "Home / Governance / Coordination & Reporting",
+        "pillar": "governance"
+    },
+    "1Bg.  Secretariat Documentation, Record-Keeping and Complilance Requirements.docx": {
+        "file": "secretariat-documentation.html",
+        "title": "Secretariat Documentation & Record-Keeping",
+        "desc": "Documentation, record-keeping and compliance requirements for the Executive Secretariat.",
+        "breadcrumb": "Home / Governance / Secretariat Documentation",
+        "pillar": "governance"
+    },
+    "1Bh.  Institutional Accountability and Performance-Monitoring Guidelines.docx": {
+        "file": "institutional-accountability.html",
+        "title": "Institutional Accountability & Performance Monitoring",
+        "desc": "Institutional accountability and performance-monitoring guidelines.",
+        "breadcrumb": "Home / Governance / Accountability",
+        "pillar": "oversight"
+    },
+    "1Bi.  Institutional Independence and Neutrality Policy.docx": {
+        "file": "institutional-independence.html",
+        "title": "Institutional Independence & Neutrality",
+        "desc": "Policy on institutional independence and neutrality.",
+        "breadcrumb": "Home / Governance / Independence",
+        "pillar": "governance"
+    },
+    "1Bj.  Regulatory Engagement Standards.docx": {
+        "file": "regulatory-engagement.html",
+        "title": "Regulatory Engagement Standards",
+        "desc": "Standards for regulatory engagement and interaction.",
+        "breadcrumb": "Home / Governance / Regulatory Engagement",
+        "pillar": "governance"
+    },
+    "1Bk.  Cross-Jurisdictional Consultation and Coordination Procedures.docx": {
+        "file": "cross-jurisdictional-consultation.html",
+        "title": "Cross-Jurisdictional Consultation & Coordination",
+        "desc": "Procedures for cross-jurisdictional consultation and coordination.",
+        "breadcrumb": "Home / Governance / Cross-Jurisdictional",
+        "pillar": "cooperation"
+    },
+    "1Bl.  Regulatory Correspondence and Information-Handling Guidelines.docx": {
+        "file": "regulatory-correspondence.html",
+        "title": "Regulatory Correspondence & Information Handling",
+        "desc": "Guidelines for regulatory correspondence and information handling.",
+        "breadcrumb": "Home / Governance / Regulatory Correspondence",
+        "pillar": "governance"
+    },
+    "1Bm.  Regulatory Meeting and Submission Protocols.docx": {
+        "file": "regulatory-meeting-protocols.html",
+        "title": "Regulatory Meeting & Submission Protocols",
+        "desc": "Protocols for regulatory meetings and submissions.",
+        "breadcrumb": "Home / Governance / Meeting Protocols",
+        "pillar": "governance"
+    },
+    "1Bn.  Cross-Border Engagement Standards.docx": {
+        "file": "cross-border-engagement.html",
+        "title": "Cross-Border Engagement Standards",
+        "desc": "Standards for cross-border engagement and interaction.",
+        "breadcrumb": "Home / Governance / Cross-Border Engagement",
+        "pillar": "cooperation"
+    },
+    "1Bo.  International Coordination and Liaison Procedures.docx": {
+        "file": "international-coordination.html",
+        "title": "International Coordination & Liaison",
+        "desc": "Procedures for international coordination and liaison.",
+        "breadcrumb": "Home / Governance / International Coordination",
+        "pillar": "cooperation"
+    },
+    "1Bp.  Cross-Jurisdictional Communication and Information-Handling Guidelines.docx": {
+        "file": "cross-jurisdictional-communication.html",
+        "title": "Cross-Jurisdictional Communication & Information Handling",
+        "desc": "Guidelines for cross-jurisdictional communication and information handling.",
+        "breadcrumb": "Home / Governance / Communication Guidelines",
+        "pillar": "cooperation"
+    },
+    "1Bq.  Cross-Border Meeting, Consultation and Participation Protocols.docx": {
+        "file": "cross-border-meeting-protocols.html",
+        "title": "Cross-Border Meeting & Consultation Protocols",
+        "desc": "Protocols for cross-border meetings, consultation and participation.",
+        "breadcrumb": "Home / Governance / Cross-Border Meetings",
+        "pillar": "cooperation"
+    },
+    "1Br.  Core Record-Keeping Requirements.docx": {
+        "file": "core-record-keeping.html",
+        "title": "Core Record-Keeping Requirements",
+        "desc": "Core requirements for institutional record-keeping.",
+        "breadcrumb": "Home / Governance / Record-Keeping",
+        "pillar": "governance"
+    },
+    "1Bs.  Documentation Standards for Governance and Decision-Making.docx": {
+        "file": "documentation-standards.html",
+        "title": "Documentation Standards for Governance",
+        "desc": "Documentation standards for governance and decision-making processes.",
+        "breadcrumb": "Home / Governance / Documentation Standards",
+        "pillar": "governance"
+    },
+    "1Bt.  Operational Documentation and Archival Procedures.docx": {
+        "file": "operational-documentation.html",
+        "title": "Operational Documentation & Archival",
+        "desc": "Procedures for operational documentation and archival.",
+        "breadcrumb": "Home / Governance / Documentation & Archival",
+        "pillar": "governance"
+    },
+    "1Bu.  Cross‑Border Engagement Record‑Keeping Protocols.docx": {
+        "file": "cross-border-record-keeping.html",
+        "title": "Cross-Border Engagement Record-Keeping",
+        "desc": "Protocols for cross-border engagement record-keeping.",
+        "breadcrumb": "Home / Governance / Cross-Border Records",
+        "pillar": "cooperation"
+    },
+    "1Bv.  Compliance, Audit and Retrieval Guidelines.docx": {
+        "file": "compliance-audit.html",
+        "title": "Compliance, Audit & Retrieval Guidelines",
+        "desc": "Guidelines for compliance, audit and retrieval.",
+        "breadcrumb": "Home / Governance / Compliance & Audit",
+        "pillar": "oversight"
+    },
+    "1C.  Ethical and Conduct Policies.docx": {
+        "file": "ethical-conduct-policies.html",
+        "title": "Ethical & Conduct Policies",
+        "desc": "Ethical and conduct policies of the World Economic Chamber.",
+        "breadcrumb": "Home / Governance / Ethics & Conduct",
+        "pillar": "oversight"
+    },
+    "1Ca.  Member Conduct and Professional Standards Policy.docx": {
+        "file": "member-conduct.html",
+        "title": "Member Conduct & Professional Standards",
+        "desc": "Policy on member conduct and professional standards.",
+        "breadcrumb": "Home / Governance / Member Conduct",
+        "pillar": "oversight"
+    },
+    "1Cb.  Conflict of Interest Management Policy.docx": {
+        "file": "conflict-of-interest.html",
+        "title": "Conflict of Interest Management",
+        "desc": "Policy on conflict of interest management.",
+        "breadcrumb": "Home / Governance / Conflict of Interest",
+        "pillar": "oversight"
+    },
+    "1Cc.  Ethical Business Practices and Compliance Policy.docx": {
+        "file": "ethical-business-practices.html",
+        "title": "Ethical Business Practices & Compliance",
+        "desc": "Policy on ethical business practices and compliance.",
+        "breadcrumb": "Home / Governance / Ethical Practices",
+        "pillar": "oversight"
+    },
+    "1Cd.  Jurisdictional Respect and Regulatory Adherence Policy.docx": {
+        "file": "jurisdictional-respect.html",
+        "title": "Jurisdictional Respect & Regulatory Adherence",
+        "desc": "Policy on jurisdictional respect and regulatory adherence.",
+        "breadcrumb": "Home / Governance / Jurisdictional Respect",
+        "pillar": "governance"
+    },
+    "1D.  Operational Policies.docx": {
+        "file": "operational-policies.html",
+        "title": "Operational Policies",
+        "desc": "Operational policies of the World Economic Chamber.",
+        "breadcrumb": "Home / Governance / Operational Policies",
+        "pillar": "governance"
+    },
+    "1Da.  Program Design and Approval Protocols.docx": {
+        "file": "program-design-approval.html",
+        "title": "Program Design & Approval Protocols",
+        "desc": "Protocols for program design and approval.",
+        "breadcrumb": "Home / Governance / Program Design",
+        "pillar": "governance"
+    },
+    "1Db. Cross-Border Initiative Implementation Procedures.docx": {
+        "file": "cross-border-initiative.html",
+        "title": "Cross-Border Initiative Implementation",
+        "desc": "Procedures for cross-border initiative implementation.",
+        "breadcrumb": "Home / Governance / Cross-Border Initiatives",
+        "pillar": "cooperation"
+    },
+    "1Dc. Stakeholder Coordination and Engagement Standards.docx": {
+        "file": "stakeholder-coordination.html",
+        "title": "Stakeholder Coordination & Engagement",
+        "desc": "Standards for stakeholder coordination and engagement.",
+        "breadcrumb": "Home / Governance / Stakeholder Coordination",
+        "pillar": "cooperation"
+    },
+    "1Dd. Program Documentation & Record‑Keeping Requirements.docx": {
+        "file": "program-documentation.html",
+        "title": "Program Documentation & Record-Keeping",
+        "desc": "Requirements for program documentation and record-keeping.",
+        "breadcrumb": "Home / Governance / Program Documentation",
+        "pillar": "governance"
+    },
+    "1De. Monitoring, Reporting & Evaluation Framework.docx": {
+        "file": "monitoring-reporting.html",
+        "title": "Monitoring, Reporting & Evaluation",
+        "desc": "Framework for monitoring, reporting and evaluation.",
+        "breadcrumb": "Home / Governance / Monitoring & Reporting",
+        "pillar": "oversight"
+    },
+    "1Df. Risk Management & Issue Escalation Procedures.docx": {
+        "file": "risk-management.html",
+        "title": "Risk Management & Issue Escalation",
+        "desc": "Procedures for risk management and issue escalation.",
+        "breadcrumb": "Home / Governance / Risk Management",
+        "pillar": "oversight"
+    },
+    "1Dg. Public‑Institution Engagement Protocols.docx": {
+        "file": "public-institution-engagement.html",
+        "title": "Public-Institution Engagement Protocols",
+        "desc": "Protocols for public-institution engagement.",
+        "breadcrumb": "Home / Governance / Public-Institution Engagement",
+        "pillar": "governance"
+    },
+    "1Dh. Operational Compliance & Quality Assurance Standards.docx": {
+        "file": "operational-compliance.html",
+        "title": "Operational Compliance & Quality Assurance",
+        "desc": "Standards for operational compliance and quality assurance.",
+        "breadcrumb": "Home / Governance / Operational Compliance",
+        "pillar": "oversight"
+    },
+    "1Di. Program Communications & Information Handling Policy.docx": {
+        "file": "program-communications.html",
+        "title": "Program Communications & Information Handling",
+        "desc": "Policy on program communications and information handling.",
+        "breadcrumb": "Home / Governance / Program Communications",
+        "pillar": "governance"
+    },
+    "1Dj. Public‑Institution Engagement Protocol.docx": {
+        "file": "public-institution-protocol.html",
+        "title": "Public-Institution Engagement Protocol",
+        "desc": "Protocol for engagement with public institutions.",
+        "breadcrumb": "Home / Governance / Public-Institution Protocol",
+        "pillar": "governance"
+    },
+    "1Dk. Government & Regulatory Liaison Standards.docx": {
+        "file": "government-liaison.html",
+        "title": "Government & Regulatory Liaison Standards",
+        "desc": "Standards for government and regulatory liaison.",
+        "breadcrumb": "Home / Governance / Government Liaison",
+        "pillar": "governance"
+    },
+    "1Dl. Cross‑Border Regulatory Coordination Procedures.docx": {
+        "file": "cross-border-regulatory.html",
+        "title": "Cross-Border Regulatory Coordination",
+        "desc": "Procedures for cross-border regulatory coordination.",
+        "breadcrumb": "Home / Governance / Cross-Border Regulatory",
+        "pillar": "cooperation"
+    },
+    "1Dm. Official Communications & Correspondence Guidelines.docx": {
+        "file": "official-communications.html",
+        "title": "Official Communications & Correspondence",
+        "desc": "Guidelines for official communications and correspondence.",
+        "breadcrumb": "Home / Governance / Official Communications",
+        "pillar": "governance"
+    },
+    "1Dn. Public‑Sector Meeting & Consultation Procedures.docx": {
+        "file": "public-sector-meeting.html",
+        "title": "Public-Sector Meeting & Consultation",
+        "desc": "Procedures for public-sector meetings and consultations.",
+        "breadcrumb": "Home / Governance / Public-Sector Meetings",
+        "pillar": "governance"
+    },
+    "1Do. Documentation, Reporting & Record‑Keeping Requirements.docx": {
+        "file": "documentation-reporting.html",
+        "title": "Documentation, Reporting & Record-Keeping",
+        "desc": "Requirements for documentation, reporting and record-keeping.",
+        "breadcrumb": "Home / Governance / Documentation & Reporting",
+        "pillar": "governance"
+    },
+    "1Dp. Institutional Neutrality & Influence‑Safeguard Policy.docx": {
+        "file": "institutional-neutrality.html",
+        "title": "Institutional Neutrality & Influence Safeguard",
+        "desc": "Policy on institutional neutrality and influence safeguards.",
+        "breadcrumb": "Home / Governance / Neutrality & Safeguards",
+        "pillar": "governance"
+    },
+    "1Dq. International Cooperation Framework.docx": {
+        "file": "international-cooperation-framework.html",
+        "title": "International Cooperation Framework",
+        "desc": "Framework for international cooperation.",
+        "breadcrumb": "Home / Governance / Cooperation Framework",
+        "pillar": "cooperation"
+    },
+    "1Dr. Cross‑Border Liaison & Coordination Standards.docx": {
+        "file": "cross-border-liaison.html",
+        "title": "Cross-Border Liaison & Coordination",
+        "desc": "Standards for cross-border liaison and coordination.",
+        "breadcrumb": "Home / Governance / Cross-Border Liaison",
+        "pillar": "cooperation"
+    },
+    "1Ds. Multilateral Engagement Procedures.docx": {
+        "file": "multilateral-engagement.html",
+        "title": "Multilateral Engagement Procedures",
+        "desc": "Procedures for multilateral engagement.",
+        "breadcrumb": "Home / Governance / Multilateral Engagement",
+        "pillar": "cooperation"
+    },
+    "1Dt. International Partnership Development Guidelines.docx": {
+        "file": "international-partnership.html",
+        "title": "International Partnership Development",
+        "desc": "Guidelines for international partnership development.",
+        "breadcrumb": "Home / Governance / Partnership Development",
+        "pillar": "cooperation"
+    },
+    "1Du. Cross‑Jurisdictional Information‑Sharing Protocols.docx": {
+        "file": "information-sharing.html",
+        "title": "Cross-Jurisdictional Information Sharing",
+        "desc": "Protocols for cross-jurisdictional information sharing.",
+        "breadcrumb": "Home / Governance / Information Sharing",
+        "pillar": "cooperation"
+    },
+    "1Dv. Cooperation Program Documentation & Record‑Keeping Requirements.docx": {
+        "file": "cooperation-documentation.html",
+        "title": "Cooperation Program Documentation & Record-Keeping",
+        "desc": "Requirements for cooperation program documentation and record-keeping.",
+        "breadcrumb": "Home / Governance / Cooperation Documentation",
+        "pillar": "cooperation"
+    },
+    "1Dw. Institutional Neutrality & Safeguard Measures for International Engagement.docx": {
+        "file": "neutrality-safeguard-international.html",
+        "title": "Neutrality & Safeguard Measures for International Engagement",
+        "desc": "Institutional neutrality and safeguard measures for international engagement.",
+        "breadcrumb": "Home / Governance / International Safeguards",
+        "pillar": "governance"
+    },
+    "1Dx. Participation Eligibility & Institutional Conduct Requirements.docx": {
+        "file": "participation-eligibility.html",
+        "title": "Participation Eligibility & Institutional Conduct",
+        "desc": "Requirements for participation eligibility and institutional conduct.",
+        "breadcrumb": "Home / Governance / Participation Eligibility",
+        "pillar": "governance"
+    },
+    "1Dy. Forum & Initiative Engagement Protocols.docx": {
+        "file": "forum-engagement.html",
+        "title": "Forum & Initiative Engagement Protocols",
+        "desc": "Protocols for forum and initiative engagement.",
+        "breadcrumb": "Home / Governance / Forum Engagement",
+        "pillar": "cooperation"
+    },
+    "1Dz. Cross‑Border Discussion & Collaboration Standards.docx": {
+        "file": "cross-border-discussion.html",
+        "title": "Cross-Border Discussion & Collaboration",
+        "desc": "Standards for cross-border discussion and collaboration.",
+        "breadcrumb": "Home / Governance / Cross-Border Collaboration",
+        "pillar": "cooperation"
+    },
+    "1Dz2. Professional Conduct & Behavioural Expectations.docx": {
+        "file": "professional-conduct.html",
+        "title": "Professional Conduct & Behavioural Expectations",
+        "desc": "Professional conduct and behavioural expectations.",
+        "breadcrumb": "Home / Governance / Professional Conduct",
+        "pillar": "oversight"
+    },
+    "1Dz3. Confidentiality, Information‑Handling & Disclosure Guidelines.docx": {
+        "file": "confidentiality-guidelines.html",
+        "title": "Confidentiality, Information Handling & Disclosure",
+        "desc": "Guidelines for confidentiality, information handling and disclosure.",
+        "breadcrumb": "Home / Governance / Confidentiality",
+        "pillar": "governance"
+    },
+    "1Dz4. Participation Documentation & Record‑Keeping Procedures.docx": {
+        "file": "participation-documentation.html",
+        "title": "Participation Documentation & Record-Keeping",
+        "desc": "Procedures for participation documentation and record-keeping.",
+        "breadcrumb": "Home / Governance / Participation Documentation",
+        "pillar": "governance"
+    },
+    "1Dz5. Institutional Neutrality & Influence‑Safeguard Measures.docx": {
+        "file": "influence-safeguard.html",
+        "title": "Institutional Neutrality & Influence Safeguard Measures",
+        "desc": "Institutional neutrality and influence safeguard measures.",
+        "breadcrumb": "Home / Governance / Influence Safeguards",
+        "pillar": "governance"
+    },
+    "1Dz6. Communications and Institutional Correspondence Policy.docx": {
+        "file": "institutional-correspondence.html",
+        "title": "Communications & Institutional Correspondence",
+        "desc": "Policy on communications and institutional correspondence.",
+        "breadcrumb": "Home / Governance / Institutional Correspondence",
+        "pillar": "governance"
+    },
+    "1E.  Safeguard and Integrity Rules.docx": {
+        "file": "safeguard-integrity.html",
+        "title": "Safeguard & Integrity Rules",
+        "desc": "Safeguard and integrity rules of the World Economic Chamber.",
+        "breadcrumb": "Home / Governance / Safeguard & Integrity",
+        "pillar": "oversight"
+    },
+    "1Ea.  Independence Safeguards and Influence-Protection Policy.docx": {
+        "file": "independence-safeguards.html",
+        "title": "Independence Safeguards & Influence Protection",
+        "desc": "Policy on independence safeguards and influence protection.",
+        "breadcrumb": "Home / Governance / Independence Safeguards",
+        "pillar": "oversight"
+    },
+    "1Eb.  Transparency and Disclosure Expectations.docx": {
+        "file": "transparency-disclosure.html",
+        "title": "Transparency & Disclosure Expectations",
+        "desc": "Expectations for transparency and disclosure.",
+        "breadcrumb": "Home / Governance / Transparency & Disclosure",
+        "pillar": "oversight"
+    },
+    "1Ec.  Institutional Risk Management Guidelines.docx": {
+        "file": "institutional-risk-management.html",
+        "title": "Institutional Risk Management",
+        "desc": "Guidelines for institutional risk management.",
+        "breadcrumb": "Home / Governance / Risk Management",
+        "pillar": "oversight"
+    },
+    "2.  Membership.docx": {
+        "file": "membership.html",
+        "title": "Membership",
+        "desc": "Membership information for the World Economic Chamber.",
+        "breadcrumb": "Home / Membership",
+        "pillar": "cooperation"
+    },
+    "3.  Global Relations and Regional Engagement.docx": {
+        "file": "global-relations.html",
+        "title": "Global Relations & Regional Engagement",
+        "desc": "Global relations and regional engagement of the World Economic Chamber.",
+        "breadcrumb": "Home / Global Relations",
+        "pillar": "cooperation"
+    },
+    "4.  Programs and Initiatives.docx": {
+        "file": "programs-initiatives.html",
+        "title": "Programs & Initiatives",
+        "desc": "Programs and initiatives of the World Economic Chamber.",
+        "breadcrumb": "Home / Programs & Initiatives",
+        "pillar": "trade"
+    },
+    "5.  Policy and Advocacy.docx": {
+        "file": "policy-advocacy.html",
+        "title": "Policy & Advocacy",
+        "desc": "Policy and advocacy efforts of the World Economic Chamber.",
+        "breadcrumb": "Home / Policy & Advocacy",
+        "pillar": "governance"
+    },
+    "6.  Research and Intelligence.docx": {
+        "file": "research-intelligence.html",
+        "title": "Research & Intelligence",
+        "desc": "Research and intelligence publications of the World Economic Chamber.",
+        "breadcrumb": "Home / Research & Intelligence",
+        "pillar": "governance"
+    },
+    "7.  Events and Diplomatic Forums.docx": {
+        "file": "events-forums.html",
+        "title": "Events & Diplomatic Forums",
+        "desc": "Events and diplomatic forums of the World Economic Chamber.",
+        "breadcrumb": "Home / Events & Forums",
+        "pillar": "cooperation"
+    },
+    "8.  Partnerships and Affiliations.docx": {
+        "file": "partnerships-affiliations.html",
+        "title": "Partnerships & Affiliations",
+        "desc": "Partnerships and affiliations of the World Economic Chamber.",
+        "breadcrumb": "Home / Partnerships",
+        "pillar": "trade"
+    },
+    "9.  Professional Development.docx": {
+        "file": "professional-development.html",
+        "title": "Professional Development",
+        "desc": "Professional development programs of the World Economic Chamber.",
+        "breadcrumb": "Home / Professional Development",
+        "pillar": "cooperation"
+    },
+    "10.  Media and Communications.docx": {
+        "file": "media-communications.html",
+        "title": "Media & Communications",
+        "desc": "Media and communications of the World Economic Chamber.",
+        "breadcrumb": "Home / Media & Communications",
+        "pillar": "cooperation"
+    },
+    "11.  Join Us.docx": {
+        "file": "join-us.html",
+        "title": "Join Us",
+        "desc": "Join the World Economic Chamber — become part of global economic cooperation.",
+        "breadcrumb": "Home / Join Us",
+        "pillar": "cooperation"
     }
 }
 
@@ -168,36 +644,34 @@ NAV_HTML = """
 
       <ul class="nav-menu" id="navMenu">
         <!-- The Chamber Mega-Menu -->
-        <li class="nav-item has-mega">
+                <li class="nav-item has-mega">
           <a href="about.html" class="nav-link">The Chamber <svg class="nav-arrow" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
           <div class="nav-dropdown mega-menu">
             <div class="mega-menu-grid">
               <div class="mega-col">
                 <h4>About WEC</h4>
                 <a href="about.html">Mission & Vision</a>
-                <a href="#">History & Milestones</a>
-                <a href="#">Leadership Directory</a>
-                <a href="#">Regional Offices</a>
+                <a href="global-relations.html">Global Relations & Regional Engagement</a>
+                <a href="join-us.html">Join Us</a>
               </div>
               <div class="mega-col">
                 <h4>Engagement</h4>
-                <a href="#">Member Directory</a>
-                <a href="#">Institutional Partners</a>
-                <a href="#">NGO Affiliations</a>
-                <a href="#">Corporate Sponsors</a>
+                <a href="personnel-directory.html">Personnel Directory</a>
+                <a href="membership.html">Membership</a>
+                <a href="partnerships-affiliations.html">Partnerships & Affiliations</a>
+                <a href="programs-initiatives.html">Programs & Initiatives</a>
               </div>
               <div class="mega-col">
                 <h4>News & Media</h4>
-                <a href="#">Press Releases</a>
-                <a href="#">Media Gallery</a>
-                <a href="#">Official Statements</a>
-                <a href="#">Event Calendar</a>
+                <a href="media-communications.html">Media & Communications</a>
+                <a href="events-forums.html">Events & Diplomatic Forums</a>
+                <a href="official-communications.html">Official Communications</a>
               </div>
               <div class="mega-col">
-                <h4>Contact</h4>
-                <a href="#">Global Headquarters</a>
-                <a href="#">Media Inquiries</a>
-                <a href="#">Career Opportunities</a>
+                <h4>Contact & Careers</h4>
+                <a href="professional-development.html">Professional Development</a>
+                <a href="mailto:info@worldeconomicchamber.org">Global Headquarters</a>
+                <a href="mailto:info@worldeconomicchamber.org">Media Inquiries</a>
               </div>
             </div>
           </div>
@@ -218,19 +692,19 @@ NAV_HTML = """
                 <h4>Operations</h4>
                 <a href="secretariat-management.html">Executive Secretariat</a>
                 <a href="leadership-responsibilities.html">Leadership Responsibilities</a>
-                <a href="#">Operational Protocols</a>
+                <a href="operational-policies.html">Operational Policies</a>
               </div>
               <div class="mega-col">
                 <h4>Accountability</h4>
                 <a href="decision-making.html">Decision-Making Procedures</a>
                 <a href="oversight-responsibilities.html">Oversight & Accountability</a>
-                <a href="#">Compliance Standards</a>
+                <a href="compliance-audit.html">Compliance, Audit & Retrieval</a>
               </div>
               <div class="mega-col">
                 <h4>Policies</h4>
                 <a href="charter-and-governance.html">Charter & Policies Overview</a>
-                <a href="#">Ethics Framework</a>
-                <a href="#">Dispute Resolution</a>
+                <a href="ethical-conduct-policies.html">Ethical & Conduct Policies</a>
+                <a href="safeguard-integrity.html">Safeguard & Integrity Rules</a>
               </div>
             </div>
           </div>
@@ -242,28 +716,28 @@ NAV_HTML = """
           <div class="nav-dropdown mega-menu">
             <div class="mega-menu-grid">
               <div class="mega-col">
-                <h4>Agreements</h4>
-                <a href="#">Active Trade Agreements</a>
-                <a href="#">Pending Negotiations</a>
-                <a href="#">Regional Integration</a>
+                <h4>Cooperation</h4>
+                <a href="international-cooperation-framework.html">International Cooperation Framework</a>
+                <a href="cross-border-initiative.html">Cross-Border Initiative Implementation</a>
+                <a href="multilateral-engagement.html">Multilateral Engagement Procedures</a>
               </div>
               <div class="mega-col">
                 <h4>Analysis</h4>
-                <a href="#">Global Trade Volume</a>
-                <a href="#">Economic Forecasts</a>
-                <a href="#">Market Access Reports</a>
+                <a href="research-intelligence.html">Research & Intelligence</a>
+                <a href="institutional-risk-management.html">Institutional Risk Management</a>
+                <a href="monitoring-reporting.html">Monitoring, Reporting & Evaluation</a>
               </div>
               <div class="mega-col">
                 <h4>Policy</h4>
-                <a href="#">Commercial Policy Reviews</a>
-                <a href="#">Regulatory Convergence</a>
-                <a href="#">Investment Frameworks</a>
+                <a href="policy-advocacy.html">Policy & Advocacy</a>
+                <a href="regulatory-engagement.html">Regulatory Engagement Standards</a>
+                <a href="government-liaison.html">Government & Regulatory Liaison</a>
               </div>
               <div class="mega-col">
                 <h4>Resources</h4>
-                <a href="#">Trade Statistics Database</a>
-                <a href="#">Policy Documents</a>
-                <a href="#">Publications Library</a>
+                <a href="core-record-keeping.html">Core Record-Keeping</a>
+                <a href="documentation-standards.html">Documentation Standards</a>
+                <a href="program-documentation.html">Program Documentation</a>
               </div>
             </div>
           </div>
@@ -295,13 +769,13 @@ FOOTER_HTML = """
           <p>The World Economic Chamber &mdash; strengthening cross-border commerce, investment and economic cooperation through principled governance and institutional discipline.</p>
         </div>
 
-        <div>
+                <div>
           <h4 class="footer-heading">The Chamber</h4>
           <ul class="footer-links">
             <li><a href="about.html">Mission &amp; Vision</a></li>
-            <li><a href="#">History &amp; Milestones</a></li>
-            <li><a href="#">Leadership Directory</a></li>
-            <li><a href="#">Regional Offices</a></li>
+            <li><a href="global-relations.html">Global Relations</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="join-us.html">Join Us</a></li>
           </ul>
         </div>
 
@@ -322,9 +796,9 @@ FOOTER_HTML = """
           <h4 class="footer-heading">Resources</h4>
           <ul class="footer-links">
             <li><a href="charter-and-governance.html">Charter &amp; Policies Overview</a></li>
-            <li><a href="#">Ethics Framework</a></li>
-            <li><a href="#">Dispute Resolution</a></li>
-            <li><a href="#">Press Releases</a></li>
+            <li><a href="ethical-conduct-policies.html">Ethical Policies</a></li>
+            <li><a href="safeguard-integrity.html">Safeguard &amp; Integrity</a></li>
+            <li><a href="personnel-directory.html">Personnel Directory</a></li>
           </ul>
         </div>
 
@@ -473,7 +947,7 @@ def build_index():
     <div class="container">
       <div class="bento-hero fade-up">
         <div class="bento-main">
-          """ + picture_img("images/boardroom_interaction.png", "Global Economic Summit", lazy=False, eager=True) + """
+          """ + picture_img("images/hero_global_economic.jpg", "Global Economic Summit", lazy=False, eager=True) + """
           <div class="bento-overlay">
             <span class="bento-tag">World Economic Chamber</span>
             <h2>Strengthening Global Economic Cooperation</h2>
@@ -616,29 +1090,29 @@ def build_index():
             <div class="data-stat">
               <span class="data-label">Active Trade Agreements</span>
               <div>
-                <span class="data-value">1,402</span>
-                <span class="data-trend up">+12 YoY</span>
+                <span class="data-value">3</span>
+                
               </div>
             </div>
             <div class="data-stat">
               <span class="data-label">Participating Nations</span>
               <div>
-                <span class="data-value">164</span>
-                <span class="data-trend up">+2</span>
+                <span class="data-value">0</span>
+                
               </div>
             </div>
             <div class="data-stat">
               <span class="data-label">Dispute Resolutions</span>
               <div>
-                <span class="data-value">38</span>
-                <span class="data-trend down">-5% &#9660;</span>
+                <span class="data-value">23</span>
+                
               </div>
             </div>
             <div class="data-stat">
               <span class="data-label">Policy Consultations</span>
               <div>
-                <span class="data-value">840</span>
-                <span class="data-trend up">+18%</span>
+                <span class="data-value">7</span>
+                
               </div>
             </div>
           </div>
@@ -681,19 +1155,19 @@ def build_index():
       </div>
       <div class="constellation-stats">
         <div class="constellation-stat">
-          <span class="constellation-stat-number" data-target="195" data-suffix="+">0</span>
+          <span class="constellation-stat-number" data-target="0">0</span>
           <span class="constellation-stat-label">Member Nations</span>
         </div>
         <div class="constellation-stat">
-          <span class="constellation-stat-number" data-target="500" data-suffix="+">0</span>
+          <span class="constellation-stat-number" data-target="3">0</span>
           <span class="constellation-stat-label">Institutional Partners</span>
         </div>
         <div class="constellation-stat">
-          <span class="constellation-stat-number" data-target="30">0</span>
+          <span class="constellation-stat-number" data-target="5">0</span>
           <span class="constellation-stat-label">Regional Offices</span>
         </div>
         <div class="constellation-stat">
-          <span class="constellation-stat-number" data-target="50" data-suffix="+">0</span>
+          <span class="constellation-stat-number" data-target="11">0</span>
           <span class="constellation-stat-label">Trade Agreements</span>
         </div>
 
