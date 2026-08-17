@@ -1,23 +1,16 @@
 [
   {
-    "firstName": "Eleanor",
-    "surname": "Whitfield",
-    "country": "United Kingdom",
-    "positionDescription": "Director-General",
-    "appointmentDate": "2026-01-15"
+    "firstName": "Nuraena",
+    "surname": "Abad",
+    "country": "Australia",
+    "positionDescription": "Senior Manager – Corporate Affairs",
+    "appointmentDate": "2026-08-17"
   },
   {
-    "firstName": "Carlos",
-    "surname": "Mendez-Rivera",
-    "country": "Spain",
-    "positionDescription": "Deputy Secretary-General for Trade & Economy",
-    "appointmentDate": "2026-02-01"
-  },
-  {
-    "firstName": "Amara",
-    "surname": "Okonkwo",
-    "country": "Nigeria",
-    "positionDescription": "Chief Governance Officer",
-    "appointmentDate": "2026-03-10"
+    "firstName": "Carlito",
+    "surname": "Desacola",
+    "country": "Australia",
+    "positionDescription": "Research Associate",
+    "appointmentDate": "2026-08-17"
   }
 ]
