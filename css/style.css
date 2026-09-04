@@ -380,7 +380,7 @@ p {
 }
 
 .nav-logo img {
-  height: 64px;
+  height: 56px;
   width: auto;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
   transition: transform var(--transition-fast);
@@ -3051,7 +3051,7 @@ p {
   }
 
   .nav-logo img {
-    height: 54px;
+    height: 48px;
   }
 
   .search-toggle,
@@ -3237,7 +3237,7 @@ p {
   }
 
   .nav-logo img {
-    height: 48px;
+    height: 42px;
   }
 
   .nav-actions {
