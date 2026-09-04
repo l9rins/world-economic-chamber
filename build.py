@@ -57,9 +57,20 @@ def paragraphs_to_html(paragraphs):
     html = []
     toc = []
     used_slugs = {}
-    article_num = 0
+    in_list = False
     for tag, text in paragraphs:
         text = text.replace('&', '&amp;')
+        if text.startswith('*   ') or text.startswith('* '):
+            if not in_list:
+                html.append('<ul>')
+                in_list = True
+            li_text = text.lstrip('* ').strip()
+            html.append(f'  <li>{li_text}</li>')
+            continue
+        elif in_list:
+            html.append('</ul>')
+            in_list = False
+
         if tag in ('h1', 'h3'):
             slug = text.lower().replace(' ', '-')[:40]
             if slug in used_slugs:
@@ -80,6 +91,8 @@ def paragraphs_to_html(paragraphs):
             toc.append(('h2', text, slug))
         else:
             html.append(f'<p>{text}</p>')
+    if in_list:
+        html.append('</ul>')
     return '\n            '.join(html), toc
 
 pages = {
@@ -102,6 +115,13 @@ pages = {
         "title": "The WEC Charter",
         "desc": "The foundational charter of the World Economic Chamber, setting out mandate, purpose and authorities.",
         "breadcrumb": "Home / Governance / Charter",
+        "pillar": "governance"
+    },
+    "Governing Council.docx": {
+        "file": "governing-council.html",
+        "title": "The Governing Council",
+        "desc": "The Governing Council is the highest governing body of the World Economic Chamber, providing strategic direction, institutional governance and highest-level oversight.",
+        "breadcrumb": "Home / Governance / Governing Council",
         "pillar": "governance"
     },
     "1B.  Governance Documents.docx": {
@@ -686,6 +706,7 @@ NAV_HTML = """
                 <h4>Core Architecture</h4>
                 <a href="governance-architecture.html">Governance Architecture</a>
                 <a href="charter.html">The WEC Charter</a>
+                <a href="governing-council.html">The Governing Council</a>
                 <a href="governance-documents.html">Governance Documents</a>
               </div>
               <div class="mega-col">
@@ -784,6 +805,7 @@ FOOTER_HTML = """
           <ul class="footer-links">
             <li><a href="governance-architecture.html">Governance Architecture</a></li>
             <li><a href="charter.html">The WEC Charter</a></li>
+            <li><a href="governing-council.html">The Governing Council</a></li>
             <li><a href="governance-documents.html">Governance Documents</a></li>
             <li><a href="decision-making.html">Decision-Making</a></li>
             <li><a href="oversight-responsibilities.html">Oversight</a></li>
@@ -806,7 +828,7 @@ FOOTER_HTML = """
           <h4 class="footer-heading">Contact</h4>
           <ul class="footer-links">
             <li><a href="mailto:info@worldeconomicchamber.org">info@worldeconomicchamber.org</a></li>
-            <li><span style="color: var(--text-muted); font-size: var(--font-size-sm);">7th Floor, Tower 42<br>25 Old Broad Street<br>London EC2N 1HN<br>United Kingdom</span></li>
+            <li><span style="color: var(--text-muted); font-size: var(--font-size-sm);">Level 18, <a href="https://www.google.com/maps/search/324+Queen+Street,+Brisbane,+Queensland,+Australia?entry=gmail&source=g" target="_blank" rel="noopener noreferrer" style="color: var(--gold-400); text-decoration: underline; text-underline-offset: 2px;">324 Queen Street, Brisbane, Queensland, Australia</a> 4001</span></li>
           </ul>
         </div>
       </div>
@@ -1040,41 +1062,41 @@ def build_index():
             <li>
               <div class="event-date">
                 <span class="day">18</span>
-                <span class="month">Aug</span>
+                <span class="month">May 2027</span>
               </div>
               <div class="event-details">
                 <h5>Global Market Access Summit</h5>
-                <span class="event-location">Geneva, Switzerland</span>
+                <span class="event-location">Virtual / Secure link</span>
               </div>
             </li>
             <li>
               <div class="event-date">
-                <span class="day">24</span>
-                <span class="month">Aug</span>
+                <span class="day">26</span>
+                <span class="month">May 2027</span>
               </div>
               <div class="event-details">
                 <h5>Secretariat Policy Review</h5>
-                <span class="event-location">London, UK (HQ)</span>
+                <span class="event-location">Virtual / Secure link</span>
               </div>
             </li>
             <li>
               <div class="event-date">
-                <span class="day">03</span>
-                <span class="month">Sep</span>
+                <span class="day">08</span>
+                <span class="month">Jul 2027</span>
               </div>
               <div class="event-details">
                 <h5>Trade &amp; Economy Working Group</h5>
-                <span class="event-location">Virtual / Secure Link</span>
+                <span class="event-location">Virtual / Secure link</span>
               </div>
             </li>
             <li>
               <div class="event-date">
-                <span class="day">15</span>
-                <span class="month">Sep</span>
+                <span class="day">22</span>
+                <span class="month">Jul 2027</span>
               </div>
               <div class="event-details">
                 <h5>Annual Governance Conference</h5>
-                <span class="event-location">New York, USA</span>
+                <span class="event-location">Virtual / Secure link</span>
               </div>
             </li>
           </ul>
